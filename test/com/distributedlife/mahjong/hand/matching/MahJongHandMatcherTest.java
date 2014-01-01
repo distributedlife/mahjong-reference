@@ -3,7 +3,6 @@ package com.distributedlife.mahjong.hand.matching;
 import com.distributedlife.mahjong.hand.Hand;
 import com.distributedlife.mahjong.hand.filtering.MatchingHandFilter;
 import com.distributedlife.mahjong.hand.sorting.MatchingHandSorter;
-import com.distributedlife.mahjong.reference.HandLibrary;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -20,10 +19,8 @@ public class MahJongHandMatcherTest {
         List<String> hand = new ArrayList<String>();
         hand.add("1 Bamboo");
 
-        HandLibrary handLibrary = mock(HandLibrary.class);
-        List<Hand> candidateHands = new ArrayList<Hand>();
-        candidateHands.add(new Hand("Run, Pung and a Pair", runPungAndAPairBamboo()));
-        when(handLibrary.getHands()).thenReturn(candidateHands);
+        List<Hand> handLibrary = new ArrayList<Hand>();
+        handLibrary.add(new Hand("Run, Pung and a Pair", runPungAndAPairBamboo()));
 
         MahJongHandMatcher mahJongHandMatcher = new MahJongHandMatcher(new MatchingHandSorter(), new MatchingHandFilter(handLibrary));
         List<Match> matches = mahJongHandMatcher.getMatches(hand);
@@ -39,11 +36,9 @@ public class MahJongHandMatcherTest {
         hand.add("2 Spot");
         hand.add("2 Spot");
 
-        HandLibrary handLibrary = mock(HandLibrary.class);
-        List<Hand> candidateHands = new ArrayList<Hand>();
-        candidateHands.add(new Hand("Run, Pung and a Pair", runPungAndAPairBamboo()));
-        candidateHands.add(new Hand("Run, Pung and a Pair", runPungAndAPairSpot()));
-        when(handLibrary.getHands()).thenReturn(candidateHands);
+        List<Hand> handLibrary = new ArrayList<Hand>();
+        handLibrary.add(new Hand("Run, Pung and a Pair", runPungAndAPairBamboo()));
+        handLibrary.add(new Hand("Run, Pung and a Pair", runPungAndAPairSpot()));
 
         MahJongHandMatcher mahJongHandMatcher = new MahJongHandMatcher(new MatchingHandSorter(), new MatchingHandFilter(handLibrary));
         List<Match> matches = mahJongHandMatcher.getMatches(hand);
@@ -59,11 +54,9 @@ public class MahJongHandMatcherTest {
         hand.add("8 Spot");
         hand.add("8 Spot");
 
-        HandLibrary handLibrary = mock(HandLibrary.class);
-        List<Hand> candidateHands = new ArrayList<Hand>();
-        candidateHands.add(new Hand("Run, Pung and a Pair", runPungAndAPairSpot()));
-        candidateHands.add(new Hand("Gates of Heaven", gatesOfHeaven()));
-        when(handLibrary.getHands()).thenReturn(candidateHands);
+        List<Hand> handLibrary = new ArrayList<Hand>();
+        handLibrary.add(new Hand("Run, Pung and a Pair", runPungAndAPairSpot()));
+        handLibrary.add(new Hand("Gates of Heaven", gatesOfHeaven()));
 
         MahJongHandMatcher mahJongHandMatcher = new MahJongHandMatcher(new MatchingHandSorter(), new MatchingHandFilter(handLibrary));
         List<Match> matches = mahJongHandMatcher.getMatches(hand);

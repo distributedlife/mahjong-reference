@@ -2,7 +2,6 @@ package com.distributedlife.mahjong.hand.filtering;
 
 import com.distributedlife.mahjong.hand.Hand;
 import com.distributedlife.mahjong.hand.matching.Match;
-import com.distributedlife.mahjong.reference.HandLibrary;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -16,7 +15,7 @@ import static org.mockito.Mockito.when;
 public class MatchingHandFilterTest {
     @Test
     public void keepOnlyBestShouldFilterOutDuplicatesKeepingHighestCount() {
-        MatchingHandFilter matchingHandFilter = new MatchingHandFilter(mock(HandLibrary.class));
+        MatchingHandFilter matchingHandFilter = new MatchingHandFilter(new ArrayList<Hand>());
         List<Match> unfilteredMatches = new ArrayList<Match>();
         unfilteredMatches.add(new Match("Best", 10));
         unfilteredMatches.add(new Match("Best", 9));
@@ -30,7 +29,7 @@ public class MatchingHandFilterTest {
 
     @Test
     public void keepOnlyBestShouldPickFirstInCaseOfATie() {
-        MatchingHandFilter matchingHandFilter = new MatchingHandFilter(mock(HandLibrary.class));
+        MatchingHandFilter matchingHandFilter = new MatchingHandFilter(new ArrayList<Hand>());
         List<Match> unfilteredMatches = new ArrayList<Match>();
         unfilteredMatches.add(new Match("Best", 10));
         unfilteredMatches.add(new Match("Best", 10));
@@ -44,19 +43,16 @@ public class MatchingHandFilterTest {
 
     @Test
     public void findAllHandsWithAtLeastOneMatchShouldReturnAllHandsFromLibraryWhereCountIsOver1() {
-        List<Hand> potentialHands = new ArrayList<Hand>();
+        List<Hand> handLibrary = new ArrayList<Hand>();
         List<String> firstHand = new ArrayList<String>();
         firstHand.add("1 Bamboo");
-        potentialHands.add(new Hand("First", firstHand));
+        handLibrary.add(new Hand("First", firstHand));
         List<String> secondHand = new ArrayList<String>();
         secondHand.add("1 Bamboo");
-        potentialHands.add(new Hand("Second", secondHand));
+        handLibrary.add(new Hand("Second", secondHand));
         List<String> thirdHand = new ArrayList<String>();
         thirdHand.add("1 Spot");
-        potentialHands.add(new Hand("Third", thirdHand));
-
-        HandLibrary handLibrary = mock(HandLibrary.class);
-        when(handLibrary.getHands()).thenReturn(potentialHands);
+        handLibrary.add(new Hand("Third", thirdHand));
 
         List<String> hand = new ArrayList<String>();
         hand.add("1 Bamboo");

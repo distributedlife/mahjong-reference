@@ -2,16 +2,15 @@ package com.distributedlife.mahjong.hand.filtering;
 
 import com.distributedlife.mahjong.hand.Hand;
 import com.distributedlife.mahjong.hand.matching.Match;
-import com.distributedlife.mahjong.reference.HandLibrary;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class MatchingHandFilter {
     private static final int NOT_FOUND = -1;
-    private HandLibrary handLibrary;
+    private List<Hand> handLibrary;
 
-    public MatchingHandFilter(HandLibrary handLibrary) {
+    public MatchingHandFilter(List<Hand> handLibrary) {
         this.handLibrary = handLibrary;
     }
 
@@ -36,7 +35,7 @@ public class MatchingHandFilter {
     public List<Match> findAllHandsWithAtLeastOneMatchShould(List<String> tilesInHand) {
         List<Match> allMatches = new ArrayList<Match>();
 
-        for (Hand potentialHand : handLibrary.getHands()) {
+        for (Hand potentialHand : handLibrary) {
             List<String> tilesLeftInHand = new ArrayList<String>(tilesInHand);
 
             int numberOfMatchingTiles = 0;
