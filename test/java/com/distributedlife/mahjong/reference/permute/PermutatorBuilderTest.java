@@ -42,13 +42,19 @@ public class PermutatorBuilderTest {
     }
 
     @Test
+    public void shouldCreateAnySingleTilePermutatorWhenSingleIsSupplied() {
+        when(options.getType()).thenReturn("single");
+        assertThat(builder.build(options).getClass().toString(), is(SingleTilePermutator.class.toString()));
+    }
+
+    @Test
     public void shouldCreateAnUnknownPermutatorIfItCantWorkItOut() {
         when(options.getType()).thenReturn("derp derp derp");
         assertThat(builder.build(options).getClass().toString(), is(UnknownPermutator.class.toString()));
     }
 
     @Test
-    public void shouldWrapThePermutatorWithASecondSuitPermutatorIfSecondSuitIsSpecfied() {
+    public void shouldWrapThePermutatorWithASecondSuitPermutatorIfSecondSuitIsSpecified() {
         when(options.getType()).thenReturn("pung");
         when(options.getSuit()).thenReturn("2nd");
         assertThat(builder.build(options).getClass().toString(), is(SecondSuitPermutator.class.toString()));

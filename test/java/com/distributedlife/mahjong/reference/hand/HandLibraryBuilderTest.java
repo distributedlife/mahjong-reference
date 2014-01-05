@@ -30,7 +30,7 @@ public class HandLibraryBuilderTest {
                 permutatorExecutor
         );
 
-        assertThat(builder.buildAll().size(), is(279));
+        assertThat(builder.buildAll().size(), is(318));
     }
 
     @Test
@@ -72,6 +72,23 @@ public class HandLibraryBuilderTest {
                 "2 Bamboo",
                 "1 Spot", "1 Spot", "1 Spot",
                 "9 Crack", "9 Crack", "9 Crack"
+        )));
+    }
+
+    @Test
+    public void wrigglySnake() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/wrigglySnake.json")),
+                filter,
+                permutatorExecutor
+        );
+
+        assertThat(builder.buildAll().size(), is(39));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
+                "North", "West", "East", "South",
+                "1 Bamboo"
         )));
     }
 }

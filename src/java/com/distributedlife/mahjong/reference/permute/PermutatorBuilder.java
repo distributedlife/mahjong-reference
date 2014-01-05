@@ -16,6 +16,9 @@ public class PermutatorBuilder {
         if (options.getType().equals("any-paired")) {
             permutator = new AnyPairedPermutator();
         }
+        if (options.getType().equals("single")) {
+            permutator = new SingleTilePermutator(options.getTile(), "1st");
+        }
         if (permutator == null) {
             return new UnknownPermutator(options.getType());
         }

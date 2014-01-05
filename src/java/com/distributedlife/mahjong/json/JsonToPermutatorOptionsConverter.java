@@ -16,8 +16,9 @@ public class JsonToPermutatorOptionsConverter {
         int to = getIntegerValueOrReturnDefault(requirements, "to");
         List<String> tiles = getStringArrayOrReturnDefault(requirements, "tiles");
         String suit = getStringValueOrReturnDefault(requirements, "suit", "1st");
+        String tile = getStringValueOrReturnDefault(requirements, "tile", "");
 
-        return new PermutatorBuilderOptions(type, from, to, tiles, suit);
+        return new PermutatorBuilderOptions(type, from, to, tiles, suit, tile);
     }
 
     private int getIntegerValueOrReturnDefault(JSONObject requirementsForHand, String key) {

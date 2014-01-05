@@ -23,6 +23,7 @@ public class JsonToPermutatorOptionsConverterTest {
         requirements.put("from", 1);
         requirements.put("to", 9);
         requirements.put("tiles", new JSONArray("[1, 2, 3]"));
+        requirements.put("tile", "4");
         requirements.put("suit", "2nd");
     }
 
@@ -47,6 +48,11 @@ public class JsonToPermutatorOptionsConverterTest {
     }
 
     @Test
+    public void shouldConvertTile() {
+        assertThat(converter.convert(requirements).getTile(), is("4"));
+    }
+
+    @Test
     public void shouldConvertTheSuit() {
         assertThat(converter.convert(requirements).getSuit(), is("2nd"));
     }
@@ -59,5 +65,6 @@ public class JsonToPermutatorOptionsConverterTest {
         List<String> list = new ArrayList<String>();
         assertThat(converter.convert(missingRequirements).getTiles(), is(list));
         assertThat(converter.convert(missingRequirements).getSuit(), is("1st"));
+        assertThat(converter.convert(missingRequirements).getTile(), is(""));
     }
 }

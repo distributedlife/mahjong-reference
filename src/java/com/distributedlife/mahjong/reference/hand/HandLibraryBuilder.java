@@ -35,7 +35,7 @@ class HandLibraryBuilder {
         List<HandCandidate> candidates = new ArrayList<HandCandidate>();
 
         for (String suit : definition.getSuits()) {
-            HandCandidate candidate = new HandCandidate(definition.getName(), tileSet.getTiles());
+            HandCandidate candidate = new HandCandidate(definition.getName(), new ArrayList<String>(tileSet.getTiles()));
             candidate.setPrimarySuit(suit);
 
             candidates.addAll(permutatorExecutor.runPermutatorsOnCandidate(candidate, definition.getRequirements()));
