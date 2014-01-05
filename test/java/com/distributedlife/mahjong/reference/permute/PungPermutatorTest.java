@@ -2,8 +2,7 @@ package com.distributedlife.mahjong.reference.permute;
 
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -11,11 +10,8 @@ import static org.junit.Assert.assertThat;
 public class PungPermutatorTest {
     @Test
     public void shouldCreateAMultiplePermutatorUsingTilesAndQuantityOf3() {
-        List<String> tiles = new ArrayList<String>();
-        tiles.add("1 bamboo");
-
-        PungPermutator pungPermutator = new PungPermutator(tiles);
+        PungPermutator pungPermutator = new PungPermutator(Arrays.asList("1 Bamboo"));
         assertThat(pungPermutator.multiples, is(3));
-        assertThat(pungPermutator.tilesMultipleIsAllowedIn, is(tiles));
+        assertThat(pungPermutator.tilesMultipleIsAllowedIn, is(Arrays.asList("1 Bamboo")));
     }
 }
