@@ -6,6 +6,18 @@ import java.util.List;
 public class TileSet {
     List<String> tiles = new ArrayList<String>();
 
+    public static String createTile(int i, String suit) {
+        return String.format("%s %s", i, suit);
+    }
+
+    public static String createTile(int i, Suits suit) {
+        return String.format("%s %s", i, suit.toString());
+    }
+
+    public static String createTile(String i, String suit) {
+        return String.format("%s %s", i, suit);
+    }
+
     public List<String> getTiles() {
         return tiles;
     }
@@ -29,10 +41,10 @@ public class TileSet {
         }
         for (Suits suit : Suits.values()) {
             for (int i = 1; i <= 9; i++) {
-                tiles.add(String.format("%s %s", i, suit));
-                tiles.add(String.format("%s %s", i, suit));
-                tiles.add(String.format("%s %s", i, suit));
-                tiles.add(String.format("%s %s", i, suit));
+                tiles.add(createTile(i, suit));
+                tiles.add(createTile(i, suit));
+                tiles.add(createTile(i, suit));
+                tiles.add(createTile(i, suit));
             }
         }
     }

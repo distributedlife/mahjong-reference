@@ -1,7 +1,5 @@
 package com.distributedlife.mahjong.reference;
 
-import com.distributedlife.mahjong.game.TileSet;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -24,8 +22,8 @@ public class HandCandidate {
         this.requiredTiles = new ArrayList<String>(other.requiredTiles);
     }
 
-    public void setPrimarySuit(TileSet.Suits primarySuit) {
-        this.primarySuit = primarySuit.toString();
+    public void setPrimarySuit(String primarySuit) {
+        this.primarySuit = primarySuit;
     }
 
     public boolean isValid() {

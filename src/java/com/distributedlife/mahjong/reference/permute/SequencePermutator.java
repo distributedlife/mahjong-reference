@@ -1,5 +1,6 @@
 package com.distributedlife.mahjong.reference.permute;
 
+import com.distributedlife.mahjong.game.TileSet;
 import com.distributedlife.mahjong.reference.HandCandidate;
 
 import java.util.ArrayList;
@@ -20,7 +21,7 @@ public class SequencePermutator implements Permutator {
 
         for(HandCandidate candidate : candidates) {
             for (int i = from; i <= to; i++) {
-                String tile = createTile(i, candidate.getPrimarySuit());
+                String tile = TileSet.createTile(i, candidate.getPrimarySuit());
 
                 if (candidate.canAdd(tile)) {
                     candidate.add(tile);
@@ -31,9 +32,5 @@ public class SequencePermutator implements Permutator {
         }
 
         return handCandidates;
-    }
-
-    public static String createTile(int i, String suit) {
-        return String.format("%s %s", i, suit);
     }
 }

@@ -1,5 +1,6 @@
 package com.distributedlife.mahjong.reference.permute;
 
+import com.distributedlife.mahjong.game.TileSet;
 import com.distributedlife.mahjong.reference.HandCandidate;
 
 import java.util.ArrayList;
@@ -8,8 +9,8 @@ import java.util.List;
 import static com.distributedlife.mahjong.reference.HandCandidate.times;
 
 public class MultiplePermutator implements Permutator {
-    private final int multiples;
-    private final List<String> tilesMultipleIsAllowedIn;
+    protected final int multiples;
+    protected final List<String> tilesMultipleIsAllowedIn;
 
     public MultiplePermutator(List<String> tilesMultipleIsAllowedIn, int multiples) {
         this.tilesMultipleIsAllowedIn = tilesMultipleIsAllowedIn;
@@ -22,14 +23,48 @@ public class MultiplePermutator implements Permutator {
 
         for(HandCandidate candidate : candidates) {
             for(String tile : tilesMultipleIsAllowedIn) {
-                if (candidate.canAdd(tile, times(multiples))) {
+                String tileInSuit = convertTileToCandidateSuit(candidate, tile);
+
+                if (candidate.canAdd(tileInSuit, times(multiples))) {
                     HandCandidate variation = candidate.fork();
-                    variation.add(tile, times(multiples));
+                    variation.add(tileInSuit, times(multiples));
                     handCandidates.add(variation);
                 }
             }
         }
 
         return handCandidates;
+    }
+
+    private String convertTileToCandidateSuit(HandCandidate candidate, String tile) {
+        if (tile.equals("1")) {
+            return TileSet.createTile(tile, candidate.getPrimarySuit());
+        }
+        if (tile.equals("2")) {
+            return TileSet.createTile(tile, candidate.getPrimarySuit());
+        }
+        if (tile.equals("3")) {
+            return TileSet.createTile(tile, candidate.getPrimarySuit());
+        }
+        if (tile.equals("4")) {
+            return TileSet.createTile(tile, candidate.getPrimarySuit());
+        }
+        if (tile.equals("5")) {
+            return TileSet.createTile(tile, candidate.getPrimarySuit());
+        }
+        if (tile.equals("6")) {
+            return TileSet.createTile(tile, candidate.getPrimarySuit());
+        }
+        if (tile.equals("7")) {
+            return TileSet.createTile(tile, candidate.getPrimarySuit());
+        }
+        if (tile.equals("8")) {
+            return TileSet.createTile(tile, candidate.getPrimarySuit());
+        }
+        if (tile.equals("9")) {
+            return TileSet.createTile(tile, candidate.getPrimarySuit());
+        }
+
+        return tile;
     }
 }
