@@ -6,7 +6,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 
 public class Json {
-    public static JSONObject loadFromResource() throws IOException {
-        return new JSONObject(IOUtils.toString(Json.class.getResourceAsStream("/hands.json")));
+    public static JSONObject loadFromResource(String filename) throws IOException {
+        return new JSONObject(IOUtils.toString(Json.class.getResourceAsStream(filename)));
     }
 }

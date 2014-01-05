@@ -93,4 +93,14 @@ public class JsonToHandDefinitionTest {
 
         assertThat(loadedRequirements.get(0).getClass().toString(), is(PairPermutator.class.toString()));
     }
+
+    @Test
+    public void shouldMapRequirementOfAnyPairedToAnyPairedPermutator() {
+        requirements.put(new JSONObject("{type: 'any-paired'}"));
+
+        List<Permutator> loadedRequirements = jsonToHandDefinition.getHandDefinitions(root).get(0).getRequirements();
+        assertThat(loadedRequirements.size(), is(1));
+
+        assertThat(loadedRequirements.get(0).getClass().toString(), is(AnyPairedPermutator.class.toString()));
+    }
 }

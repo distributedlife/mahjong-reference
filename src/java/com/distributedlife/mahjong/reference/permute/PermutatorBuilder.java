@@ -19,6 +19,9 @@ public class PermutatorBuilder {
         if (type.equals("pair")) {
             return new PairPermutator(convertJsonArrayToJavaList(requirement.getJSONArray("tiles")));
         }
+        if (type.equals("any-paired")) {
+            return new AnyPairedPermutator();
+        }
 
         return new UnknownPermutator(type);
     }

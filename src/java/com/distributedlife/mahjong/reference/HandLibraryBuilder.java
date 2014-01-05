@@ -23,10 +23,10 @@ public class HandLibraryBuilder {
             candidates.addAll(build(definition));
         }
 
-
         return filterInvalidCandidates(candidates);
     }
 
+    //TODO: extract
     private List<Hand> filterInvalidCandidates(List<HandCandidate> candidates) {
         List<Hand> hands = new ArrayList<Hand>();
         for (HandCandidate candidate : candidates) {
@@ -48,12 +48,12 @@ public class HandLibraryBuilder {
             candidate.setPrimarySuit(suit);
 
             candidates.addAll(runPermutatorsOnCandidate(candidate, definition.getRequirements()));
-
         }
 
         return candidates;
     }
 
+    //todo: extract
     private List<HandCandidate> runPermutatorsOnCandidate(HandCandidate candidate, List<Permutator> permutators) {
         List<HandCandidate> candidates = new ArrayList<HandCandidate>();
         candidates.add(candidate);
