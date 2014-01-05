@@ -19,6 +19,18 @@ public class HandLibraryBuilderTest {
     private TileSet tileSet = new TileSet();
 
     @Test
+    public void shouldBuildAllHands() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder()).getHandDefinitions(Json.loadFromResource("/all.json")),
+                filter,
+                permutatorExecutor
+        );
+
+        assertThat(builder.buildAll().size(), is(237));
+    }
+
+    @Test
     public void runPungAndAPair() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
