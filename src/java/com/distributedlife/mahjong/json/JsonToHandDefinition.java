@@ -1,6 +1,6 @@
 package com.distributedlife.mahjong.json;
 
-import com.distributedlife.mahjong.reference.HandDefinition;
+import com.distributedlife.mahjong.reference.hand.HandDefinition;
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
 import com.sun.xml.internal.ws.util.StringUtils;
 import org.json.JSONArray;

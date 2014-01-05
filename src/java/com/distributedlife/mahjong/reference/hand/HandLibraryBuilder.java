@@ -1,19 +1,22 @@
-package com.distributedlife.mahjong.reference;
+package com.distributedlife.mahjong.reference.hand;
 
 import com.distributedlife.mahjong.game.TileSet;
 import com.distributedlife.mahjong.hand.Hand;
+import com.distributedlife.mahjong.reference.filter.InvalidHandCandidateFilter;
 import com.distributedlife.mahjong.reference.permute.Permutator;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class HandLibraryBuilder {
+    private InvalidHandCandidateFilter filter;
     private TileSet tileSet;
     private List<HandDefinition> definitions;
 
-    public HandLibraryBuilder(TileSet tileSet, List<HandDefinition> definitions) {
+    public HandLibraryBuilder(TileSet tileSet, List<HandDefinition> definitions, InvalidHandCandidateFilter filter) {
         this.tileSet = tileSet;
         this.definitions = definitions;
+        this.filter = filter;
     }
 
     public List<Hand> buildAll() {
@@ -23,21 +26,7 @@ public class HandLibraryBuilder {
             candidates.addAll(build(definition));
         }
 
-        return filterInvalidCandidates(candidates);
-    }
-
-    //TODO: extract
-    private List<Hand> filterInvalidCandidates(List<HandCandidate> candidates) {
-        List<Hand> hands = new ArrayList<Hand>();
-        for (HandCandidate candidate : candidates) {
-            if (!candidate.isValid()) {
-                continue;
-            }
-
-            hands.add(new Hand(candidate.getName(), candidate.getRequiredTiles()));
-        }
-
-        return hands;
+        return filter.apply(candidates);
     }
 
     private List<HandCandidate> build(HandDefinition definition) {

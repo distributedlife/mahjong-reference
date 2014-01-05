@@ -1,12 +1,12 @@
 package com.distributedlife.mahjong.reference.permute;
 
 import com.distributedlife.mahjong.game.TileSet;
-import com.distributedlife.mahjong.reference.HandCandidate;
+import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.distributedlife.mahjong.reference.HandCandidate.times;
+import static com.distributedlife.mahjong.reference.hand.HandCandidate.times;
 
 public class MultiplePermutator implements Permutator {
     protected final int multiples;

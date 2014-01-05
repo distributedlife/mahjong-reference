@@ -1,14 +1,12 @@
-package com.distributedlife.mahjong.reference;
+package com.distributedlife.mahjong.reference.hand;
 
 import org.junit.Test;
 
 import java.util.ArrayList;
 
-import static com.distributedlife.mahjong.reference.HandCandidate.times;
+import static com.distributedlife.mahjong.reference.hand.HandCandidate.times;
 import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class HandCandidateTest {
     @Test

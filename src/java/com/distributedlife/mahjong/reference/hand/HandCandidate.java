@@ -1,4 +1,4 @@
-package com.distributedlife.mahjong.reference;
+package com.distributedlife.mahjong.reference.hand;
 
 import java.util.ArrayList;
 import java.util.List;

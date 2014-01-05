@@ -1,8 +1,9 @@
-package com.distributedlife.mahjong.reference;
+package com.distributedlife.mahjong.reference.hand;
 
 import com.distributedlife.mahjong.game.TileSet;
 import com.distributedlife.mahjong.helpers.Json;
 import com.distributedlife.mahjong.json.JsonToHandDefinition;
+import com.distributedlife.mahjong.reference.filter.InvalidHandCandidateFilter;
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
 import org.junit.Test;
 
@@ -12,12 +13,15 @@ import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class HandLibraryBuilderTest {
+    private final InvalidHandCandidateFilter filter = new InvalidHandCandidateFilter();
     private TileSet tileSet = new TileSet();
 
     @Test
     public void runPungAndAPair() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
-                tileSet, new JsonToHandDefinition(new PermutatorBuilder()).getHandDefinitions(Json.loadFromResource("/runPungAndAPair.json"))
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder()).getHandDefinitions(Json.loadFromResource("/runPungAndAPair.json")),
+                filter
         );
 
         assertThat(builder.buildAll().size(), is(216));
@@ -26,7 +30,9 @@ public class HandLibraryBuilderTest {
     @Test
     public void gatesOfHeaven() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
-                tileSet, new JsonToHandDefinition(new PermutatorBuilder()).getHandDefinitions(Json.loadFromResource("/gatesOfHeaven.json"))
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder()).getHandDefinitions(Json.loadFromResource("/gatesOfHeaven.json")),
+                filter
         );
 
         assertThat(builder.buildAll().size(), is(21));
