@@ -1,32 +1,31 @@
 package com.distributedlife.mahjong.reference.permute;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
-
-import java.util.Arrays;
-import java.util.List;
-
 public class PermutatorBuilder {
-    public Permutator build(JSONObject requirement) {
-        String type = requirement.getString("type");
+    public Permutator build(PermutatorBuilderOptions options) {
+        Permutator permutator = null;
 
-        if (type.equals("run")) {
-            return new SequencePermutator(requirement.getInt("from"), requirement.getInt("to"));
+        if (options.getType().equals("run")) {
+            permutator = new SequencePermutator(options.getFrom(), options.getTo());
         }
-        if (type.equals("pung")) {
-            return new PungPermutator(convertJsonArrayToJavaList(requirement.getJSONArray("tiles")));
+        if (options.getType().equals("pung")) {
+            permutator = new PungPermutator(options.getTiles(), options.getSuit());
         }
-        if (type.equals("pair")) {
-            return new PairPermutator(convertJsonArrayToJavaList(requirement.getJSONArray("tiles")));
+        if (options.getType().equals("pair")) {
+            permutator = new PairPermutator(options.getTiles(), options.getSuit());
         }
-        if (type.equals("any-paired")) {
-            return new AnyPairedPermutator();
+        if (options.getType().equals("any-paired")) {
+            permutator = new AnyPairedPermutator();
+        }
+        if (permutator == null) {
+            return new UnknownPermutator(options.getType());
         }
 
-        return new UnknownPermutator(type);
-    }
-
-    private List<String> convertJsonArrayToJavaList(JSONArray jsonArray) {
-        return Arrays.asList(jsonArray.join(",").split(","));
+        if (options.getSuit().equals("1st")) {
+            return permutator;
+        } else if (options.getSuit().equals("2nd")) {
+            return new SecondSuitPermutator(permutator);
+        } else {
+            return new ThirdSuitPermutator(permutator);
+        }
     }
 }

@@ -10,7 +10,7 @@ import static org.junit.Assert.assertThat;
 public class PairPermutatorTest {
     @Test
     public void shouldCreateAMultiplePermutatorUsingTilesAndQuantityOf2() {
-        PairPermutator pairPermutator = new PairPermutator(Arrays.asList("1 Bamboo"));
+        PairPermutator pairPermutator = new PairPermutator(Arrays.asList("1 Bamboo"), "1st");
         assertThat(pairPermutator.multiples, is(2));
         assertThat(pairPermutator.tilesMultipleIsAllowedIn, is(Arrays.asList("1 Bamboo")));
     }

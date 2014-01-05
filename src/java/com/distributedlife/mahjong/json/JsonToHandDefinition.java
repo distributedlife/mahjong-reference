@@ -2,6 +2,7 @@ package com.distributedlife.mahjong.json;
 
 import com.distributedlife.mahjong.reference.hand.HandDefinition;
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
+import com.distributedlife.mahjong.reference.permute.PermutatorBuilderOptions;
 import com.sun.xml.internal.ws.util.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -11,9 +12,11 @@ import java.util.List;
 
 public class JsonToHandDefinition {
     private PermutatorBuilder permutatorBuilder;
+    private JsonToPermutatorOptionsConverter jsonToPermutatorConverter;
 
-    public JsonToHandDefinition(PermutatorBuilder permutatorBuilder) {
+    public JsonToHandDefinition(PermutatorBuilder permutatorBuilder, JsonToPermutatorOptionsConverter jsonToPermutatorConverter) {
         this.permutatorBuilder = permutatorBuilder;
+        this.jsonToPermutatorConverter = jsonToPermutatorConverter;
     }
 
     public List<HandDefinition> getHandDefinitions(JSONObject jsonRoot) {
@@ -37,7 +40,9 @@ public class JsonToHandDefinition {
     private void loadTileRequirementsForHand(JSONObject jsonDefinition, HandDefinition handDefinition) {
         JSONArray requirements = jsonDefinition.getJSONArray("requirements");
         for(int j = 0; j < requirements.length(); j++) {
-            handDefinition.addRequirement(permutatorBuilder.build(requirements.getJSONObject(j)));
+            JSONObject requirementsForHand = requirements.getJSONObject(j);
+            PermutatorBuilderOptions options = jsonToPermutatorConverter.convert(requirementsForHand);
+            handDefinition.addRequirement(permutatorBuilder.build(options));
         }
     }
 

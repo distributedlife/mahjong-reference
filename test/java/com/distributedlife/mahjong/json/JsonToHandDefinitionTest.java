@@ -1,6 +1,7 @@
 package com.distributedlife.mahjong.json;
 
-import com.distributedlife.mahjong.reference.permute.*;
+import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
+import com.distributedlife.mahjong.reference.permute.PermutatorBuilderOptions;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.junit.Before;
@@ -10,10 +11,13 @@ import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
+import static org.mockito.Mockito.*;
 
 public class JsonToHandDefinitionTest {
     private JSONObject root;
-    private JsonToHandDefinition jsonToHandDefinition = new JsonToHandDefinition(new PermutatorBuilder());
+    private PermutatorBuilder permutatorBuilder = mock(PermutatorBuilder.class);
+    private JsonToPermutatorOptionsConverter jsonToPermutatorConverter = mock(JsonToPermutatorOptionsConverter.class);
+    private JsonToHandDefinition jsonToHandDefinition = new JsonToHandDefinition(permutatorBuilder, jsonToPermutatorConverter);
     private JSONArray requirements;
 
     @Before
@@ -32,6 +36,7 @@ public class JsonToHandDefinitionTest {
         runPungAndAPair.put("suits", suitsArray);
 
         requirements = new JSONArray();
+        requirements.put(new JSONObject());
         runPungAndAPair.put("requirements", requirements);
 
         hands.put(runPungAndAPair);
@@ -52,55 +57,19 @@ public class JsonToHandDefinitionTest {
     }
 
     @Test
-    public void shouldMapRequirementOfRunToSequencePermutator() {
-        JSONObject requirement = new JSONObject();
-        requirement.put("type", "run");
-        requirement.put("from", "1");
-        requirement.put("to", "9");
+    public void shouldDelegateTheRequirementOptionsConversion() {
+        jsonToHandDefinition.getHandDefinitions(root);
 
-        requirements.put(requirement);
-
-        List<Permutator> loadedRequirements = jsonToHandDefinition.getHandDefinitions(root).get(0).getRequirements();
-        assertThat(loadedRequirements.size(), is(1));
-
-        assertThat(loadedRequirements.get(0).getClass().toString(), is(SequencePermutator.class.toString()));
+        verify(jsonToPermutatorConverter).convert(requirements.getJSONObject(0));
     }
 
     @Test
-    public void shouldMapRequirementOfPungToPungPermutator() {
-        JSONObject requirement = new JSONObject();
-        requirement.put("type", "pung");
-        requirement.put("tiles", new JSONArray("[1, 2, 3]"));
+    public void shouldPassTheConvertedOptionsToTheBuilder() {
+        PermutatorBuilderOptions convertedOptions = mock(PermutatorBuilderOptions.class);
+        when(jsonToPermutatorConverter.convert(requirements.getJSONObject(0))).thenReturn(convertedOptions);
 
-        requirements.put(requirement);
+        jsonToHandDefinition.getHandDefinitions(root);
 
-        List<Permutator> loadedRequirements = jsonToHandDefinition.getHandDefinitions(root).get(0).getRequirements();
-        assertThat(loadedRequirements.size(), is(1));
-
-        assertThat(loadedRequirements.get(0).getClass().toString(), is(PungPermutator.class.toString()));
-    }
-
-    @Test
-    public void shouldMapRequirementOfPairToPairPermutator() {
-        JSONObject requirement = new JSONObject();
-        requirement.put("type", "pair");
-        requirement.put("tiles", new JSONArray("[1, 2, 3]"));
-
-        requirements.put(requirement);
-
-        List<Permutator> loadedRequirements = jsonToHandDefinition.getHandDefinitions(root).get(0).getRequirements();
-        assertThat(loadedRequirements.size(), is(1));
-
-        assertThat(loadedRequirements.get(0).getClass().toString(), is(PairPermutator.class.toString()));
-    }
-
-    @Test
-    public void shouldMapRequirementOfAnyPairedToAnyPairedPermutator() {
-        requirements.put(new JSONObject("{type: 'any-paired'}"));
-
-        List<Permutator> loadedRequirements = jsonToHandDefinition.getHandDefinitions(root).get(0).getRequirements();
-        assertThat(loadedRequirements.size(), is(1));
-
-        assertThat(loadedRequirements.get(0).getClass().toString(), is(AnyPairedPermutator.class.toString()));
+        verify(permutatorBuilder).build(convertedOptions);
     }
 }

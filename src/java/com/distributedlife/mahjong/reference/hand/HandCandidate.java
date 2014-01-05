@@ -5,14 +5,18 @@ import java.util.List;
 
 public class HandCandidate {
     private final String name;
-    private final List<String> availableTiles;
+    protected final List<String> availableTiles;
     private String primarySuit;
     private List<String> requiredTiles;
+    private String secondSuit;
+    private String thirdSuit;
 
     public HandCandidate(String name, List<String> availableTiles) {
         this.name = name;
         this.availableTiles = availableTiles;
         this.requiredTiles = new ArrayList<String>();
+        this.secondSuit = "";
+        this.thirdSuit = "";
     }
 
     public HandCandidate(HandCandidate other) {
@@ -20,6 +24,8 @@ public class HandCandidate {
         this.primarySuit = other.primarySuit;
         this.availableTiles = new ArrayList<String>(other.availableTiles);
         this.requiredTiles = new ArrayList<String>(other.requiredTiles);
+        this.secondSuit = other.secondSuit;
+        this.thirdSuit = other.thirdSuit;
     }
 
     public void setPrimarySuit(String primarySuit) {
@@ -77,5 +83,21 @@ public class HandCandidate {
 
     public HandCandidate fork() {
         return new HandCandidate(this);
+    }
+
+    public String getSecondSuit() {
+        return secondSuit;
+    }
+
+    public void setSecondSuit(String secondSuit) {
+        this.secondSuit = secondSuit;
+    }
+
+    public String getThirdSuit() {
+        return thirdSuit;
+    }
+
+    public void setThirdSuit(String thirdSuit) {
+        this.thirdSuit = thirdSuit;
     }
 }

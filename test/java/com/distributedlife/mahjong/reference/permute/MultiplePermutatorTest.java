@@ -17,7 +17,7 @@ public class MultiplePermutatorTest {
         List<HandCandidate> inCandidates = Arrays.asList(candidate);
 
         int copies = 2;
-        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies);
+        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies, "1st");
         List<HandCandidate> outCandidates = multiplePermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(1));
@@ -31,7 +31,7 @@ public class MultiplePermutatorTest {
         List<HandCandidate> inCandidates = Arrays.asList(candidate);
 
         int copies = 3;
-        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies);
+        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies, "1st");
         List<HandCandidate> outCandidates = multiplePermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(0));
@@ -44,7 +44,7 @@ public class MultiplePermutatorTest {
         List<HandCandidate> inCandidates = Arrays.asList(candidate);
 
         int copies = 1;
-        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies);
+        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies, "1st");
         List<HandCandidate> outCandidates = multiplePermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(0));
@@ -59,7 +59,7 @@ public class MultiplePermutatorTest {
         List<HandCandidate> inCandidates = Arrays.asList(candidate1, candidate2);
 
         int copies = 2;
-        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies);
+        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies, "1st");
         List<HandCandidate> outCandidates = multiplePermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(2));
@@ -76,7 +76,7 @@ public class MultiplePermutatorTest {
         List<HandCandidate> inCandidates = Arrays.asList(candidate1, candidate2);
 
         int copies = 2;
-        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies);
+        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies, "1st");
         List<HandCandidate> outCandidates = multiplePermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(2));
@@ -92,11 +92,42 @@ public class MultiplePermutatorTest {
         List<HandCandidate> inCandidates = Arrays.asList(candidate);
 
         int copies = 2;
-        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1", "3"), copies);
+        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1", "3"), copies, "1st");
         List<HandCandidate> outCandidates = multiplePermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(2));
         assertThat(outCandidates.get(0).getRequiredTiles(), is(Arrays.asList("1 Bamboo", "1 Bamboo")));
         assertThat(outCandidates.get(1).getRequiredTiles(), is(Arrays.asList("3 Bamboo", "3 Bamboo")));
+    }
+
+    @Test
+    public void shouldBuildTheTileInTheCandidatesSecondSuitIfRequired() {
+        HandCandidate candidate = new HandCandidate("candidate", Arrays.asList("1 Bamboo", "1 Spot"));
+        candidate.setPrimarySuit("Bamboo");
+        candidate.setSecondSuit("Spot");
+        List<HandCandidate> inCandidates = Arrays.asList(candidate);
+
+        int copies = 1;
+        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies, "2nd");
+        List<HandCandidate> outCandidates = multiplePermutator.permute(inCandidates);
+
+        assertThat(outCandidates.size(), is(1));
+        assertThat(outCandidates.get(0).getRequiredTiles(), is(Arrays.asList("1 Spot")));
+    }
+
+    @Test
+    public void shouldBuildTheTileInTheCandidatesThirdSuitIfRequired() {
+        HandCandidate candidate = new HandCandidate("candidate", Arrays.asList("1 Bamboo", "1 Spot", "1 Crack"));
+        candidate.setPrimarySuit("Bamboo");
+        candidate.setSecondSuit("Spot");
+        candidate.setThirdSuit("Crack");
+        List<HandCandidate> inCandidates = Arrays.asList(candidate);
+
+        int copies = 1;
+        MultiplePermutator multiplePermutator = new MultiplePermutator(Arrays.asList("1"), copies, "3rd");
+        List<HandCandidate> outCandidates = multiplePermutator.permute(inCandidates);
+
+        assertThat(outCandidates.size(), is(1));
+        assertThat(outCandidates.get(0).getRequiredTiles(), is(Arrays.asList("1 Crack")));
     }
 }

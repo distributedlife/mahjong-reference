@@ -1,0 +1,14 @@
+{
+    hands: [
+    {
+        name: "Confused Gates",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: [1], suit: "2nd"},
+            {type: "pung", tiles: [9], suit: "3rd"}
+        ]
+    }]
+}
