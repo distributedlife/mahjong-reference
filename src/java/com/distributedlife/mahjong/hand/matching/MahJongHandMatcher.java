@@ -5,7 +5,7 @@ import com.distributedlife.mahjong.hand.sorting.MatchingHandSorter;
 
 import java.util.List;
 
-public class MahJongHandMatcher {
+class MahJongHandMatcher {
     private final MatchingHandSorter sorter;
     private final MatchingHandFilter filter;
 

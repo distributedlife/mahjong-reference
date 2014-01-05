@@ -8,11 +8,11 @@ import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;
 import java.util.ArrayList;
 import java.util.List;
 
-public class HandLibraryBuilder {
+class HandLibraryBuilder {
     private final PermutatorExecutor permutatorExecutor;
-    private InvalidHandCandidateFilter filter;
-    private TileSet tileSet;
-    private List<HandDefinition> definitions;
+    private final InvalidHandCandidateFilter filter;
+    private final TileSet tileSet;
+    private final List<HandDefinition> definitions;
 
     public HandLibraryBuilder(TileSet tileSet, List<HandDefinition> definitions, InvalidHandCandidateFilter filter, PermutatorExecutor permutatorExecutor) {
         this.tileSet = tileSet;

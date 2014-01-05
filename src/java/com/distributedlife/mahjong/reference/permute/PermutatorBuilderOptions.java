@@ -3,11 +3,11 @@ package com.distributedlife.mahjong.reference.permute;
 import java.util.List;
 
 public class PermutatorBuilderOptions {
-    private String type;
-    private Integer from;
-    private Integer to;
-    private List<String> tiles;
-    private String suit;
+    private final String type;
+    private final Integer from;
+    private final Integer to;
+    private final List<String> tiles;
+    private final String suit;
 
     public PermutatorBuilderOptions(String type, int from, int to, List<String> tiles, String suit) {
         this.type = type;

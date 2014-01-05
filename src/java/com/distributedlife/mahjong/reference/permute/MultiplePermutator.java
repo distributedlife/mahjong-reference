@@ -9,9 +9,9 @@ import java.util.List;
 import static com.distributedlife.mahjong.reference.hand.HandCandidate.times;
 
 public class MultiplePermutator implements Permutator {
-    protected final int multiples;
-    private String suit;
-    protected final List<String> tilesMultipleIsAllowedIn;
+    final int multiples;
+    private final String suit;
+    final List<String> tilesMultipleIsAllowedIn;
 
     public MultiplePermutator(List<String> tilesMultipleIsAllowedIn, int multiples, String suit) {
         this.tilesMultipleIsAllowedIn = tilesMultipleIsAllowedIn;

@@ -11,8 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class JsonToHandDefinition {
-    private PermutatorBuilder permutatorBuilder;
-    private JsonToPermutatorOptionsConverter jsonToPermutatorConverter;
+    private final PermutatorBuilder permutatorBuilder;
+    private final JsonToPermutatorOptionsConverter jsonToPermutatorConverter;
 
     public JsonToHandDefinition(PermutatorBuilder permutatorBuilder, JsonToPermutatorOptionsConverter jsonToPermutatorConverter) {
         this.permutatorBuilder = permutatorBuilder;

@@ -4,7 +4,7 @@ import com.distributedlife.mahjong.hand.matching.Match;
 
 import java.util.Comparator;
 
-public class MatchComparator implements Comparator<Match> {
+class MatchComparator implements Comparator<Match> {
     @Override
     public int compare(Match match, Match match2) {
         int countCompare = match2.getCount().compareTo(match.getCount());

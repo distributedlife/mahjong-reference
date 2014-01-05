@@ -4,13 +4,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TileSet {
-    List<String> tiles = new ArrayList<String>();
+    private final List<String> tiles = new ArrayList<String>();
 
     public static String createTile(int i, String suit) {
         return String.format("%s %s", i, suit);
     }
 
-    public static String createTile(int i, Suits suit) {
+    private static String createTile(int i, Suits suit) {
         return String.format("%s %s", i, suit.toString());
     }
 

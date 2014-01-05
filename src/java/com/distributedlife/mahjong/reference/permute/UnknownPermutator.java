@@ -5,7 +5,7 @@ import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import java.util.List;
 
 public class UnknownPermutator implements Permutator {
-    private String key;
+    private final String key;
 
     public UnknownPermutator(String key) {
         this.key = key;

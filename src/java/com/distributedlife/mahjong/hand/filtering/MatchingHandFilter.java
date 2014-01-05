@@ -8,7 +8,7 @@ import java.util.List;
 
 public class MatchingHandFilter {
     private static final int NOT_FOUND = -1;
-    private List<Hand> handLibrary;
+    private final List<Hand> handLibrary;
 
     public MatchingHandFilter(List<Hand> handLibrary) {
         this.handLibrary = handLibrary;

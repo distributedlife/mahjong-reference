@@ -15,9 +15,9 @@ import static org.mockito.Mockito.*;
 
 public class JsonToHandDefinitionTest {
     private JSONObject root;
-    private PermutatorBuilder permutatorBuilder = mock(PermutatorBuilder.class);
-    private JsonToPermutatorOptionsConverter jsonToPermutatorConverter = mock(JsonToPermutatorOptionsConverter.class);
-    private JsonToHandDefinition jsonToHandDefinition = new JsonToHandDefinition(permutatorBuilder, jsonToPermutatorConverter);
+    private final PermutatorBuilder permutatorBuilder = mock(PermutatorBuilder.class);
+    private final JsonToPermutatorOptionsConverter jsonToPermutatorConverter = mock(JsonToPermutatorOptionsConverter.class);
+    private final JsonToHandDefinition jsonToHandDefinition = new JsonToHandDefinition(permutatorBuilder, jsonToPermutatorConverter);
     private JSONArray requirements;
 
     @Before

@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ThirdSuitPermutator implements Permutator {
-    private Permutator permutator;
+    private final Permutator permutator;
 
     public ThirdSuitPermutator(Permutator permutator) {
         this.permutator = permutator;

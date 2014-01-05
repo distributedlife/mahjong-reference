@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HandDefinition {
-    private String name;
-    private List<String> suits;
-    private List<Permutator> requirements;
+    private final String name;
+    private final List<String> suits;
+    private final List<Permutator> requirements;
 
     public HandDefinition(String name) {
         this.name = name;

@@ -5,9 +5,9 @@ import java.util.List;
 
 public class HandCandidate {
     private final String name;
-    protected final List<String> availableTiles;
+    final List<String> availableTiles;
     private String primarySuit;
-    private List<String> requiredTiles;
+    private final List<String> requiredTiles;
     private String secondSuit;
     private String thirdSuit;
 

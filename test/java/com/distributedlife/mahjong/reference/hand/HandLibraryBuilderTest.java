@@ -18,8 +18,8 @@ import static org.junit.Assert.assertThat;
 public class HandLibraryBuilderTest {
     private final InvalidHandCandidateFilter filter = new InvalidHandCandidateFilter();
     private final PermutatorExecutor permutatorExecutor = new PermutatorExecutor();
-    private TileSet tileSet = new TileSet();
-    private JsonToPermutatorOptionsConverter jsonToPermutatorConverter = new JsonToPermutatorOptionsConverter();
+    private final TileSet tileSet = new TileSet();
+    private final JsonToPermutatorOptionsConverter jsonToPermutatorConverter = new JsonToPermutatorOptionsConverter();
 
     @Test
     public void buildAllHands() throws IOException {
