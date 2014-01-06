@@ -224,5 +224,15 @@
             {type: "pung", tiles: ["White"]},
             {type: "pung", tiles: ["Red"]}
         ]
+    },
+    {
+        name: "Greta's Dragon",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 7},
+            {type: "subset", length: 4, tiles: ["North", "East", "South", "West"]},
+            {type: "pung", tiles: ["Red", "Green", "White"]}
+        ]
     }]
 }

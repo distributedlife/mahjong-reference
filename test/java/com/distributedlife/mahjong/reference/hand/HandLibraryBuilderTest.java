@@ -41,7 +41,7 @@ public class HandLibraryBuilderTest {
                 permutatorExecutor,
                 converter);
 
-        assertThat(builder.buildAll().size(), is(1669));
+        assertThat(builder.buildAll().size(), is(1678));
     }
 
     @Test
@@ -260,5 +260,17 @@ public class HandLibraryBuilderTest {
                 converter);
 
         assertThat(builder.buildAll().size(), is(3));
+    }
+
+    @Test
+    public void gretasDragon() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/gretasDragon.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        assertThat(builder.buildAll().size(), is(9));
     }
 }
