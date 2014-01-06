@@ -41,7 +41,7 @@ public class HandLibraryBuilderTest {
                 permutatorExecutor,
                 converter);
 
-        assertThat(builder.buildAll().size(), is(1678));
+        assertThat(builder.buildAll().size(), is(1681));
     }
 
     @Test

@@ -234,5 +234,14 @@
             {type: "subset", length: 4, tiles: ["North", "East", "South", "West"]},
             {type: "pung", tiles: ["Red", "Green", "White"]}
         ]
+    },
+    {
+        name: "Gertie's Garter",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 7},
+            {type: "run", from: 1, to: 7, suit: "2nd"}
+        ]
     }]
 }
