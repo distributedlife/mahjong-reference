@@ -1,5 +1,6 @@
 package com.distributedlife.mahjong.hand.matching;
 
+import com.distributedlife.mahjong.game.TileSet;
 import com.distributedlife.mahjong.hand.Hand;
 import com.distributedlife.mahjong.hand.filtering.MatchingHandFilter;
 import com.distributedlife.mahjong.hand.sorting.MatchingHandSorter;
@@ -66,6 +67,30 @@ public class MahJongHandMatcherTest {
         assertThat(matches.get(1).getCount(), is(2));
     }
 
+    @Test
+    public void shouldConvertWindIntoOwnWindAndMatchAgain() {
+        List<String> hand = new ArrayList<String>();
+        hand.add("2 Spot");
+        hand.add("8 Spot");
+        hand.add("West");
+
+        List<Hand> handLibrary = new ArrayList<Hand>();
+        handLibrary.add(new Hand("Red Lantern", redLantern()));
+
+        MahJongHandMatcher mahJongHandMatcher = new MahJongHandMatcher(new MatchingHandSorter(), new MatchingHandFilter(handLibrary));
+        List<Match> matches = mahJongHandMatcher.getMatches(hand);
+        List<Match> matchesWithOwnWind = mahJongHandMatcher.getMatchesWithOwnWind(hand, TileSet.Winds.West);
+
+        assertThat(matches.size(), is(1));
+        assertThat(matchesWithOwnWind.size(), is(1));
+
+        assertThat(matches.get(0).getName(), is("Red Lantern"));
+        assertThat(matches.get(0).getCount(), is(2));
+
+        assertThat(matchesWithOwnWind.get(0).getName(), is("Red Lantern"));
+        assertThat(matchesWithOwnWind.get(0).getCount(), is(3));
+    }
+
     private List<String> runPungAndAPairBamboo() {
         ArrayList<String> hand = new ArrayList<String>();
         hand.add("1 Bamboo");
@@ -129,6 +154,30 @@ public class MahJongHandMatcherTest {
         hand.add("9 Spot");
         hand.add("9 Spot");
         hand.add("9 Spot");
+
+        return hand;
+    }
+
+    private List<String> redLantern() {
+        ArrayList<String> hand = new ArrayList<String>();
+        hand.add("1 Spot");
+        hand.add("2 Spot");
+        hand.add("3 Spot");
+        hand.add("4 Spot");
+        hand.add("5 Spot");
+        hand.add("6 Spot");
+        hand.add("7 Spot");
+        hand.add("8 Spot");
+
+        hand.add("1 Spot");
+
+        hand.add("Red");
+        hand.add("Red");
+        hand.add("Red");
+
+        hand.add("OwnWind");
+        hand.add("OwnWind");
+        hand.add("OwnWind");
 
         return hand;
     }
