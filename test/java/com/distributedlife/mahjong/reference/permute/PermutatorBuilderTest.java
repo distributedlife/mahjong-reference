@@ -18,9 +18,17 @@ public class PermutatorBuilderTest {
     }
 
     @Test
-    public void shouldCreateASequencePermutatorWhenARunIsSupplied() {
+    public void shouldCreateAStandardSequencePermutatorWhenARunIsSuppliedWithAFromAndTo() {
         when(options.getType()).thenReturn("run");
-        assertThat(builder.build(options).getClass().toString(), is(SequencePermutator.class.toString()));
+        when(options.getFrom()).thenReturn(1);
+        when(options.getTo()).thenReturn(9);
+        assertThat(builder.build(options).getClass().toString(), is(StandardSequencePermutator.class.toString()));
+    }
+    @Test
+    public void shouldCreateACombinationalSequencePermutatorWhenARunWithLengthIsSupplied() {
+        when(options.getType()).thenReturn("run");
+        when(options.getLength()).thenReturn(8);
+        assertThat(builder.build(options).getClass().toString(), is(CombinationSequencePermutator.class.toString()));
     }
 
     @Test

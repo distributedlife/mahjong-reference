@@ -6,8 +6,8 @@
         requirements:
         [
             {type: "run", from: 1, to: 9},
-            {type: "pung", tiles: [1, 2, 3, 4, 5, 6, 7, 8, 9]},
-            {type: "pair", tiles: [1, 2, 3, 4, 5, 6, 7, 8, 9]}
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
         ]
     },
     {
@@ -17,8 +17,8 @@
         [
             {type: "run", from: 2, to: 8},
             {type: "any-paired"},
-            {type: "pung", tiles: [1]},
-            {type: "pung", tiles: [9]}
+            {type: "pung", tiles: ["1"]},
+            {type: "pung", tiles: ["9"]}
         ]
     },
     {
@@ -28,8 +28,8 @@
         [
             {type: "run", from: 2, to: 8},
             {type: "any-paired"},
-            {type: "pung", tiles: [1], suit: "2nd"},
-            {type: "pung", tiles: [9], suit: "3rd"}
+            {type: "pung", tiles: ["1"], suit: "2nd"},
+            {type: "pung", tiles: ["9"], suit: "3rd"}
         ]
     },
     {
@@ -43,6 +43,28 @@
             {type: "single", tile: "East"},
             {type: "single", tile: "South"},
             {type: "any-paired"}
+        ]
+    },
+    {
+        name: "Hachi Ban",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", length: 8},
+            {type: "pair", tiles: ["North", "East", "South", "West"]},
+            {type: "pair", tiles: ["North", "East", "South", "West"]},
+            {type: "pair", tiles: ["North", "East", "South", "West"]}
+        ]
+    },
+    {
+        name: "Hachi Ban",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", length: 8},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]}
         ]
     }]
 }

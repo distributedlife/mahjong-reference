@@ -5,7 +5,6 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class JsonToPermutatorOptionsConverter {
@@ -17,8 +16,9 @@ public class JsonToPermutatorOptionsConverter {
         List<String> tiles = getStringArrayOrReturnDefault(requirements, "tiles");
         String suit = getStringValueOrReturnDefault(requirements, "suit", "1st");
         String tile = getStringValueOrReturnDefault(requirements, "tile", "");
+        int length = getIntegerValueOrReturnDefault(requirements, "length");
 
-        return new PermutatorBuilderOptions(type, from, to, tiles, suit, tile);
+        return new PermutatorBuilderOptions(type, from, to, tiles, suit, tile, length);
     }
 
     private int getIntegerValueOrReturnDefault(JSONObject requirementsForHand, String key) {
@@ -35,6 +35,12 @@ public class JsonToPermutatorOptionsConverter {
 
 
     private List<String> convertJsonArrayToJavaList(JSONArray jsonArray) {
-        return Arrays.asList(jsonArray.join(",").split(","));
+        List<String> listOfEntries = new ArrayList<String>();
+
+        for(int i = 0; i < jsonArray.length(); i++) {
+            listOfEntries.add(jsonArray.getString(i));
+        }
+
+        return listOfEntries;
     }
 }

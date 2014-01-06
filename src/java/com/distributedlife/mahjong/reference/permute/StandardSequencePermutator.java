@@ -6,11 +6,11 @@ import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SequencePermutator implements Permutator {
+public class StandardSequencePermutator implements Permutator {
     private final int from;
     private final int to;
 
-    public SequencePermutator(int from, int to) {
+    public StandardSequencePermutator(int from, int to) {
         this.from = from;
         this.to = to;
     }

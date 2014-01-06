@@ -6,8 +6,8 @@
         requirements:
         [
             {type: "run", from: 1, to: 9},
-            {type: "pung", tiles: [1, 2, 3, 4, 5, 6, 7, 8, 9]},
-            {type: "pair", tiles: [1, 2, 3, 4, 5, 6, 7, 8, 9]}
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
         ]
     }]
 }

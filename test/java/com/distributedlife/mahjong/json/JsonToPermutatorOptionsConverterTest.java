@@ -22,9 +22,10 @@ public class JsonToPermutatorOptionsConverterTest {
         requirements.put("type", "pung");
         requirements.put("from", 1);
         requirements.put("to", 9);
-        requirements.put("tiles", new JSONArray("[1, 2, 3]"));
+        requirements.put("tiles", new JSONArray("['1', '2', '3']"));
         requirements.put("tile", "4");
         requirements.put("suit", "2nd");
+        requirements.put("length", 5);
     }
 
     @Test
@@ -45,6 +46,7 @@ public class JsonToPermutatorOptionsConverterTest {
     @Test
     public void shouldConvertTiles() {
         assertThat(converter.convert(requirements).getTiles(), is(Arrays.asList("1", "2", "3")));
+        assertThat(converter.convert(requirements).getTiles().get(0), is("1"));
     }
 
     @Test
@@ -58,6 +60,11 @@ public class JsonToPermutatorOptionsConverterTest {
     }
 
     @Test
+    public void shouldConvertTheLength() {
+        assertThat(converter.convert(requirements).getLength(), is(5));
+    }
+
+    @Test
     public void shouldDefaultKMissingValues() {
         assertThat(converter.convert(missingRequirements).getType(), is(""));
         assertThat(converter.convert(missingRequirements).getFrom(), is(0));
@@ -66,5 +73,6 @@ public class JsonToPermutatorOptionsConverterTest {
         assertThat(converter.convert(missingRequirements).getTiles(), is(list));
         assertThat(converter.convert(missingRequirements).getSuit(), is("1st"));
         assertThat(converter.convert(missingRequirements).getTile(), is(""));
+        assertThat(converter.convert(missingRequirements).getLength(), is(0));
     }
 }

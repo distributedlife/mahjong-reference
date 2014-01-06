@@ -9,10 +9,10 @@ import java.util.List;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
-public class SequencePermutatorTest {
+public class StandardSequencePermutatorTest {
     @Test
     public void shouldOnlyPermuteOneWithAFullRunOfNine() {
-        SequencePermutator permutator = new SequencePermutator(1, 9);
+        StandardSequencePermutator permutator = new StandardSequencePermutator(1, 9);
 
         List<HandCandidate> candidates = new ArrayList<HandCandidate>();
         List<String> availableTiles = new ArrayList<String>();

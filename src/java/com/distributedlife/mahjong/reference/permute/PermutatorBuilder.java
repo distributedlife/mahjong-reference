@@ -5,7 +5,11 @@ public class PermutatorBuilder {
         Permutator permutator = null;
 
         if (options.getType().equals("run")) {
-            permutator = new SequencePermutator(options.getFrom(), options.getTo());
+            if (options.getLength() > 0) {
+                permutator = new CombinationSequencePermutator(options.getLength());
+            } else {
+                permutator = new StandardSequencePermutator(options.getFrom(), options.getTo());
+            }
         }
         if (options.getType().equals("pung")) {
             permutator = new PungPermutator(options.getTiles(), options.getSuit());

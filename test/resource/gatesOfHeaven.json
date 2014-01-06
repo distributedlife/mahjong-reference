@@ -7,8 +7,8 @@
         [
             {type: "run", from: 2, to: 8},
             {type: "any-paired"},
-            {type: "pung", tiles: [1]},
-            {type: "pung", tiles: [9]}
+            {type: "pung", tiles: ["1"]},
+            {type: "pung", tiles: ["9"]}
         ]
     }]
 }

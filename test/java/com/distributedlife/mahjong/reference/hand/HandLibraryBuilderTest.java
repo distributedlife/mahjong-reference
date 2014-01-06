@@ -30,7 +30,7 @@ public class HandLibraryBuilderTest {
                 permutatorExecutor
         );
 
-        assertThat(builder.buildAll().size(), is(318));
+        assertThat(builder.buildAll().size(), is(822));
     }
 
     @Test
@@ -89,6 +89,24 @@ public class HandLibraryBuilderTest {
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
                 "North", "West", "East", "South",
                 "1 Bamboo"
+        )));
+    }
+
+    @Test
+    public void hachiBan() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/hachiBan.json")),
+                filter,
+                permutatorExecutor
+        );
+
+        assertThat(builder.buildAll().size(), is(504));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo",
+                "North", "North",
+                "North", "North",
+                "East", "East"
         )));
     }
 }

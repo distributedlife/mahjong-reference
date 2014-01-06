@@ -9,14 +9,16 @@ public class PermutatorBuilderOptions {
     private final List<String> tiles;
     private final String suit;
     private String tile;
+    private int length;
 
-    public PermutatorBuilderOptions(String type, int from, int to, List<String> tiles, String suit, String tile) {
+    public PermutatorBuilderOptions(String type, int from, int to, List<String> tiles, String suit, String tile, int length) {
         this.type = type;
         this.from = from;
         this.to = to;
         this.tiles = tiles;
         this.suit = suit;
         this.tile = tile;
+        this.length = length;
     }
 
     public String getType() {
@@ -41,5 +43,9 @@ public class PermutatorBuilderOptions {
 
     public String getTile() {
         return tile;
+    }
+
+    public int getLength() {
+        return length;
     }
 }
