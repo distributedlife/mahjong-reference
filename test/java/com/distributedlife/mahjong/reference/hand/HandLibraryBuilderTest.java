@@ -41,7 +41,7 @@ public class HandLibraryBuilderTest {
                 permutatorExecutor,
                 converter);
 
-        assertThat(builder.buildAll().size(), is(1681));
+        assertThat(builder.buildAll().size(), is(1708));
     }
 
     @Test
@@ -310,6 +310,52 @@ public class HandLibraryBuilderTest {
                 "5 Crack", "5 Spot", 
                 "6 Crack", "6 Spot", 
                 "7 Crack", "7 Spot"
+        )));
+    }
+
+    @Test
+    public void yinYang() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/yinYang.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        assertThat(builder.buildAll().size(), is(6));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "3 Bamboo", "4 Bamboo",
+                "5 Bamboo", "5 Bamboo",
+                "5 Spot", "5 Spot",
+                "6 Spot", "7 Spot", "8 Spot",
+                "9 Spot", "9 Spot"
+        )));
+        assertThat(builder.buildAll().get(1).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "3 Bamboo", "4 Bamboo",
+                "5 Bamboo", "5 Bamboo",
+                "5 Crack", "5 Crack",
+                "6 Crack", "7 Crack", "8 Crack",
+                "9 Crack", "9 Crack"
+        )));
+    }
+
+    @Test
+    public void redLantern() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/redLantern.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        assertThat(builder.buildAll().size(), is(21));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo",
+                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo",
+                "OwnWind", "OwnWind", "OwnWind",
+                "Red", "Red", "Red"
         )));
     }
 }

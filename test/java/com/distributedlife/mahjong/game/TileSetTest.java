@@ -265,10 +265,10 @@ public class TileSetTest {
     }
 
     @Test
-    public void shouldContain136Tiles() {
+    public void shouldContain140Tiles() {
         tileSet = new TileSet();
 
-        assertThat(tileSet.getTiles().size(), is(136));
+        assertThat(tileSet.getTiles().size(), is(140));
     }
 
     private int getPositionAndRemoveFromSet(TileSet tileSet, String dragon) {

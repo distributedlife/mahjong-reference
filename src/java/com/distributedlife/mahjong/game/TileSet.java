@@ -24,7 +24,7 @@ public class TileSet {
         return tiles;
     }
 
-    public enum Winds {East, North, West, South}
+    public enum Winds {East, North, West, South, OwnWind}
     public enum Dragons {White, Red, Green}
     public enum Suits {Bamboo, Spot, Crack}
 

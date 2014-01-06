@@ -1,0 +1,14 @@
+{
+    hands: [
+    {
+        name: "Red Lantern",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 7},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["Red"]},
+            {type: "pung", tiles: ["OwnWind"]},
+        ]
+    }]
+}
