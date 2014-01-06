@@ -67,4 +67,11 @@ public class PermutatorBuilderTest {
         when(options.getSuit()).thenReturn("2nd");
         assertThat(builder.build(options).getClass().toString(), is(SecondSuitPermutator.class.toString()));
     }
+
+    @Test
+    public void shouldCreateASubSetPermutatorWhenSubsetIsSupplied() {
+        when(options.getType()).thenReturn("subset");
+        when(options.getLength()).thenReturn(1);
+        assertThat(builder.build(options).getClass().toString(), is(SubsetPermutator.class.toString()));
+    }
 }

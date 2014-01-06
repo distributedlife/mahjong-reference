@@ -23,6 +23,9 @@ public class PermutatorBuilder {
         if (options.getType().equals("single")) {
             permutator = new SingleTilePermutator(options.getTile(), "1st");
         }
+        if (options.getType().equals("subset")) {
+            permutator = new SubsetPermutator(options.getTiles(), options.getLength());
+        }
         if (permutator == null) {
             return new UnknownPermutator(options.getType());
         }

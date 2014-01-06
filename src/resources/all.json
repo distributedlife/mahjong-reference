@@ -86,5 +86,35 @@
             {type: "pung", tiles: ["Red", "Green", "White"]},
             {type: "pair", tiles: ["Red", "Green", "White"]}
         ]
+    },
+    {
+        name: "Five Odd Honours",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "subset", length: 5, tiles: ["North", "East", "West", "South", "Red", "Green", "White"]},
+        ]
+    },
+    {
+        name: "Wriggly Dragon",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "subset", length: 3, tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]}
+        ]
+    },
+    {
+        name: "Grand Sequence",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "any-paired"},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["North", "East", "West", "South", "Red", "Green", "White"]},
+        ]
     }]
 }

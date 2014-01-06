@@ -30,7 +30,7 @@ public class HandLibraryBuilderTest {
                 permutatorExecutor
         );
 
-        assertThat(builder.buildAll().size(), is(876));
+        assertThat(builder.buildAll().size(), is(10380));
     }
 
     @Test
@@ -132,5 +132,56 @@ public class HandLibraryBuilderTest {
         );
 
         assertThat(builder.buildAll().size(), is(18));
+    }
+
+    @Test
+    public void fiveOddHonours() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/fiveOddHonours.json")),
+                filter,
+                permutatorExecutor
+        );
+
+        assertThat(builder.buildAll().size(), is(7560));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
+                "North", "East", "West", "South", "Red"
+        )));
+    }
+
+    @Test
+    public void wrigglyDragon() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/wrigglyDragon.json")),
+                filter,
+                permutatorExecutor
+        );
+
+        assertThat(builder.buildAll().size(), is(54));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
+                "Red", "Green", "White",
+                "Red", "Red"
+        )));
+    }
+
+    @Test
+    public void grandSequence() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/grandSequence.json")),
+                filter,
+                permutatorExecutor
+        );
+
+        assertThat(builder.buildAll().size(), is(1890));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
+                "1 Bamboo",
+                "1 Bamboo",
+                "North", "North", "North"
+        )));
     }
 }
