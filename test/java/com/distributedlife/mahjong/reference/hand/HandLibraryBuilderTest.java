@@ -30,7 +30,7 @@ public class HandLibraryBuilderTest {
                 permutatorExecutor
         );
 
-        assertThat(builder.buildAll().size(), is(10422));
+        assertThat(builder.buildAll().size(), is(10522));
     }
 
     @Test
@@ -200,6 +200,42 @@ public class HandLibraryBuilderTest {
                 "2 Bamboo",
                 "1 Bamboo", "1 Bamboo", "1 Bamboo",
                 "Green", "Green", "Green"
+        )));
+    }
+
+    @Test
+    public void dragonsTail() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/dragonsTail.json")),
+                filter,
+                permutatorExecutor
+        );
+
+        assertThat(builder.buildAll().size(), is(72));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
+                "Red", "Red", "Red",
+                "North", "North"
+        )));
+    }
+
+    @Test
+    public void dragonsTeeth() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/dragonsTeeth.json")),
+                filter,
+                permutatorExecutor
+        );
+
+        //TODO: check that this hand is 1-7, 2-8 and not 3-9 and if it's only for spot and crack
+        assertThat(builder.buildAll().size(), is(28));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Spot", "2 Spot", "3 Spot", "4 Spot", "5 Spot", "6 Spot", "7 Spot",
+                "1 Spot",
+                "White", "White", "White",
+                "Red", "Red", "Red"
         )));
     }
 }
