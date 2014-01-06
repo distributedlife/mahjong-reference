@@ -116,5 +116,71 @@
             {type: "any-paired"},
             {type: "pung", tiles: ["North", "East", "West", "South", "Red", "Green", "White"]},
         ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["bamboo"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["1"]},
+            {type: "pung", tiles: ["Green"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["bamboo"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["9"]},
+            {type: "pung", tiles: ["Green"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["spot"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["1"]},
+            {type: "pung", tiles: ["White"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["spot"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["9"]},
+            {type: "pung", tiles: ["White"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["crack"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["1"]},
+            {type: "pung", tiles: ["Red"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["crack"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["9"]},
+            {type: "pung", tiles: ["Red"]}
+        ]
     }]
 }
