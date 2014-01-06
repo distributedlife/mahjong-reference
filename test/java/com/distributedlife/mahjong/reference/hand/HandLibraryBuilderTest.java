@@ -273,4 +273,43 @@ public class HandLibraryBuilderTest {
 
         assertThat(builder.buildAll().size(), is(9));
     }
+
+    @Test
+    public void gertiesGarter() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/gertiesGarter.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        assertThat(builder.buildAll().size(), is(3));
+        assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Spot",
+                "2 Bamboo", "2 Spot",
+                "3 Bamboo", "3 Spot",
+                "4 Bamboo", "4 Spot",
+                "5 Bamboo", "5 Spot",
+                "6 Bamboo", "6 Spot",
+                "7 Bamboo", "7 Spot"
+        )));
+        assertThat(builder.buildAll().get(1).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Crack",
+                "2 Bamboo", "2 Crack",
+                "3 Bamboo", "3 Crack",
+                "4 Bamboo", "4 Crack",
+                "5 Bamboo", "5 Crack",
+                "6 Bamboo", "6 Crack",
+                "7 Bamboo", "7 Crack"
+        )));
+        assertThat(builder.buildAll().get(2).getRequiredTiles(), is(Arrays.asList(
+                "1 Crack", "1 Spot", 
+                "2 Crack", "2 Spot", 
+                "3 Crack", "3 Spot", 
+                "4 Crack", "4 Spot", 
+                "5 Crack", "5 Spot", 
+                "6 Crack", "6 Spot", 
+                "7 Crack", "7 Spot"
+        )));
+    }
 }

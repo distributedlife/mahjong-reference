@@ -9,10 +9,12 @@ import java.util.List;
 public class StandardSequencePermutator implements Permutator {
     private final int from;
     private final int to;
+    private String suit;
 
-    public StandardSequencePermutator(int from, int to) {
+    public StandardSequencePermutator(int from, int to, String suit) {
         this.from = from;
         this.to = to;
+        this.suit = suit;
     }
 
     @Override
@@ -21,7 +23,7 @@ public class StandardSequencePermutator implements Permutator {
 
         for(HandCandidate candidate : candidates) {
             for (int i = from; i <= to; i++) {
-                String tile = TileSet.createTile(i, candidate.getPrimarySuit());
+                String tile = TileSet.convertTileToAppropriateSuit(suit, Integer.toString(i), candidate);
 
                 if (candidate.canAdd(tile)) {
                     candidate.add(tile);

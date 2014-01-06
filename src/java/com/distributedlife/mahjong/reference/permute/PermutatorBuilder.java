@@ -8,7 +8,7 @@ public class PermutatorBuilder {
             if (options.getLength() > 0) {
                 permutator = new CombinationSequencePermutator(options.getLength());
             } else {
-                permutator = new StandardSequencePermutator(options.getFrom(), options.getTo());
+                permutator = new StandardSequencePermutator(options.getFrom(), options.getTo(), options.getSuit());
             }
         }
         if (options.getType().equals("pung")) {

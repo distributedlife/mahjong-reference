@@ -25,7 +25,7 @@ public class MultiplePermutator implements Permutator {
 
         for(HandCandidate candidate : candidates) {
             for(String tile : tilesMultipleIsAllowedIn) {
-                String tileInSuit = convertTileToAppropriateSuit(tile, candidate);
+                String tileInSuit = TileSet.convertTileToAppropriateSuit(suit, tile, candidate);
 
                 if (candidate.canAdd(tileInSuit, times(multiples))) {
                     HandCandidate variation = candidate.fork();
@@ -36,48 +36,5 @@ public class MultiplePermutator implements Permutator {
         }
 
         return handCandidates;
-    }
-
-    private String convertTileToAppropriateSuit(String tile, HandCandidate candidate) {
-        String tileSuit = "";
-        if (suit.equals("1st")) {
-            tileSuit = candidate.getPrimarySuit();
-        }
-        if (suit.equals("2nd")) {
-            tileSuit = candidate.getSecondSuit();
-        }
-        if (suit.equals("3rd")) {
-            tileSuit = candidate.getThirdSuit();
-        }
-
-        if (tile.equals("1")) {
-            return TileSet.createTile(tile, tileSuit);
-        }
-        if (tile.equals("2")) {
-            return TileSet.createTile(tile, tileSuit);
-        }
-        if (tile.equals("3")) {
-            return TileSet.createTile(tile, tileSuit);
-        }
-        if (tile.equals("4")) {
-            return TileSet.createTile(tile, tileSuit);
-        }
-        if (tile.equals("5")) {
-            return TileSet.createTile(tile, tileSuit);
-        }
-        if (tile.equals("6")) {
-            return TileSet.createTile(tile, tileSuit);
-        }
-        if (tile.equals("7")) {
-            return TileSet.createTile(tile, tileSuit);
-        }
-        if (tile.equals("8")) {
-            return TileSet.createTile(tile, tileSuit);
-        }
-        if (tile.equals("9")) {
-            return TileSet.createTile(tile, tileSuit);
-        }
-
-        return tile;
     }
 }
