@@ -4,33 +4,44 @@ import com.distributedlife.mahjong.game.TileSet;
 import com.distributedlife.mahjong.helpers.Json;
 import com.distributedlife.mahjong.json.JsonToHandDefinition;
 import com.distributedlife.mahjong.json.JsonToPermutatorOptionsConverter;
+import com.distributedlife.mahjong.reference.adapter.HandCandidateToAHandConverter;
+import com.distributedlife.mahjong.reference.filter.DuplicateHandCandidateFilter;
+import com.distributedlife.mahjong.reference.filter.HandCandidateFilter;
 import com.distributedlife.mahjong.reference.filter.InvalidHandCandidateFilter;
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
 import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Arrays;
+import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
 public class HandLibraryBuilderTest {
-    private final InvalidHandCandidateFilter filter = new InvalidHandCandidateFilter();
     private final PermutatorExecutor permutatorExecutor = new PermutatorExecutor();
     private final TileSet tileSet = new TileSet();
     private final JsonToPermutatorOptionsConverter jsonToPermutatorConverter = new JsonToPermutatorOptionsConverter();
+    private HandCandidateToAHandConverter converter = new HandCandidateToAHandConverter();
+    private List<HandCandidateFilter> filters;
+
+    @Before
+    public void setupFilters() {
+        filters = Arrays.asList(new InvalidHandCandidateFilter(), new DuplicateHandCandidateFilter());
+    }
 
     @Test
     public void buildAllHands() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/all.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
-        assertThat(builder.buildAll().size(), is(10522));
+        assertThat(builder.buildAll().size(), is(1669));
     }
 
     @Test
@@ -38,9 +49,9 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/runPungAndAPair.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
         assertThat(builder.buildAll().size(), is(216));
     }
@@ -50,9 +61,9 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/gatesOfHeaven.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
         assertThat(builder.buildAll().size(), is(21));
     }
@@ -62,15 +73,15 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/confusedGates.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
         assertThat(builder.buildAll().size(), is(42));
         assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
-                "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo",
-                "2 Bamboo",
                 "1 Spot", "1 Spot", "1 Spot",
+                "2 Bamboo",
+                "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo",
                 "9 Crack", "9 Crack", "9 Crack"
         )));
     }
@@ -80,15 +91,15 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/wrigglySnake.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
         assertThat(builder.buildAll().size(), is(39));
         assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo",
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "North", "West", "East", "South",
-                "1 Bamboo"
+                "East", "North", "South", "West"
         )));
     }
 
@@ -97,16 +108,16 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/hachiBan.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
-        assertThat(builder.buildAll().size(), is(504));
+        assertThat(builder.buildAll().size(), is(138));
         assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo",
+                "East", "East",
                 "North", "North",
-                "North", "North",
-                "East", "East"
+                "North", "North"
         )));
     }
 
@@ -115,9 +126,9 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/guardianWinds.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
         assertThat(builder.buildAll().size(), is(36));
     }
@@ -127,9 +138,9 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/guardianDragons.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
         assertThat(builder.buildAll().size(), is(18));
     }
@@ -139,14 +150,14 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/fiveOddHonours.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
-        assertThat(builder.buildAll().size(), is(7560));
+        assertThat(builder.buildAll().size(), is(63));
         assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "North", "East", "West", "South", "Red"
+                "East", "North", "Red", "South", "West"
         )));
     }
 
@@ -155,15 +166,15 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/wrigglyDragon.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
-        assertThat(builder.buildAll().size(), is(54));
+        assertThat(builder.buildAll().size(), is(9));
         assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "Red", "Green", "White",
-                "Red", "Red"
+                "Green", "Red", "Red",
+                "Red", "White"
         )));
     }
 
@@ -172,15 +183,15 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/grandSequence.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
-        assertThat(builder.buildAll().size(), is(1890));
+        assertThat(builder.buildAll().size(), is(945));
         assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo",
+                "1 Bamboo",
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "1 Bamboo",
-                "1 Bamboo",
                 "North", "North", "North"
         )));
     }
@@ -190,15 +201,15 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/dragonsGates.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
         assertThat(builder.buildAll().size(), is(42));
         assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
-                "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo",
-                "2 Bamboo",
                 "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "2 Bamboo",
+                "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo",
                 "Green", "Green", "Green"
         )));
     }
@@ -208,15 +219,15 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/dragonsTail.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
         assertThat(builder.buildAll().size(), is(72));
         assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "Red", "Red", "Red",
-                "North", "North"
+                "North", "North",
+                "Red", "Red", "Red"
         )));
     }
 
@@ -225,17 +236,29 @@ public class HandLibraryBuilderTest {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
                 new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/dragonsTeeth.json")),
-                filter,
-                permutatorExecutor
-        );
+                filters,
+                permutatorExecutor,
+                converter);
 
         //TODO: check that this hand is 1-7, 2-8 and not 3-9 and if it's only for spot and crack
         assertThat(builder.buildAll().size(), is(28));
         assertThat(builder.buildAll().get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Spot", "2 Spot", "3 Spot", "4 Spot", "5 Spot", "6 Spot", "7 Spot",
                 "1 Spot",
-                "White", "White", "White",
-                "Red", "Red", "Red"
+                "1 Spot", "2 Spot", "3 Spot", "4 Spot", "5 Spot", "6 Spot", "7 Spot",
+                "Red", "Red", "Red",
+                "White", "White", "White"
         )));
+    }
+
+    @Test
+    public void gretasGarden() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/gretasGarden.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        assertThat(builder.buildAll().size(), is(3));
     }
 }

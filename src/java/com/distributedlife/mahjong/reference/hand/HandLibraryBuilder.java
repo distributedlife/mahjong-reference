@@ -2,23 +2,26 @@ package com.distributedlife.mahjong.reference.hand;
 
 import com.distributedlife.mahjong.game.TileSet;
 import com.distributedlife.mahjong.hand.Hand;
-import com.distributedlife.mahjong.reference.filter.InvalidHandCandidateFilter;
+import com.distributedlife.mahjong.reference.adapter.HandCandidateToAHandConverter;
+import com.distributedlife.mahjong.reference.filter.HandCandidateFilter;
 import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;
 
 import java.util.ArrayList;
 import java.util.List;
 
 class HandLibraryBuilder {
+    private List<HandCandidateFilter> filters;
     private final PermutatorExecutor permutatorExecutor;
-    private final InvalidHandCandidateFilter filter;
     private final TileSet tileSet;
     private final List<HandDefinition> definitions;
+    private HandCandidateToAHandConverter converter;
 
-    public HandLibraryBuilder(TileSet tileSet, List<HandDefinition> definitions, InvalidHandCandidateFilter filter, PermutatorExecutor permutatorExecutor) {
+    public HandLibraryBuilder(TileSet tileSet, List<HandDefinition> definitions, List<HandCandidateFilter> filters, PermutatorExecutor permutatorExecutor, HandCandidateToAHandConverter converter) {
         this.tileSet = tileSet;
         this.definitions = definitions;
-        this.filter = filter;
+        this.filters = filters;
         this.permutatorExecutor = permutatorExecutor;
+        this.converter = converter;
     }
 
     public List<Hand> buildAll() {
@@ -28,7 +31,11 @@ class HandLibraryBuilder {
             candidates.addAll(build(definition));
         }
 
-        return filter.apply(candidates);
+        for (HandCandidateFilter filter : filters) {
+            candidates =  filter.apply(candidates);
+        }
+
+        return converter.convert(candidates);
     }
 
     private List<HandCandidate> build(HandDefinition definition) {

@@ -1,6 +1,5 @@
 package com.distributedlife.mahjong.reference.filter;
 
-import com.distributedlife.mahjong.hand.Hand;
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import org.junit.Test;
 
@@ -15,7 +14,7 @@ import static org.mockito.Mockito.when;
 public class InvalidHandCandidateFilterTest {
     @Test
     public void shouldFilterAllInvalidCandidates() {
-        InvalidHandCandidateFilter filter = new InvalidHandCandidateFilter();
+        HandCandidateFilter filter = new InvalidHandCandidateFilter();
         HandCandidate candidate1 = mock(HandCandidate.class);
         when(candidate1.isValid()).thenReturn(false);
         HandCandidate candidate2 = mock(HandCandidate.class);
@@ -24,7 +23,7 @@ public class InvalidHandCandidateFilterTest {
 
         List<HandCandidate> inCandidates = Arrays.asList(candidate1, candidate2);
 
-        List<Hand> outCandidates = filter.apply(inCandidates);
+        List<HandCandidate> outCandidates = filter.apply(inCandidates);
         assertThat(outCandidates.size(), is(1));
         assertThat(outCandidates.get(0).getName(), is("include"));
     }
