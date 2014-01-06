@@ -1,0 +1,13 @@
+{
+    hands: [
+    {
+        name: "Guardian Dragons",
+        suits: ["bamboo", "spot", "crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]}
+        ]
+    }]
+}
