@@ -1,6 +1,6 @@
 package com.distributedlife.mahjong.reference.permute;
 
-import com.distributedlife.mahjong.game.TileSet;
+import com.distributedlife.mahjong.reference.data.TileSet;
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
 import java.util.ArrayList;

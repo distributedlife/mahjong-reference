@@ -1,6 +1,6 @@
 package com.distributedlife.mahjong.reference.adapter;
 
-import com.distributedlife.mahjong.hand.Hand;
+import com.distributedlife.mahjong.reference.hand.Hand;
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
 import java.util.ArrayList;

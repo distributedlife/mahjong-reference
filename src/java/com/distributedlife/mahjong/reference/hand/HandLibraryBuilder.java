@@ -1,7 +1,6 @@
 package com.distributedlife.mahjong.reference.hand;
 
-import com.distributedlife.mahjong.game.TileSet;
-import com.distributedlife.mahjong.hand.Hand;
+import com.distributedlife.mahjong.reference.data.TileSet;
 import com.distributedlife.mahjong.reference.adapter.HandCandidateToAHandConverter;
 import com.distributedlife.mahjong.reference.filter.HandCandidateFilter;
 import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;

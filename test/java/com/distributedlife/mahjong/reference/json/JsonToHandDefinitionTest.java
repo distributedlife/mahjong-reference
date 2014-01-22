@@ -1,4 +1,4 @@
-package com.distributedlife.mahjong.json;
+package com.distributedlife.mahjong.reference.json;
 
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilderOptions;

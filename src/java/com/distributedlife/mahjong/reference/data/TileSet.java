@@ -1,4 +1,4 @@
-package com.distributedlife.mahjong.game;
+package com.distributedlife.mahjong.reference.data;
 
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 

@@ -1,9 +1,9 @@
 package com.distributedlife.mahjong.reference.hand;
 
-import com.distributedlife.mahjong.game.TileSet;
+import com.distributedlife.mahjong.reference.data.TileSet;
 import com.distributedlife.mahjong.helpers.Json;
-import com.distributedlife.mahjong.json.JsonToHandDefinition;
-import com.distributedlife.mahjong.json.JsonToPermutatorOptionsConverter;
+import com.distributedlife.mahjong.reference.json.JsonToHandDefinition;
+import com.distributedlife.mahjong.reference.json.JsonToPermutatorOptionsConverter;
 import com.distributedlife.mahjong.reference.adapter.HandCandidateToAHandConverter;
 import com.distributedlife.mahjong.reference.filter.DuplicateHandCandidateFilter;
 import com.distributedlife.mahjong.reference.filter.HandCandidateFilter;

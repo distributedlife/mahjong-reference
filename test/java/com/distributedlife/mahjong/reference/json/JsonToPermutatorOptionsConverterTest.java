@@ -1,4 +1,4 @@
-package com.distributedlife.mahjong.json;
+package com.distributedlife.mahjong.reference.json;
 
 import org.json.JSONArray;
 import org.json.JSONObject;

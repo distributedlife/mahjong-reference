@@ -1,4 +1,4 @@
-package com.distributedlife.mahjong.json;
+package com.distributedlife.mahjong.reference.json;
 
 import com.distributedlife.mahjong.reference.hand.HandDefinition;
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
