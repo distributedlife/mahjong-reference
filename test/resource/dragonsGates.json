@@ -2,7 +2,7 @@
     hands: [
     {
         name: "Dragon's Gates",
-        suits: ["bamboo"],
+        suits: ["Bamboo"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -13,7 +13,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["bamboo"],
+        suits: ["Bamboo"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -24,7 +24,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["spot"],
+        suits: ["Spot"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -35,7 +35,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["spot"],
+        suits: ["Spot"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -46,7 +46,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["crack"],
+        suits: ["Crack"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -57,7 +57,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["crack"],
+        suits: ["Crack"],
         requirements:
         [
             {type: "run", from: 2, to: 8},

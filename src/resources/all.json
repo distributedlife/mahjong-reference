@@ -2,7 +2,7 @@
     hands: [
     {
         name: "Run, Pung and a Pair",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
@@ -12,7 +12,7 @@
     },
     {
         name: "Gates Of Heaven",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -23,7 +23,7 @@
     },
     {
         name: "Confused Gates",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -34,7 +34,7 @@
     },
     {
         name: "Wriggly Snake",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
@@ -47,7 +47,7 @@
     },
     {
         name: "Hachi Ban",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", length: 8},
@@ -58,7 +58,7 @@
     },
     {
         name: "Hachi Ban",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", length: 8},
@@ -69,7 +69,7 @@
     },
     {
         name: "Guardian Winds",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
@@ -79,7 +79,7 @@
     },
     {
         name: "Guardian Dragons",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
@@ -89,16 +89,16 @@
     },
     {
         name: "Five Odd Honours",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
-            {type: "subset", length: 5, tiles: ["North", "East", "West", "South", "Red", "Green", "White"]},
+            {type: "subset", length: 5, tiles: ["North", "East", "West", "South", "Red", "Green", "White"]}
         ]
     },
     {
         name: "Wriggly Dragon",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
@@ -108,18 +108,18 @@
     },
     {
         name: "Grand Sequence",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
             {type: "any-paired"},
             {type: "any-paired"},
-            {type: "pung", tiles: ["North", "East", "West", "South", "Red", "Green", "White"]},
+            {type: "pung", tiles: ["North", "East", "West", "South", "Red", "Green", "White"]}
         ]
     },
     {
         name: "Dragon's Gates",
-        suits: ["bamboo"],
+        suits: ["Bamboo"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -130,7 +130,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["bamboo"],
+        suits: ["Bamboo"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -141,7 +141,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["spot"],
+        suits: ["Spot"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -152,7 +152,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["spot"],
+        suits: ["Spot"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -163,7 +163,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["crack"],
+        suits: ["Crack"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -174,7 +174,7 @@
     },
     {
         name: "Dragon's Gates",
-        suits: ["crack"],
+        suits: ["Crack"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -185,7 +185,7 @@
     },
     {
         name: "Dragon's Tail",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
@@ -195,7 +195,7 @@
     },
     {
         name: "Dragon's Tail",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
@@ -205,7 +205,7 @@
     },
     {
         name: "Dragon's Teeth",
-        suits: ["spot", "crack"],
+        suits: ["Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 7},
@@ -216,7 +216,7 @@
     },
     {
         name: "Dragon's Teeth",
-        suits: ["spot", "crack"],
+        suits: ["Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 2, to: 8},
@@ -227,7 +227,7 @@
     },
     {
         name: "Greta's Dragon",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 7},
@@ -237,7 +237,7 @@
     },
     {
         name: "Gertie's Garter",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 7},
@@ -246,7 +246,7 @@
     },
     {
         name: "Yin Yang",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "pair", tiles: ["1"]},
@@ -254,18 +254,18 @@
             {type: "pair", tiles: ["5"]},
             {type: "pair", tiles: ["5"], suit: "2nd"},
             {type: "run", from: 6, to: 8, suit: "2nd"},
-            {type: "pair", tiles: ["9"], suit: "2nd"},
+            {type: "pair", tiles: ["9"], suit: "2nd"}
         ]
     },
     {
         name: "Red Lantern",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 7},
             {type: "any-paired"},
             {type: "pung", tiles: ["Red"]},
-            {type: "pung", tiles: ["OwnWind"]},
+            {type: "pung", tiles: ["OwnWind"]}
         ]
     }]
 }

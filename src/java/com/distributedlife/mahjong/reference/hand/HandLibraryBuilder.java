@@ -8,7 +8,7 @@ import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;
 import java.util.ArrayList;
 import java.util.List;
 
-class HandLibraryBuilder {
+public class HandLibraryBuilder {
     private List<HandCandidateFilter> filters;
     private final PermutatorExecutor permutatorExecutor;
     private final TileSet tileSet;

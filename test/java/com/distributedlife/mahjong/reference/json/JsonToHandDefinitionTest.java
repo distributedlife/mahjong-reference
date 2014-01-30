@@ -30,9 +30,9 @@ public class JsonToHandDefinitionTest {
         runPungAndAPair.put("name", "Run, Pung and a Pair");
 
         JSONArray suitsArray = new JSONArray();
-        suitsArray.put("bamboo");
-        suitsArray.put("spot");
-        suitsArray.put("crack");
+        suitsArray.put("Bamboo");
+        suitsArray.put("Spot");
+        suitsArray.put("Crack");
         runPungAndAPair.put("suits", suitsArray);
 
         requirements = new JSONArray();

@@ -2,7 +2,7 @@
     hands: [
     {
         name: "Dragon's Tail",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},
@@ -12,7 +12,7 @@
     },
     {
         name: "Dragon's Tail",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},

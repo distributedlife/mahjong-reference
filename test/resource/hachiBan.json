@@ -2,7 +2,7 @@
     hands: [
     {
         name: "Hachi Ban",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", length: 8},
@@ -13,7 +13,7 @@
     },
     {
         name: "Hachi Ban",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", length: 8},

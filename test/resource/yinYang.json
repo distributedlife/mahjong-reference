@@ -2,7 +2,7 @@
     hands: [
     {
         name: "Yin Yang",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "pair", tiles: ["1"]},

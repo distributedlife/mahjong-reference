@@ -2,7 +2,7 @@
     hands: [
     {
         name: "Confused Gates",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 2, to: 8},

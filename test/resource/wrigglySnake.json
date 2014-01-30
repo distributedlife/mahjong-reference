@@ -2,7 +2,7 @@
     hands: [
     {
         name: "Wriggly Snake",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 9},

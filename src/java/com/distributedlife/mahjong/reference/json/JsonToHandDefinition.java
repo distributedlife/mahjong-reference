@@ -3,7 +3,6 @@ package com.distributedlife.mahjong.reference.json;
 import com.distributedlife.mahjong.reference.hand.HandDefinition;
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilderOptions;
-import com.sun.xml.internal.ws.util.StringUtils;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
@@ -49,7 +48,7 @@ public class JsonToHandDefinition {
     private void loadSuitsForHand(JSONObject jsonDefinition, HandDefinition handDefinition) {
         JSONArray suits = jsonDefinition.getJSONArray("suits");
         for(int j = 0; j < suits.length(); j++) {
-            handDefinition.addSuit(StringUtils.capitalize(suits.getString(j)));
+            handDefinition.addSuit(suits.getString(j));
         }
     }
 }

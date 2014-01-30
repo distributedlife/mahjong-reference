@@ -2,7 +2,7 @@
     hands: [
     {
         name: "Greta's Dragon",
-        suits: ["bamboo", "spot", "crack"],
+        suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
             {type: "run", from: 1, to: 7},

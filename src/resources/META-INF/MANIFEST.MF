@@ -1,0 +1,3 @@
+Manifest-Version: 1.0
+Class-Path: commons-lang3-3.2.1.jar json-20131018.jar
+
