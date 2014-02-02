@@ -37,8 +37,10 @@ public class PermutatorBuilder {
             return permutator;
         } else if (options.getSuit().equals("2nd")) {
             return new SecondSuitPermutator(permutator);
-        } else {
+        } else if (options.getSuit().equals("3rd")) {
             return new ThirdSuitPermutator(permutator);
+        } else {
+            return new AnySuitPermutator(permutator);
         }
     }
 }

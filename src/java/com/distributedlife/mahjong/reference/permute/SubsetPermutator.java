@@ -5,7 +5,7 @@ import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SubsetPermutator implements Permutator{
+public class SubsetPermutator extends Permutator {
 
     private List<List<String>> subsets = new ArrayList<List<String>>();
     private int subsetLength;

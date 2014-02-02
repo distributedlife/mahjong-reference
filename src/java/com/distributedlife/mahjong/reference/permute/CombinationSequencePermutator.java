@@ -8,17 +8,22 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class CombinationSequencePermutator implements Permutator {
+public class CombinationSequencePermutator extends Permutator {
     private int length;
-    private String suit;
+    private String defaultSuit;
 
-    public CombinationSequencePermutator(int length, String suit) {
+    public CombinationSequencePermutator(int length, String defaultSuit) {
         this.length = length;
-        this.suit = suit;
+        this.defaultSuit = defaultSuit;
     }
 
     @Override
     public List<HandCandidate> permute(List<HandCandidate> candidates) {
+        return permute(candidates, defaultSuit);
+    }
+
+    @Override
+    public List<HandCandidate> permute(List<HandCandidate> candidates, String suit) {
         List<HandCandidate> newCandidates = new ArrayList<HandCandidate>();
 
         for (Map<String, Integer> run : produceListOfCombinations()) {

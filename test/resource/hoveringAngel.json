@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Hovering Angel",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3, suit: "2nd"},
+            {type: "run", length: 3, suit: "3rd"},
+            {type: "pung", tiles: ["OwnWind"]},
+            {type: "pair", tiles: ["Red"]}
+        ]
+    }]
+}

@@ -5,7 +5,7 @@ import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AnyPairedPermutator implements Permutator {
+public class AnyPairedPermutator extends Permutator {
     @Override
     public List<HandCandidate> permute(List<HandCandidate> candidates) {
         ArrayList<HandCandidate> handCandidates = new ArrayList<HandCandidate>();

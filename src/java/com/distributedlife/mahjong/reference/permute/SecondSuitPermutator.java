@@ -5,7 +5,7 @@ import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SecondSuitPermutator implements Permutator {
+public class SecondSuitPermutator extends Permutator {
     private final Permutator permutator;
 
     public SecondSuitPermutator(Permutator permutator) {

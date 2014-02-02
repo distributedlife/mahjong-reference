@@ -1,21 +1,21 @@
 package com.distributedlife.mahjong.reference.hand;
 
-import com.distributedlife.mahjong.reference.data.TileSet;
 import com.distributedlife.mahjong.helpers.Json;
-import com.distributedlife.mahjong.reference.json.JsonToHandDefinition;
-import com.distributedlife.mahjong.reference.json.JsonToPermutatorOptionsConverter;
 import com.distributedlife.mahjong.reference.adapter.HandCandidateToAHandConverter;
+import com.distributedlife.mahjong.reference.data.TileSet;
 import com.distributedlife.mahjong.reference.filter.DuplicateHandCandidateFilter;
 import com.distributedlife.mahjong.reference.filter.HandCandidateFilter;
 import com.distributedlife.mahjong.reference.filter.InvalidHandCandidateFilter;
+import com.distributedlife.mahjong.reference.json.JsonToHandDefinition;
+import com.distributedlife.mahjong.reference.json.JsonToPermutatorOptionsConverter;
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
 import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Arrays;
-import java.util.Collections;
 import java.util.List;
 
 import static org.hamcrest.CoreMatchers.is;
@@ -42,7 +42,7 @@ public class HandLibraryBuilderTest {
                 permutatorExecutor,
                 converter);
 
-        assertThat(builder.buildAll().size(), is(347818));
+        assertThat(builder.buildAll().size(), is(592181));
     }
 
     @Test
@@ -445,6 +445,82 @@ public class HandLibraryBuilderTest {
                 "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Crack", "1 Spot",
                 "2 Bamboo", "2 Crack", "2 Crack", "2 Spot",
                 "3 Bamboo", "3 Crack", "3 Spot", "3 Spot"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void crazyChows() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/crazyChows.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(339570));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Crack", "1 Spot",
+                "2 Crack", "2 Crack", "2 Crack", "2 Crack",
+                "3 Spot", "3 Spot", "3 Spot", "3 Spot"
+        )));
+    }
+
+    @Test
+    public void littleRobert() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/littleRobert.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(239904));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Crack", "1 Crack", "1 Crack", "1 Spot",
+                "2 Bamboo", "2 Crack", "2 Spot",
+                "3 Bamboo", "3 Crack", "3 Spot"
+        )));
+    }
+
+    @Test
+    public void littleBrother() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/littleBrother.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(4116));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Crack", "1 Spot",
+                "2 Bamboo", "2 Bamboo", "2 Crack", "2 Spot",
+                "3 Bamboo", "3 Bamboo", "3 Crack", "3 Spot",
+                "OwnWind", "OwnWind"
+        )));
+    }
+
+    @Test
+    public void hoveringAngel() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/hoveringAngel.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(343));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Crack", "1 Spot",
+                "2 Bamboo", "2 Crack", "2 Spot",
+                "3 Bamboo", "3 Crack", "3 Spot",
+                "OwnWind", "OwnWind", "OwnWind",
+                "Red", "Red"
         )));
     }
 }

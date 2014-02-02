@@ -8,19 +8,24 @@ import java.util.List;
 
 import static com.distributedlife.mahjong.reference.hand.HandCandidate.times;
 
-public class MultiplePermutator implements Permutator {
+public class MultiplePermutator extends Permutator {
     final int multiples;
-    private final String suit;
+    private final String defaultSuit;
     final List<String> tilesMultipleIsAllowedIn;
 
-    public MultiplePermutator(List<String> tilesMultipleIsAllowedIn, int multiples, String suit) {
+    public MultiplePermutator(List<String> tilesMultipleIsAllowedIn, int multiples, String defaultSuit) {
         this.tilesMultipleIsAllowedIn = tilesMultipleIsAllowedIn;
         this.multiples = multiples;
-        this.suit = suit;
+        this.defaultSuit = defaultSuit;
     }
 
     @Override
     public List<HandCandidate> permute(List<HandCandidate> candidates) {
+        return permute(candidates, defaultSuit);
+    }
+
+    @Override
+    public List<HandCandidate> permute(List<HandCandidate> candidates, String suit) {
         ArrayList<HandCandidate> handCandidates = new ArrayList<HandCandidate>();
 
         for(HandCandidate candidate : candidates) {

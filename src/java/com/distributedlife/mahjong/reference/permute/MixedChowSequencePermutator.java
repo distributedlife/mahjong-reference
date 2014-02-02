@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class MixedChowSequencePermutator implements Permutator {
+public class MixedChowSequencePermutator extends Permutator {
     @Override
     public List<HandCandidate> permute(List<HandCandidate> candidates) {
         List<HandCandidate> newCandidates = new ArrayList<HandCandidate>();

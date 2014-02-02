@@ -6,19 +6,24 @@ import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class StandardSequencePermutator implements Permutator {
+public class StandardSequencePermutator extends Permutator {
     private final int from;
     private final int to;
-    private String suit;
+    private String defaultSuit;
 
-    public StandardSequencePermutator(int from, int to, String suit) {
+    public StandardSequencePermutator(int from, int to, String defaultSuit) {
         this.from = from;
         this.to = to;
-        this.suit = suit;
+        this.defaultSuit = defaultSuit;
     }
 
     @Override
     public List<HandCandidate> permute(List<HandCandidate> candidates) {
+        return permute(candidates, defaultSuit);
+    }
+
+    @Override
+    public List<HandCandidate> permute(List<HandCandidate> candidates, String suit) {
         ArrayList<HandCandidate> handCandidates = new ArrayList<HandCandidate>();
 
         for(HandCandidate candidate : candidates) {
