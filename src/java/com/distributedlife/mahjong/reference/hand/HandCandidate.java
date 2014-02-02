@@ -1,6 +1,10 @@
 package com.distributedlife.mahjong.reference.hand;
 
+import org.apache.commons.lang3.builder.EqualsBuilder;
+import org.apache.commons.lang3.builder.HashCodeBuilder;
+
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class HandCandidate {
@@ -75,6 +79,30 @@ public class HandCandidate {
             availableTiles.remove(tile);
             requiredTiles.add(tile);
         }
+
+        Collections.sort(requiredTiles);
+    }
+
+    public boolean equals(Object obj) {
+        if (obj == null)
+            return false;
+        if (obj == this)
+            return true;
+        if (!(obj instanceof HandCandidate))
+            return false;
+
+        HandCandidate rhs = (HandCandidate) obj;
+        return new EqualsBuilder().
+                append(name, rhs.name).
+                append(requiredTiles, rhs.requiredTiles).
+                isEquals();
+    }
+
+    public int hashCode() {
+        return new HashCodeBuilder(17, 31).
+                append(name).
+                append(requiredTiles).
+                toHashCode();
     }
 
     public static int times(int i) {

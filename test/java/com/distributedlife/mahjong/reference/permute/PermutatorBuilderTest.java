@@ -74,4 +74,11 @@ public class PermutatorBuilderTest {
         when(options.getLength()).thenReturn(1);
         assertThat(builder.build(options).getClass().toString(), is(SubsetPermutator.class.toString()));
     }
+
+    @Test
+    public void shouldCreateAMixedChowPermutatorWhenSubsetIsSupplied() {
+        when(options.getType()).thenReturn("mixed-chow");
+        when(options.getLength()).thenReturn(1);
+        assertThat(builder.build(options).getClass().toString(), is(MixedChowSequencePermutator.class.toString()));
+    }
 }

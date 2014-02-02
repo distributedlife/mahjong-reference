@@ -6,6 +6,7 @@ import com.distributedlife.mahjong.reference.filter.HandCandidateFilter;
 import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class HandLibraryBuilder {
@@ -31,10 +32,14 @@ public class HandLibraryBuilder {
         }
 
         for (HandCandidateFilter filter : filters) {
-            candidates =  filter.apply(candidates);
+            candidates = filter.apply(candidates);
         }
 
-        return converter.convert(candidates);
+        List<Hand> hands = converter.convert(candidates);
+
+        Collections.sort(hands);
+
+        return hands;
     }
 
     private List<HandCandidate> build(HandDefinition definition) {

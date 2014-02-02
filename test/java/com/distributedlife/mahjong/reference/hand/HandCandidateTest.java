@@ -71,4 +71,45 @@ public class HandCandidateTest {
         assertThat(original.fork().getRequiredTiles(), is(Arrays.asList("1 Bamboo")));
         assertThat(original.fork().availableTiles, is(Arrays.asList("2 Bamboo")));
     }
+
+    @Test
+    public void shouldNotBeEqualIfTheyHaveDifferentNames() {
+        List<String> availableTiles = new ArrayList<String>();
+        availableTiles.add("1 Bamboo");
+        availableTiles.add("2 Bamboo");
+        HandCandidate first = new HandCandidate("hello", availableTiles);
+        first.add("1 Bamboo");
+
+        HandCandidate second = new HandCandidate("different", availableTiles);
+        first.add("1 Bamboo");
+
+        assertFalse(second.equals(first));
+    }
+
+    @Test
+    public void shouldNotBeEqualIfTheyHaveDifferentRequiredTiles() {
+        List<String> availableTiles = new ArrayList<String>();
+        availableTiles.add("1 Bamboo");
+        availableTiles.add("2 Bamboo");
+        HandCandidate first = new HandCandidate("hello", availableTiles);
+        first.add("1 Bamboo");
+
+        HandCandidate second = new HandCandidate("hello", availableTiles);
+        first.add("2 Bamboo");
+
+        assertFalse(second.equals(first));
+    }
+
+    @Test
+    public void shouldBeEqualIfTheyHaveTheSameNameAndRequiredTiles() {
+        List<String> availableTiles = new ArrayList<String>();
+        availableTiles.add("1 Bamboo");
+        availableTiles.add("2 Bamboo");
+        HandCandidate first = new HandCandidate("hello", availableTiles);
+        first.add("1 Bamboo");
+
+        HandCandidate second = first.fork();
+
+        assertTrue(second.equals(first));
+    }
 }

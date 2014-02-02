@@ -6,10 +6,13 @@ public class PermutatorBuilder {
 
         if (options.getType().equals("run")) {
             if (options.getLength() > 0) {
-                permutator = new CombinationSequencePermutator(options.getLength());
+                permutator = new CombinationSequencePermutator(options.getLength(), options.getSuit());
             } else {
                 permutator = new StandardSequencePermutator(options.getFrom(), options.getTo(), options.getSuit());
             }
+        }
+        if (options.getType().equals("mixed-chow")) {
+            permutator = new MixedChowSequencePermutator();
         }
         if (options.getType().equals("pung")) {
             permutator = new PungPermutator(options.getTiles(), options.getSuit());

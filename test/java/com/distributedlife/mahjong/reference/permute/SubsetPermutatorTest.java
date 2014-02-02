@@ -33,8 +33,8 @@ public class SubsetPermutatorTest {
         assertThat(outCandidates.get(0).getRequiredTiles().get(0), is("1"));
         assertThat(outCandidates.get(0).getRequiredTiles().get(1), is("2"));
 
-        assertThat(outCandidates.get(1).getRequiredTiles().get(0), is("2"));
-        assertThat(outCandidates.get(1).getRequiredTiles().get(1), is("1"));
+        assertThat(outCandidates.get(1).getRequiredTiles().get(0), is("1"));
+        assertThat(outCandidates.get(1).getRequiredTiles().get(1), is("2"));
     }
 
     @Test

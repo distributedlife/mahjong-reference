@@ -1,0 +1,14 @@
+{
+    hands: [
+    {
+        name: "Big Robert",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 4},
+            {type: "run", length: 4},
+            {type: "run", length: 4},
+            {type: "pair", tiles: ["North", "West", "East", "South", "Red", "Green", "Whites"]}
+        ]
+    }]
+}

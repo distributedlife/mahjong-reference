@@ -15,9 +15,10 @@ public class CombinationSequencePermutatorTest {
         HandCandidate candidate = new HandCandidate("derp", Arrays.asList(
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo"
         ));
+        candidate.setPrimarySuit("Bamboo");
         List<HandCandidate> inCandidates = Arrays.asList(candidate);
 
-        CombinationSequencePermutator permutator = new CombinationSequencePermutator(9);
+        CombinationSequencePermutator permutator = new CombinationSequencePermutator(9, "1st");
         List<HandCandidate> outCandidates = permutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(1));
@@ -28,9 +29,10 @@ public class CombinationSequencePermutatorTest {
         HandCandidate candidate = new HandCandidate("derp", Arrays.asList(
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo"
         ));
+        candidate.setPrimarySuit("Bamboo");
         List<HandCandidate> inCandidates = Arrays.asList(candidate);
 
-        CombinationSequencePermutator permutator = new CombinationSequencePermutator(8);
+        CombinationSequencePermutator permutator = new CombinationSequencePermutator(8, "1st");
         List<HandCandidate> outCandidates = permutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(2));
@@ -41,9 +43,10 @@ public class CombinationSequencePermutatorTest {
         HandCandidate candidate = new HandCandidate("derp", Arrays.asList(
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo"
         ));
+        candidate.setPrimarySuit("Bamboo");
         List<HandCandidate> inCandidates = Arrays.asList(candidate);
 
-        CombinationSequencePermutator permutator = new CombinationSequencePermutator(3);
+        CombinationSequencePermutator permutator = new CombinationSequencePermutator(3, "1st");
         List<HandCandidate> outCandidates = permutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(7));

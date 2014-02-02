@@ -267,5 +267,56 @@
             {type: "pung", tiles: ["Red"]},
             {type: "pung", tiles: ["OwnWind"]}
         ]
+    },
+    {
+        name: "Big Robert",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 4},
+            {type: "run", length: 4},
+            {type: "run", length: 4},
+            {type: "pair", tiles: ["North", "West", "East", "South", "Red", "Green", "Whites"]}
+        ]
+    },
+    {
+        name: "Moon At The Bottom Of The Well",
+        suits: ["Spot"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Chow Chow",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Three Philosophers",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3, suit: "2nd"},
+            {type: "run", length: 3, suit: "3rd"},
+            {type: "mixed-chow"},
+            {type: "pair", tiles: [
+                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
+                "1 Spot", "2 Spot", "3 Spot", "4 Spot", "5 Spot", "6 Spot", "7 Spot", "8 Spot", "9 Spot",
+                "1 Crack", "2 Crack", "3 Crack", "4 Crack", "5 Crack", "6 Crack", "7 Crack", "8 Crack", "9 Crack"
+            ]}
+        ]
     }]
 }

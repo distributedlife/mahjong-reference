@@ -10,9 +10,11 @@ import java.util.Map;
 
 public class CombinationSequencePermutator implements Permutator {
     private int length;
+    private String suit;
 
-    public CombinationSequencePermutator(int length) {
+    public CombinationSequencePermutator(int length, String suit) {
         this.length = length;
+        this.suit = suit;
     }
 
     @Override
@@ -24,7 +26,7 @@ public class CombinationSequencePermutator implements Permutator {
                 HandCandidate variation = candidate.fork();
 
                 for (int i = run.get("from"); i <= run.get("to"); i++) {
-                    String tile = TileSet.createTile(i, variation.getPrimarySuit());
+                    String tile = TileSet.convertTileToAppropriateSuit(suit, String.valueOf(i), candidate);
 
                     if (variation.canAdd(tile)) {
                         variation.add(tile);
