@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "The Professors",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "subset", length: 3, tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["OwnWind"]}
+        ]
+    }]
+}

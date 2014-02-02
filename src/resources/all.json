@@ -354,5 +354,65 @@
             {type: "pung", tiles: ["OwnWind"]},
             {type: "pair", tiles: ["Red"]}
         ]
+    },
+    {
+        name: "Windy Chows",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3, suit: "2nd"},
+            {type: "run", length: 3, suit: "3rd"},
+            {type: "subset", length: 4, tiles: ["North", "East", "West", "South"]},
+            {type: "subset", length: 1, tiles: ["North", "East", "West", "South"]}
+        ]
+    },
+    {
+        name: "Chop Suey",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 3},
+            {type: "run", from: 1, to: 3, suit: "2nd"},
+            {type: "run", from: 1, to: 3, suit: "3rd"},
+            {type: "subset", length: 4, tiles: ["North", "East", "West", "South"]},
+            {type: "subset", length: 1, tiles: ["North", "East", "West", "South"]}
+        ]
+    },
+    {
+        name: "Chop Suey",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 7, to: 9},
+            {type: "run", from: 7, to: 9, suit: "2nd"},
+            {type: "run", from: 7, to: 9, suit: "3rd"},
+            {type: "subset", length: 4, tiles: ["North", "East", "West", "South"]},
+            {type: "subset", length: 1, tiles: ["North", "East", "West", "South"]}
+        ]
+    },
+    {
+        name: "The Professors",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "subset", length: 3, tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["OwnWind"]}
+        ]
+    },
+    {
+        name: "Apple Blossom",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "pung", tiles: ["White"]},
+            {type: "pair", tiles: ["Green"]}
+        ]
     }]
 }

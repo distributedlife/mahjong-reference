@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Chop Suey",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 7, to: 9},
+            {type: "run", from: 7, to: 9, suit: "2nd"},
+            {type: "run", from: 7, to: 9, suit: "3rd"},
+            {type: "subset", length: 4, tiles: ["North", "East", "West", "South"]},
+            {type: "subset", length: 1, tiles: ["North", "East", "West", "South"]}
+        ]
+    }]
+}
