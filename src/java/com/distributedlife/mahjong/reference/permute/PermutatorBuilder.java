@@ -29,6 +29,9 @@ public class PermutatorBuilder {
         if (options.getType().equals("subset")) {
             permutator = new SubsetPermutator(options.getTiles(), options.getLength());
         }
+        if (options.getType().equals("one-each")) {
+            permutator = new OneEachPermutator(options.getTiles());
+        }
         if (permutator == null) {
             return new UnknownPermutator(options.getType());
         }

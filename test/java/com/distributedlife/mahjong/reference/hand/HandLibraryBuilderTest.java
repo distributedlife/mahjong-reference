@@ -811,7 +811,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void dragonsBreath() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -821,7 +820,7 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(1));
+        assertThat(hands.size(), is(7938));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
                 "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
@@ -831,7 +830,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void windfall() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -841,7 +839,7 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(1));
+        assertThat(hands.size(), is(2646));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
                 "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
@@ -851,7 +849,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void dragonette() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -861,7 +858,7 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(1));
+        assertThat(hands.size(), is(693));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
                 "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
                 "3 Bamboo", "3 Bamboo",
