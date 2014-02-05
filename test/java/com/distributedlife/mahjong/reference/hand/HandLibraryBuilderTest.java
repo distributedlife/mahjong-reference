@@ -34,6 +34,7 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
+    @Ignore
     public void buildAllHands() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -621,6 +622,491 @@ public class HandLibraryBuilderTest {
                 "2 Crack", "2 Crack", "2 Crack",
                 "3 Spot", "3 Spot", "3 Spot",
                 "Green","Green",
+                "White", "White", "White"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void knitting() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/knitting.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(12430));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Crack",
+                "1 Bamboo", "1 Crack",
+                "1 Bamboo", "1 Crack",
+                "1 Bamboo", "1 Crack",
+                "2 Bamboo", "2 Crack",
+                "2 Bamboo", "2 Crack",
+                "2 Bamboo", "2 Crack"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void tripleKnitting() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/tripleKnitting.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(12430));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "1 Crack", "1 Crack", "1 Crack", "1 Crack",
+                "1 Spot", "1 Spot", "1 Spot", "1 Spot",
+                "2 Bamboo","2 Crack"
+        )));
+    }
+
+    @Test
+    public void sparrowsSanctuary() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/sparrowsSanctuary.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(1));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo",
+                "4 Bamboo", "4 Bamboo",
+                "6 Bamboo", "6 Bamboo",
+                "8 Bamboo", "8 Bamboo"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void heavenlyTwins() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/heavenlyTwins.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(1));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo", "3 Bamboo", "3 Bamboo",
+                "4 Bamboo", "4 Bamboo"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void allPair() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/allPair.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(1));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo", "3 Bamboo", "3 Bamboo",
+                "4 Bamboo", "4 Bamboo"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void allPairHonours() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/allPairHonours.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(1));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "1 Crack", "1 Crack", "1 Crack", "1 Crack",
+                "1 Spot", "1 Spot", "1 Spot", "1 Spot",
+                "9 Bamboo", "9 Bamboo"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void sevenTwins() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/sevenTwins.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(1));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "1 Crack", "1 Crack", "1 Crack", "1 Crack",
+                "1 Spot", "1 Spot", "1 Spot", "1 Spot",
+                "2 Bamboo", "2 Bamboo"
+        )));
+    }
+
+    @Test
+    public void allPairJade() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/allPairJade.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(96));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo", "3 Bamboo", "3 Bamboo",
+                "4 Bamboo", "4 Bamboo", "4 Bamboo", "4 Bamboo",
+                "Green", "Green"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void allPairRubyJade() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/allPairRubyJade.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(1));
+        //TODO: confirm what red and green bamboo means
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo", "3 Bamboo", "3 Bamboo",
+                "4 Bamboo", "4 Bamboo", "4 Bamboo", "4 Bamboo",
+                "Green", "Green", "Red", "Red"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void dragonsBreath() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/dragonsBreath.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(1));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo",
+                "Green", "Green", "Red", "White"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void windfall() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/windfall.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(1));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo",
+                "East", "North", "South", "West"
+        )));
+    }
+
+    @Test
+    @Ignore
+    public void dragonette() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/dragonette.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(1));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo",
+                "East", "Green", "Green", "North", "Red", "South", "West", "White"
+        )));
+    }
+
+    @Test
+    public void goldenGates() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/goldenGates.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(6));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "2 Bamboo",
+                "4 Bamboo", "4 Bamboo",
+                "6 Bamboo", "6 Bamboo",
+                "8 Bamboo", "8 Bamboo",
+                "Green", "Green", "Green"
+        )));
+    }
+
+    @Test
+    public void windyDragons() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/windyDragons.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(3));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "East", "East",
+                "Green", "Green", "Green",
+                "North", "North",
+                "Red", "Red", "Red",
+                "South", "South",
+                "West", "West"
+        )));
+    }
+
+    @Test
+    public void redWaratah() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/redWaratah.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(324));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "1 Crack", "1 Crack", "1 Crack",
+                "1 Spot", "1 Spot", "1 Spot",
+                "Green", "Green",
+                "Red", "Red", "Red"
+        )));
+    }
+
+    @Test
+    public void greenJade() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/greenJade.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(504));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo", "3 Bamboo",
+                "4 Bamboo", "4 Bamboo",
+                "Green", "Green", "Green"
+        )));
+    }
+
+    @Test
+    public void redCoral() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/redCoral.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(504));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Crack", "1 Crack", "1 Crack",
+                "2 Crack", "2 Crack", "2 Crack",
+                "3 Crack", "3 Crack", "3 Crack",
+                "4 Crack", "4 Crack",
+                "Red", "Red", "Red"
+        )));
+    }
+
+    @Test
+    public void whiteOpal() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/whiteOpal.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(504));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Spot", "1 Spot", "1 Spot",
+                "2 Spot", "2 Spot", "2 Spot",
+                "3 Spot", "3 Spot", "3 Spot",
+                "4 Spot", "4 Spot",
+                "White", "White", "White"
+        )));
+    }
+
+    @Test
+    public void imperialJade() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/imperialJade.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(20));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo", "3 Bamboo",
+                "4 Bamboo", "4 Bamboo", "4 Bamboo",
+                "6 Bamboo", "6 Bamboo",
+                "Green", "Green", "Green"
+        )));
+    }
+
+    @Test
+    public void lilyOfTheValley() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/lilyOfTheValley.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(30));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo", "3 Bamboo",
+                "4 Bamboo", "4 Bamboo",
+                "Green", "Green", "Green",
+                "White", "White", "White"
+        )));
+    }
+
+    @Test
+    public void lillyPilly() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/lillyPilly.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(84));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Spot", "1 Spot", "1 Spot",
+                "2 Spot", "2 Spot", "2 Spot",
+                "3 Spot", "3 Spot", "3 Spot",
+                "Green", "Green", "Green",
+                "White", "White"
+        )));
+    }
+
+    @Test
+    public void royalRuby() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/royalRuby.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(4));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "5 Bamboo", "5 Bamboo", "5 Bamboo",
+                "7 Bamboo", "7 Bamboo", "7 Bamboo",
+                "9 Bamboo", "9 Bamboo",
+                "Red", "Red", "Red"
+        )));
+    }
+
+    @Test
+    public void rubyJade() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/rubyJade.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(140));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "3 Bamboo", "3 Bamboo",
+                "Green", "Green", "Green",
+                "Red", "Red", "Red"
+        )));
+    }
+
+    @Test
+    public void redLily() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/redLily.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(12));
+        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "5 Bamboo", "5 Bamboo", "5 Bamboo",
+                "7 Bamboo", "7 Bamboo",
+                "Red", "Red", "Red",
                 "White", "White", "White"
         )));
     }

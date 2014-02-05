@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Triple Knitting",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "mixed-pung"},
+            {type: "mixed-pung"},
+            {type: "mixed-pung"},
+            {type: "mixed-pung"},
+            {type: "mixed-pair"}
+        ]
+    }]
+}

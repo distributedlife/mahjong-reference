@@ -1,0 +1,17 @@
+{
+    hands: [
+    {
+        name: "Knitting",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "mixed-pair", suits: ["1st", "2nd"]},
+            {type: "mixed-pair", suits: ["1st", "2nd"]},
+            {type: "mixed-pair", suits: ["1st", "2nd"]},
+            {type: "mixed-pair", suits: ["1st", "2nd"]},
+            {type: "mixed-pair", suits: ["1st", "2nd"]},
+            {type: "mixed-pair", suits: ["1st", "2nd"]},
+            {type: "mixed-pair", suits: ["1st", "2nd"]}
+        ]
+    }]
+}

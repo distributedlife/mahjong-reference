@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Imperial Jade",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Green"]},
+            {type: "pung", tiles: ["2", "3", "4", "6", "8"]},
+            {type: "pung", tiles: ["2", "3", "4", "6", "8"]},
+            {type: "pung", tiles: ["2", "3", "4", "6", "8"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8"]}
+        ]
+    }]
+}

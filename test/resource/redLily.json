@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Red Lily",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red"]},
+            {type: "pung", tiles: ["White"]},
+            {type: "pung", tiles: ["1", "5", "7", "9"]},
+            {type: "pung", tiles: ["1", "5", "7", "9"]},
+            {type: "pair", tiles: ["1", "5", "7", "9"]}
+        ]
+    }]
+}
