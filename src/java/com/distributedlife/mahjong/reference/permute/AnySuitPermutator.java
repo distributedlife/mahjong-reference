@@ -3,7 +3,9 @@ package com.distributedlife.mahjong.reference.permute;
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class AnySuitPermutator extends Permutator {
     private Permutator permutator;
@@ -13,8 +15,8 @@ public class AnySuitPermutator extends Permutator {
     }
 
     @Override
-    public List<HandCandidate> permute(List<HandCandidate> candidates) {
-        List<HandCandidate> newCandidates = new ArrayList<HandCandidate>();
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates) {
+        Set<HandCandidate> newCandidates = new HashSet<HandCandidate>();
 
         for (String suit : getThreeSuits()) {
             newCandidates.addAll(permutator.permute(candidates, suit));
@@ -24,7 +26,7 @@ public class AnySuitPermutator extends Permutator {
     }
 
     @Override
-    public List<HandCandidate> permute(List<HandCandidate> candidates, String suit) {
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates, String suit) {
         return permute(candidates);
     }
 

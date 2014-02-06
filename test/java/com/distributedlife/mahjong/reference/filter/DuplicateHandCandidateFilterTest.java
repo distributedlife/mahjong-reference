@@ -45,7 +45,7 @@ public class DuplicateHandCandidateFilterTest {
         DuplicateHandCandidateFilter filter = new DuplicateHandCandidateFilter();
         List<HandCandidate> outCandidates = filter.apply(inCandidates);
         assertThat(outCandidates.size(), is(2));
-        assertThat(outCandidates.get(0).getRequiredTiles(), is(Arrays.asList("b")));
-        assertThat(outCandidates.get(1).getRequiredTiles(), is(Arrays.asList("a")));
+        assertThat(outCandidates.get(0).getRequiredTiles(), is(Arrays.asList("a")));
+        assertThat(outCandidates.get(1).getRequiredTiles(), is(Arrays.asList("b")));
     }
 }

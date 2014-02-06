@@ -14,6 +14,15 @@ public class PermutatorBuilder {
         if (options.getType().equals("mixed-chow")) {
             permutator = new MixedChowSequencePermutator();
         }
+        if (options.getType().equals("mixed-pung")) {
+            permutator = new MixedPungPermutator(options.getTiles());
+        }
+        if (options.getType().equals("mixed-pair")) {
+            permutator = new MixedPairPermutator(options.getTiles());
+        }
+        if (options.getType().equals("knitted-pair")) {
+            permutator = new KnittedPairPermutator(options.getTiles());
+        }
         if (options.getType().equals("pung")) {
             permutator = new PungPermutator(options.getTiles(), options.getSuit());
         }

@@ -3,8 +3,9 @@ package com.distributedlife.mahjong.reference.permute;
 import com.distributedlife.mahjong.reference.data.TileSet;
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static com.distributedlife.mahjong.reference.hand.HandCandidate.times;
 
@@ -20,13 +21,13 @@ public class MultiplePermutator extends Permutator {
     }
 
     @Override
-    public List<HandCandidate> permute(List<HandCandidate> candidates) {
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates) {
         return permute(candidates, defaultSuit);
     }
 
     @Override
-    public List<HandCandidate> permute(List<HandCandidate> candidates, String suit) {
-        ArrayList<HandCandidate> handCandidates = new ArrayList<HandCandidate>();
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates, String suit) {
+        Set<HandCandidate> handCandidates = new HashSet<HandCandidate>();
 
         for(HandCandidate candidate : candidates) {
             for(String tile : tilesMultipleIsAllowedIn) {

@@ -1,0 +1,16 @@
+{
+    hands: [
+    {
+        name: "Yin Yang",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "pair", tiles: ["1"]},
+            {type: "run", from: 2, to: 4},
+            {type: "pair", tiles: ["5"]},
+            {type: "pair", tiles: ["5"], suit: "2nd"},
+            {type: "run", from: 6, to: 8, suit: "2nd"},
+            {type: "pair", tiles: ["9"], suit: "2nd"},
+        ]
+    }]
+}

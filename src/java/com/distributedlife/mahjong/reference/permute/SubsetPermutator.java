@@ -3,7 +3,9 @@ package com.distributedlife.mahjong.reference.permute;
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SubsetPermutator extends Permutator {
 
@@ -45,8 +47,8 @@ public class SubsetPermutator extends Permutator {
     }
 
     @Override
-    public List<HandCandidate> permute(List<HandCandidate> candidates) {
-        List<HandCandidate> newCandidates = new ArrayList<HandCandidate>();
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates) {
+        Set<HandCandidate> newCandidates = new HashSet<HandCandidate>();
 
         for (List<String> subset : subsets) {
             for (HandCandidate candidate : candidates) {

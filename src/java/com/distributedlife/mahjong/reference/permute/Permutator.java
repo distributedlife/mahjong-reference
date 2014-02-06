@@ -1,12 +1,13 @@
 package com.distributedlife.mahjong.reference.permute;
 
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
-import java.util.List;
+
+import java.util.Set;
 
 public abstract class Permutator {
-    abstract List<HandCandidate> permute(List<HandCandidate> candidates);
+    abstract Set<HandCandidate> permute(Set<HandCandidate> candidates);
 
-    public List<HandCandidate> permute(List<HandCandidate> candidates, String suit) {
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates, String suit) {
         return permute(candidates);
     }
 }

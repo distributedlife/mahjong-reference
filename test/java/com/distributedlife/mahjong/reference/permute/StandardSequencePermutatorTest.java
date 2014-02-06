@@ -3,8 +3,7 @@ package com.distributedlife.mahjong.reference.permute;
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -14,7 +13,7 @@ public class StandardSequencePermutatorTest {
     public void shouldOnlyPermuteOneWithAFullRunOfNine() {
         StandardSequencePermutator permutator = new StandardSequencePermutator(1, 9, "1st");
 
-        List<HandCandidate> candidates = new ArrayList<HandCandidate>();
+        Set<HandCandidate> candidates = new HashSet<HandCandidate>();
         List<String> availableTiles = new ArrayList<String>();
         availableTiles.add("1 Bamboo");
         availableTiles.add("2 Bamboo");
@@ -31,10 +30,10 @@ public class StandardSequencePermutatorTest {
 
         candidates.add(candidate);
 
-        List<HandCandidate> permutations = permutator.permute(candidates);
+        Set<HandCandidate> outCandidates = permutator.permute(candidates);
 
-        assertThat(permutations.size(), is(1));
-        assertThat(permutations.get(0).getRequiredTiles().size(), is(9));
+        assertThat(outCandidates.size(), is(1));
+        assertThat(new ArrayList<HandCandidate>(outCandidates).get(0).getRequiredTiles().size(), is(9));
         assertThat(availableTiles.size(), is(0));
     }
 }

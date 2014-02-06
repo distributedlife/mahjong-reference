@@ -2,10 +2,11 @@ package com.distributedlife.mahjong.reference.permute;
 
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import org.junit.Test;
+import org.mockito.internal.util.collections.Sets;
 
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -16,13 +17,13 @@ public class SecondSuitPermutatorTest {
     public void shouldIgnoreCandidatesThatAlreadyHaveASecondSuit() {
         HandCandidate candidate = mock(HandCandidate.class);
         when(candidate.getSecondSuit()).thenReturn("Bamboo");
-        List<HandCandidate> inCandidates = Arrays.asList(candidate);
+        Set<HandCandidate> inCandidates = Sets.newSet(candidate);
 
         Permutator innerPermutator = mock(Permutator.class);
         when(innerPermutator.permute(inCandidates)).thenReturn(inCandidates);
         SecondSuitPermutator secondSuitPermutator = new SecondSuitPermutator(innerPermutator);
 
-        List<HandCandidate> outCandidates = secondSuitPermutator.permute(inCandidates);
+        Set<HandCandidate> outCandidates = secondSuitPermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(1));
     }
@@ -31,18 +32,18 @@ public class SecondSuitPermutatorTest {
     public void shouldDuplicateEveryCandidateThatDoesNotHaveASecondSuit() {
         HandCandidate candidate = new HandCandidate("derp", new ArrayList<String>());
         candidate.setPrimarySuit("Bamboo");
-        List<HandCandidate> inCandidates = Arrays.asList(candidate);
+        Set<HandCandidate> inCandidates = Sets.newSet(candidate);
 
         Permutator innerPermutator = new UnknownPermutator("derp");
         SecondSuitPermutator secondSuitPermutator = new SecondSuitPermutator(innerPermutator);
 
-        List<HandCandidate> outCandidates = secondSuitPermutator.permute(inCandidates);
+        Set<HandCandidate> outCandidates = secondSuitPermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(2));
-        assertThat(outCandidates.get(0).getPrimarySuit(), is("Bamboo"));
-        assertThat(outCandidates.get(0).getSecondSuit(), is("Spot"));
-        assertThat(outCandidates.get(1).getPrimarySuit(), is("Bamboo"));
-        assertThat(outCandidates.get(1).getSecondSuit(), is("Crack"));
+        assertThat(new ArrayList<HandCandidate>(outCandidates).get(0).getPrimarySuit(), is("Bamboo"));
+        assertThat(new ArrayList<HandCandidate>(outCandidates).get(0).getSecondSuit(), is("Spot"));
+        assertThat(new ArrayList<HandCandidate>(outCandidates).get(1).getPrimarySuit(), is("Bamboo"));
+        assertThat(new ArrayList<HandCandidate>(outCandidates).get(1).getSecondSuit(), is("Crack"));
     }
 
     @Test
@@ -53,8 +54,8 @@ public class SecondSuitPermutatorTest {
         Permutator innerPermutator = mock(Permutator.class);
         SecondSuitPermutator secondSuitPermutator = new SecondSuitPermutator(innerPermutator);
 
-        secondSuitPermutator.permute(Arrays.asList(candidate));
+        secondSuitPermutator.permute(Sets.newSet(candidate));
 
-        verify(innerPermutator).permute(anyList());
+        verify(innerPermutator).permute(anySet());
     }
 }

@@ -1,0 +1,42 @@
+{
+    hands: [
+    {
+        name: "Golden Gates",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pair", tiles: ["2"]},
+            {type: "pair", tiles: ["4"]},
+            {type: "pair", tiles: ["6"]},
+            {type: "pair", tiles: ["8"]},
+            {type: "pung", tiles: ["1", "9"]},
+            {type: "pung", tiles: ["Green"]},
+        ]
+    },
+    {
+        name: "Golden Gates",
+        suits: ["Crack"],
+        requirements:
+        [
+            {type: "pair", tiles: ["2"]},
+            {type: "pair", tiles: ["4"]},
+            {type: "pair", tiles: ["6"]},
+            {type: "pair", tiles: ["8"]},
+            {type: "pung", tiles: ["1", "9"]},
+            {type: "pung", tiles: ["Red"]},
+        ]
+    },
+    {
+        name: "Golden Gates",
+        suits: ["Spot"],
+        requirements:
+        [
+            {type: "pair", tiles: ["2"]},
+            {type: "pair", tiles: ["4"]},
+            {type: "pair", tiles: ["6"]},
+            {type: "pair", tiles: ["8"]},
+            {type: "pung", tiles: ["1", "9"]},
+            {type: "pung", tiles: ["White"]},
+        ]
+    }]
+}

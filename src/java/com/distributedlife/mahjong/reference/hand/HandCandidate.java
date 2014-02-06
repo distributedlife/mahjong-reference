@@ -94,6 +94,9 @@ public class HandCandidate {
         HandCandidate rhs = (HandCandidate) obj;
         return new EqualsBuilder().
                 append(name, rhs.name).
+                append(primarySuit, rhs.primarySuit).
+                append(secondSuit, rhs.secondSuit).
+                append(thirdSuit, rhs.thirdSuit).
                 append(requiredTiles, rhs.requiredTiles).
                 isEquals();
     }
@@ -101,6 +104,9 @@ public class HandCandidate {
     public int hashCode() {
         return new HashCodeBuilder(17, 31).
                 append(name).
+                append(primarySuit).
+                append(secondSuit).
+                append(thirdSuit).
                 append(requiredTiles).
                 toHashCode();
     }

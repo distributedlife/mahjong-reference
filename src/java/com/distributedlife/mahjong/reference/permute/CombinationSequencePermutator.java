@@ -3,10 +3,7 @@ package com.distributedlife.mahjong.reference.permute;
 import com.distributedlife.mahjong.reference.data.TileSet;
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class CombinationSequencePermutator extends Permutator {
     private int length;
@@ -18,13 +15,13 @@ public class CombinationSequencePermutator extends Permutator {
     }
 
     @Override
-    public List<HandCandidate> permute(List<HandCandidate> candidates) {
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates) {
         return permute(candidates, defaultSuit);
     }
 
     @Override
-    public List<HandCandidate> permute(List<HandCandidate> candidates, String suit) {
-        List<HandCandidate> newCandidates = new ArrayList<HandCandidate>();
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates, String suit) {
+        Set<HandCandidate> newCandidates = new HashSet<HandCandidate>();
 
         for (Map<String, Integer> run : produceListOfCombinations()) {
             for(HandCandidate candidate : candidates) {

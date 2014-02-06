@@ -1,0 +1,17 @@
+{
+    hands: [
+    {
+        name: "Sparrow's Sanctuary",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pair", tiles: ["1"]},
+            {type: "pair", tiles: ["1"]},
+            {type: "pair", tiles: ["2"]},
+            {type: "pair", tiles: ["3"]},
+            {type: "pair", tiles: ["4"]},
+            {type: "pair", tiles: ["6"]},
+            {type: "pair", tiles: ["8"]}
+        ]
+    }]
+}

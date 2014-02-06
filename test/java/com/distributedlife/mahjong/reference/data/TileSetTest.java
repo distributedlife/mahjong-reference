@@ -1,6 +1,5 @@
 package com.distributedlife.mahjong.reference.data;
 
-import com.distributedlife.mahjong.reference.data.TileSet;
 import org.junit.Test;
 
 import static org.hamcrest.CoreMatchers.is;

@@ -295,6 +295,9 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
+        for(Hand hand : hands) {
+            System.err.println(hand.getRequiredTiles());
+        }
         assertThat(hands.size(), is(3));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "1 Crack",
@@ -450,7 +453,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void crazyChows() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -460,10 +462,11 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(339570));
+        assertThat(hands.size(), is(3470340));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Crack", "1 Spot",
-                "2 Crack", "2 Crack", "2 Crack", "2 Crack",
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "1 Crack", "1 Crack",
+                "2 Bamboo", "2 Crack", "2 Crack", "2 Crack",
                 "3 Spot", "3 Spot", "3 Spot", "3 Spot"
         )));
     }
@@ -627,7 +630,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void knitting() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -637,20 +639,16 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(12430));
+        assertThat(hands.size(), is(994950));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Crack",
-                "1 Bamboo", "1 Crack",
-                "1 Bamboo", "1 Crack",
-                "1 Bamboo", "1 Crack",
-                "2 Bamboo", "2 Crack",
-                "2 Bamboo", "2 Crack",
-                "2 Bamboo", "2 Crack"
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
+                "1 Crack", "1 Crack", "1 Crack", "1 Crack",
+                "2 Bamboo", "2 Bamboo", "2 Bamboo",
+                "2 Crack", "2 Crack", "2 Crack"
         )));
     }
 
     @Test
-    @Ignore
     public void tripleKnitting() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -660,7 +658,7 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(12430));
+        assertThat(hands.size(), is(13338));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
                 "1 Crack", "1 Crack", "1 Crack", "1 Crack",
@@ -691,7 +689,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void heavenlyTwins() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -701,7 +698,7 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(1));
+        assertThat(hands.size(), is(6912));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
                 "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
@@ -711,7 +708,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void allPair() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -721,7 +717,7 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(1));
+        assertThat(hands.size(), is(330558));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
                 "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
@@ -731,7 +727,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void allPairHonours() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -741,7 +736,7 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(1));
+        assertThat(hands.size(), is(27742));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
                 "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
                 "1 Crack", "1 Crack", "1 Crack", "1 Crack",
@@ -751,7 +746,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void sevenTwins() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -761,12 +755,12 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(1));
+        assertThat(hands.size(), is(4));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "1 Crack", "1 Crack", "1 Crack", "1 Crack",
-                "1 Spot", "1 Spot", "1 Spot", "1 Spot",
-                "2 Bamboo", "2 Bamboo"
+                "Green", "Green", "Green", "Green",
+                "North", "North", "North", "North",
+                "Red", "Red", "Red", "Red",
+                "White", "White"
         )));
     }
 
@@ -790,7 +784,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void allPairRubyJade() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -800,12 +793,11 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        assertThat(hands.size(), is(1));
-        //TODO: confirm what red and green bamboo means
+        assertThat(hands.size(), is(882));
         assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
+                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
                 "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo", "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo", "4 Bamboo", "4 Bamboo",
+                "3 Bamboo", "3 Bamboo",
                 "Green", "Green", "Red", "Red"
         )));
     }

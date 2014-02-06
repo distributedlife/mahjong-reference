@@ -2,10 +2,12 @@ package com.distributedlife.mahjong.reference.permute;
 
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import org.junit.Test;
+import org.mockito.internal.util.collections.Sets;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -20,13 +22,13 @@ public class AnyPairedPermutatorTest {
         HandCandidate candidate = new HandCandidate("candidate", availableTiles);
         candidate.setPrimarySuit("Bamboo");
         candidate.add("1 Bamboo");
-        List<HandCandidate> inCandidates = Arrays.asList(candidate);
+        Set<HandCandidate> inCandidates = Sets.newSet(candidate);
 
         AnyPairedPermutator anyPairedPermutator = new AnyPairedPermutator();
-        List<HandCandidate> outCandidates = anyPairedPermutator.permute(inCandidates);
+        Set<HandCandidate> outCandidates = anyPairedPermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(1));
-        assertThat(outCandidates.get(0).getRequiredTiles(), is(Arrays.asList("1 Bamboo", "1 Bamboo")));
+        assertThat(new ArrayList<HandCandidate>(outCandidates).get(0).getRequiredTiles(), is(Arrays.asList("1 Bamboo", "1 Bamboo")));
     }
 
     @Test
@@ -44,14 +46,14 @@ public class AnyPairedPermutatorTest {
         HandCandidate candidate2 = new HandCandidate("candidate1", availableTiles2);
         candidate2.setPrimarySuit("Spot");
         candidate2.add("1 Spot");
-        List<HandCandidate> inCandidates = Arrays.asList(candidate1, candidate2);
+        Set<HandCandidate> inCandidates = Sets.newSet(candidate1, candidate2);
 
         AnyPairedPermutator anyPairedPermutator = new AnyPairedPermutator();
-        List<HandCandidate> outCandidates = anyPairedPermutator.permute(inCandidates);
+        Set<HandCandidate> outCandidates = anyPairedPermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(2));
-        assertThat(outCandidates.get(0).getRequiredTiles(), is(Arrays.asList("1 Bamboo", "1 Bamboo")));
-        assertThat(outCandidates.get(1).getRequiredTiles(), is(Arrays.asList("1 Spot", "1 Spot")));
+        assertThat(new ArrayList<HandCandidate>(outCandidates).get(0).getRequiredTiles(), is(Arrays.asList("1 Spot", "1 Spot")));
+        assertThat(new ArrayList<HandCandidate>(outCandidates).get(1).getRequiredTiles(), is(Arrays.asList("1 Bamboo", "1 Bamboo")));
     }
 
     @Test
@@ -63,10 +65,10 @@ public class AnyPairedPermutatorTest {
         HandCandidate candidate = new HandCandidate("candidate", availableTiles);
         candidate.setPrimarySuit("Bamboo");
         candidate.add("1 Bamboo");
-        List<HandCandidate> inCandidates = Arrays.asList(candidate);
+        Set<HandCandidate> inCandidates = Sets.newSet(candidate);
 
         AnyPairedPermutator anyPairedPermutator = new AnyPairedPermutator();
-        List<HandCandidate> outCandidates = anyPairedPermutator.permute(inCandidates);
+        Set<HandCandidate> outCandidates = anyPairedPermutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(0));
     }

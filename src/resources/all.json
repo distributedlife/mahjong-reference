@@ -1,4 +1,21 @@
 {
+    groups: [
+    {
+        name: "Chinese",
+        hands: [
+            "Buried Treasure",
+            "Heads and Tails",
+            "The Wriggling Snake",
+            "Three Great Scholars",
+            "Four Blessings Hovering Over The Door",
+            "The Thirteen Unique Wonders"
+        ]
+    },
+    {
+        name: "British",
+        hands: [
+        ]
+    }],
     hands: [
     {
         name: "Run, Pung and a Pair",

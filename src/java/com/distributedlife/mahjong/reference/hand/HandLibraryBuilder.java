@@ -1,13 +1,11 @@
 package com.distributedlife.mahjong.reference.hand;
 
-import com.distributedlife.mahjong.reference.data.TileSet;
 import com.distributedlife.mahjong.reference.adapter.HandCandidateToAHandConverter;
+import com.distributedlife.mahjong.reference.data.TileSet;
 import com.distributedlife.mahjong.reference.filter.HandCandidateFilter;
 import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.*;
 
 public class HandLibraryBuilder {
     private List<HandCandidateFilter> filters;
@@ -37,9 +35,15 @@ public class HandLibraryBuilder {
 
         List<Hand> hands = converter.convert(candidates);
 
-        Collections.sort(hands);
+        Set<Hand> handsAsSet = new HashSet<Hand>(hands);
+        List<Hand> handsAsList = new ArrayList<Hand>();
+        for(Hand hand : handsAsSet) {
+            handsAsList.add(hand);
+        }
 
-        return hands;
+        Collections.sort(handsAsList);
+
+        return handsAsList;
     }
 
     private List<HandCandidate> build(HandDefinition definition) {

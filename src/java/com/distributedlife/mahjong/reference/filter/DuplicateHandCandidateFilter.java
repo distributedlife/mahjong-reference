@@ -2,7 +2,10 @@ package com.distributedlife.mahjong.reference.filter;
 
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class DuplicateHandCandidateFilter implements HandCandidateFilter {
     @Override

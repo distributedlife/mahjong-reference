@@ -2,13 +2,13 @@ package com.distributedlife.mahjong.reference.permute;
 
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class AnyPairedPermutator extends Permutator {
     @Override
-    public List<HandCandidate> permute(List<HandCandidate> candidates) {
-        ArrayList<HandCandidate> handCandidates = new ArrayList<HandCandidate>();
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates) {
+        Set<HandCandidate> handCandidates = new HashSet<HandCandidate>();
 
         for (HandCandidate candidate : candidates) {
             for (String tile : candidate.getRequiredTiles()) {

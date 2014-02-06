@@ -1,0 +1,16 @@
+{
+    hands: [
+    {
+        name: "Dragonette",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "one-each", tiles: ["Red", "Green", "White"]},
+            {type: "any-paired"},
+            {type: "one-each",  tiles: ["North", "East", "South", "West"]},
+            {type: "pair", tiles: ["2", "3", "4", "5", "6", "7", "8"]},
+            {type: "pair", tiles: ["2", "3", "4", "5", "6", "7", "8"]},
+            {type: "pair", tiles: ["2", "3", "4", "5", "6", "7", "8"]}
+        ]
+    }]
+}

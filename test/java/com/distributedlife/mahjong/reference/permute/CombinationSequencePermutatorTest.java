@@ -2,9 +2,10 @@ package com.distributedlife.mahjong.reference.permute;
 
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 import org.junit.Test;
+import org.mockito.internal.util.collections.Sets;
 
 import java.util.Arrays;
-import java.util.List;
+import java.util.Set;
 
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
@@ -16,10 +17,10 @@ public class CombinationSequencePermutatorTest {
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo"
         ));
         candidate.setPrimarySuit("Bamboo");
-        List<HandCandidate> inCandidates = Arrays.asList(candidate);
+        Set<HandCandidate> inCandidates = Sets.newSet(candidate);
 
         CombinationSequencePermutator permutator = new CombinationSequencePermutator(9, "1st");
-        List<HandCandidate> outCandidates = permutator.permute(inCandidates);
+        Set<HandCandidate> outCandidates = permutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(1));
     }
@@ -30,10 +31,10 @@ public class CombinationSequencePermutatorTest {
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo"
         ));
         candidate.setPrimarySuit("Bamboo");
-        List<HandCandidate> inCandidates = Arrays.asList(candidate);
+        Set<HandCandidate> inCandidates = Sets.newSet(candidate);
 
         CombinationSequencePermutator permutator = new CombinationSequencePermutator(8, "1st");
-        List<HandCandidate> outCandidates = permutator.permute(inCandidates);
+        Set<HandCandidate> outCandidates = permutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(2));
     }
@@ -44,10 +45,10 @@ public class CombinationSequencePermutatorTest {
                 "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo"
         ));
         candidate.setPrimarySuit("Bamboo");
-        List<HandCandidate> inCandidates = Arrays.asList(candidate);
+        Set<HandCandidate> inCandidates = Sets.newSet(candidate);
 
         CombinationSequencePermutator permutator = new CombinationSequencePermutator(3, "1st");
-        List<HandCandidate> outCandidates = permutator.permute(inCandidates);
+        Set<HandCandidate> outCandidates = permutator.permute(inCandidates);
 
         assertThat(outCandidates.size(), is(7));
     }

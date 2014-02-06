@@ -1,0 +1,16 @@
+{
+    hands: [
+    {
+        name: "Windy Dragons",
+        suits: ["none"],
+        requirements:
+        [
+            {type: "pair", tiles: ["North"]},
+            {type: "pair", tiles: ["West"]},
+            {type: "pair", tiles: ["South"]},
+            {type: "pair", tiles: ["East"]},
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pung", tiles: ["Red", "Green", "White"]}
+        ]
+    }]
+}

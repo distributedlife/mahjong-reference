@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Apple Blossom",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "pung", tiles: ["White"]},
+            {type: "pair", tiles: ["Green"]}
+        ]
+    }]
+}

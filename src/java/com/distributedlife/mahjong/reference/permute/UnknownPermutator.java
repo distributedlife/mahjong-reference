@@ -2,7 +2,7 @@ package com.distributedlife.mahjong.reference.permute;
 
 import com.distributedlife.mahjong.reference.hand.HandCandidate;
 
-import java.util.List;
+import java.util.Set;
 
 public class UnknownPermutator extends Permutator {
     private final String key;
@@ -12,7 +12,7 @@ public class UnknownPermutator extends Permutator {
     }
 
     @Override
-    public List<HandCandidate> permute(List<HandCandidate> candidates) {
+    public Set<HandCandidate> permute(Set<HandCandidate> candidates) {
         System.err.println(String.format("An unknown permutator was supplied. Key name is '%s'", key));
 
         return candidates;

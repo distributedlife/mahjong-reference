@@ -1,0 +1,25 @@
+{
+    hands: [
+    {
+        name: "Hachi Ban",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 8},
+            {type: "pair", tiles: ["North", "East", "South", "West"]},
+            {type: "pair", tiles: ["North", "East", "South", "West"]},
+            {type: "pair", tiles: ["North", "East", "South", "West"]}
+        ]
+    },
+    {
+        name: "Hachi Ban",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 8},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]}
+        ]
+    }]
+}

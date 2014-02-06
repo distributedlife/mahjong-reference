@@ -1,0 +1,17 @@
+{
+    hands: [
+    {
+        name: "All Pair Jade",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pair", tiles: ["Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]}
+        ]
+    }]
+}
