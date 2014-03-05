@@ -63,7 +63,7 @@ public class GenerateHandsJson {
 
         TreeToJsonAdapter treeToJsonAdapter = new TreeToJsonAdapter();
         for (String handName : allHandsTree.keySet()) {
-            handsJson.put(treeToJsonAdapter.convert(allHandsTree.get(handName)));
+            handsJson.put(treeToJsonAdapter.toJson(allHandsTree.get(handName)));
         }
 
         try {
