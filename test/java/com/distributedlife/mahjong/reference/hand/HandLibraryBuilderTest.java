@@ -34,7 +34,6 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
-    @Ignore
     public void buildAllHands() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -43,7 +42,7 @@ public class HandLibraryBuilderTest {
                 permutatorExecutor,
                 converter);
 
-        assertThat(builder.buildAll().size(), is(618421));
+        assertThat(builder.buildAll().size(), is(5476659));
     }
 
     @Test
@@ -318,12 +317,12 @@ public class HandLibraryBuilderTest {
                 "7 Bamboo", "7 Spot"
         )));
         assertThat(hands.get(2).getRequiredTiles(), is(Arrays.asList(
-                "1 Crack", "1 Spot", 
-                "2 Crack", "2 Spot", 
-                "3 Crack", "3 Spot", 
-                "4 Crack", "4 Spot", 
-                "5 Crack", "5 Spot", 
-                "6 Crack", "6 Spot", 
+                "1 Crack", "1 Spot",
+                "2 Crack", "2 Spot",
+                "3 Crack", "3 Spot",
+                "4 Crack", "4 Spot",
+                "5 Crack", "5 Spot",
+                "6 Crack", "6 Spot",
                 "7 Crack", "7 Spot"
         )));
     }

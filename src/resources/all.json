@@ -18,271 +18,71 @@
     }],
     hands: [
     {
-        name: "Run, Pung and a Pair",
-        suits: ["Bamboo", "Spot", "Crack"],
+        name: "All Pair",
+        suits: ["Bamboo", "Crack", "Spot"],
         requirements:
         [
-            {type: "run", from: 1, to: 9},
-            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]}
+        ]
+    },
+    {
+        name: "All Pair Honours",
+        suits: ["None"],
+        requirements:
+        [
+            {type: "pair", tiles: ["1 Bamboo", "1 Crack", "1 Spot", "9 Bamboo", "9 Crack", "9 Spot", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1 Bamboo", "1 Crack", "1 Spot", "9 Bamboo", "9 Crack", "9 Spot", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1 Bamboo", "1 Crack", "1 Spot", "9 Bamboo", "9 Crack", "9 Spot", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1 Bamboo", "1 Crack", "1 Spot", "9 Bamboo", "9 Crack", "9 Spot", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1 Bamboo", "1 Crack", "1 Spot", "9 Bamboo", "9 Crack", "9 Spot", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1 Bamboo", "1 Crack", "1 Spot", "9 Bamboo", "9 Crack", "9 Spot", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1 Bamboo", "1 Crack", "1 Spot", "9 Bamboo", "9 Crack", "9 Spot", "Red", "Green", "White", "North", "East", "South", "West"]}
+        ]
+    },
+    {
+        name: "All Pair Jade",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pair", tiles: ["Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8", "Green"]}
+        ]
+    },
+    {
+        name: "All Pair Ruby Jade",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pair", tiles: ["Green"]},
+            {type: "pair", tiles: ["Red"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
             {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
         ]
     },
     {
-        name: "Gates Of Heaven",
+        name: "Apple Blossom",
         suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
-            {type: "run", from: 2, to: 8},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["1"]},
-            {type: "pung", tiles: ["9"]}
-        ]
-    },
-    {
-        name: "Confused Gates",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 2, to: 8},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["1"], suit: "2nd"},
-            {type: "pung", tiles: ["9"], suit: "3rd"}
-        ]
-    },
-    {
-        name: "Wriggly Snake",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 9},
-            {type: "single", tile: "North"},
-            {type: "single", tile: "West"},
-            {type: "single", tile: "East"},
-            {type: "single", tile: "South"},
-            {type: "any-paired"}
-        ]
-    },
-    {
-        name: "Hachi Ban",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", length: 8},
-            {type: "pair", tiles: ["North", "East", "South", "West"]},
-            {type: "pair", tiles: ["North", "East", "South", "West"]},
-            {type: "pair", tiles: ["North", "East", "South", "West"]}
-        ]
-    },
-    {
-        name: "Hachi Ban",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", length: 8},
-            {type: "pair", tiles: ["Red", "Green", "White"]},
-            {type: "pair", tiles: ["Red", "Green", "White"]},
-            {type: "pair", tiles: ["Red", "Green", "White"]}
-        ]
-    },
-    {
-        name: "Guardian Winds",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 9},
-            {type: "pung", tiles: ["North", "East", "West", "South"]},
-            {type: "pair", tiles: ["North", "East", "West", "South"]}
-        ]
-    },
-    {
-        name: "Guardian Dragons",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 9},
-            {type: "pung", tiles: ["Red", "Green", "White"]},
-            {type: "pair", tiles: ["Red", "Green", "White"]}
-        ]
-    },
-    {
-        name: "Five Odd Honours",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 9},
-            {type: "subset", length: 5, tiles: ["North", "East", "West", "South", "Red", "Green", "White"]}
-        ]
-    },
-    {
-        name: "Wriggly Dragon",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 9},
-            {type: "subset", length: 3, tiles: ["Red", "Green", "White"]},
-            {type: "pair", tiles: ["Red", "Green", "White"]}
-        ]
-    },
-    {
-        name: "Grand Sequence",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 9},
-            {type: "any-paired"},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["North", "East", "West", "South", "Red", "Green", "White"]}
-        ]
-    },
-    {
-        name: "Dragon's Gates",
-        suits: ["Bamboo"],
-        requirements:
-        [
-            {type: "run", from: 2, to: 8},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["1"]},
-            {type: "pung", tiles: ["Green"]}
-        ]
-    },
-    {
-        name: "Dragon's Gates",
-        suits: ["Bamboo"],
-        requirements:
-        [
-            {type: "run", from: 2, to: 8},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["9"]},
-            {type: "pung", tiles: ["Green"]}
-        ]
-    },
-    {
-        name: "Dragon's Gates",
-        suits: ["Spot"],
-        requirements:
-        [
-            {type: "run", from: 2, to: 8},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["1"]},
-            {type: "pung", tiles: ["White"]}
-        ]
-    },
-    {
-        name: "Dragon's Gates",
-        suits: ["Spot"],
-        requirements:
-        [
-            {type: "run", from: 2, to: 8},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["9"]},
-            {type: "pung", tiles: ["White"]}
-        ]
-    },
-    {
-        name: "Dragon's Gates",
-        suits: ["Crack"],
-        requirements:
-        [
-            {type: "run", from: 2, to: 8},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["1"]},
-            {type: "pung", tiles: ["Red"]}
-        ]
-    },
-    {
-        name: "Dragon's Gates",
-        suits: ["Crack"],
-        requirements:
-        [
-            {type: "run", from: 2, to: 8},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["9"]},
-            {type: "pung", tiles: ["Red"]}
-        ]
-    },
-    {
-        name: "Dragon's Tail",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 9},
-            {type: "pung", tiles: ["Red", "Green", "White"]},
-            {type: "pair", tiles: ["North", "East", "West", "South"]}
-        ]
-    },
-    {
-        name: "Dragon's Tail",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 9},
-            {type: "pung", tiles: ["North", "East", "West", "South"]},
-            {type: "pair", tiles: ["Red", "Green", "White"]}
-        ]
-    },
-    {
-        name: "Dragon's Teeth",
-        suits: ["Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 7},
-            {type: "any-paired"},
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
             {type: "pung", tiles: ["White"]},
-            {type: "pung", tiles: ["Red"]}
-        ]
-    },
-    {
-        name: "Dragon's Teeth",
-        suits: ["Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 2, to: 8},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["White"]},
-            {type: "pung", tiles: ["Red"]}
-        ]
-    },
-    {
-        name: "Greta's Dragon",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 7},
-            {type: "subset", length: 4, tiles: ["North", "East", "South", "West"]},
-            {type: "pung", tiles: ["Red", "Green", "White"]}
-        ]
-    },
-    {
-        name: "Gertie's Garter",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 7},
-            {type: "run", from: 1, to: 7, suit: "2nd"}
-        ]
-    },
-    {
-        name: "Yin Yang",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "pair", tiles: ["1"]},
-            {type: "run", from: 2, to: 4},
-            {type: "pair", tiles: ["5"]},
-            {type: "pair", tiles: ["5"], suit: "2nd"},
-            {type: "run", from: 6, to: 8, suit: "2nd"},
-            {type: "pair", tiles: ["9"], suit: "2nd"}
-        ]
-    },
-    {
-        name: "Red Lantern",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", from: 1, to: 7},
-            {type: "any-paired"},
-            {type: "pung", tiles: ["Red"]},
-            {type: "pung", tiles: ["OwnWind"]}
+            {type: "pair", tiles: ["Green"]}
         ]
     },
     {
@@ -297,18 +97,6 @@
         ]
     },
     {
-        name: "Moon At The Bottom Of The Well",
-        suits: ["Spot"],
-        requirements:
-        [
-            {type: "run", length: 3},
-            {type: "run", length: 3},
-            {type: "run", length: 3},
-            {type: "run", length: 3},
-            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
-        ]
-    },
-    {
         name: "Chow Chow",
         suits: ["Bamboo", "Spot", "Crack"],
         requirements:
@@ -318,70 +106,6 @@
             {type: "run", length: 3},
             {type: "run", length: 3},
             {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
-        ]
-    },
-    {
-        name: "Three Philosophers",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", length: 3},
-            {type: "run", length: 3, suit: "2nd"},
-            {type: "run", length: 3, suit: "3rd"},
-            {type: "mixed-chow"},
-            {type: "pair", tiles: [
-                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "1 Spot", "2 Spot", "3 Spot", "4 Spot", "5 Spot", "6 Spot", "7 Spot", "8 Spot", "9 Spot",
-                "1 Crack", "2 Crack", "3 Crack", "4 Crack", "5 Crack", "6 Crack", "7 Crack", "8 Crack", "9 Crack"
-            ]}
-        ]
-    },
-    {
-        name: "Little Robert",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", length: 3},
-            {type: "run", length: 3, suit: "2nd"},
-            {type: "run", length: 3, suit: "3rd"},
-            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"], suit: "Any"},
-            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"], suit: "Any"}
-        ]
-    },
-    {
-        name: "Little Robert",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", length: 3},
-            {type: "run", length: 3, suit: "2nd"},
-            {type: "run", length: 3, suit: "3rd"},
-            {type: "run", length: 3, suit: "Any"},
-            {type: "pair", tiles: ["OwnWind"]}
-        ]
-    },
-    {
-        name: "Hovering Angel",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", length: 3},
-            {type: "run", length: 3, suit: "2nd"},
-            {type: "run", length: 3, suit: "3rd"},
-            {type: "pung", tiles: ["OwnWind"]},
-            {type: "pair", tiles: ["Red"]}
-        ]
-    },
-    {
-        name: "Windy Chows",
-        suits: ["Bamboo", "Spot", "Crack"],
-        requirements:
-        [
-            {type: "run", length: 3},
-            {type: "run", length: 3, suit: "2nd"},
-            {type: "run", length: 3, suit: "3rd"},
-            {type: "subset", length: 4, tiles: ["North", "East", "West", "South"]},
-            {type: "subset", length: 1, tiles: ["North", "East", "West", "South"]}
         ]
     },
     {
@@ -409,6 +133,561 @@
         ]
     },
     {
+        name: "Chow Chow",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Chop Suey",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 7, to: 9},
+            {type: "run", from: 7, to: 9, suit: "2nd"},
+            {type: "run", from: 7, to: 9, suit: "3rd"},
+            {type: "subset", length: 4, tiles: ["North", "East", "West", "South"]},
+            {type: "subset", length: 1, tiles: ["North", "East", "West", "South"]}
+        ]
+    },
+    {
+        name: "Confused Gates",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["1"], suit: "2nd"},
+            {type: "pung", tiles: ["9"], suit: "3rd"}
+        ]
+    },
+    {
+        name: "Crazy Chows",
+        suits: ["None"],
+        requirements:
+        [
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "mixed-chow"},
+            {type: "mixed-pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Dragonette",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "one-each", tiles: ["Red", "Green", "White"]},
+            {type: "any-paired"},
+            {type: "one-each",  tiles: ["North", "East", "South", "West"]},
+            {type: "pair", tiles: ["2", "3", "4", "5", "6", "7", "8"]},
+            {type: "pair", tiles: ["2", "3", "4", "5", "6", "7", "8"]},
+            {type: "pair", tiles: ["2", "3", "4", "5", "6", "7", "8"]}
+        ]
+    },
+    {
+        name: "Dragon's Breath",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "one-each", tiles: ["Red", "Green", "White"]},
+            {type: "any-paired"},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["1"]},
+            {type: "pung", tiles: ["Green"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["9"]},
+            {type: "pung", tiles: ["Green"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["Spot"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["1"]},
+            {type: "pung", tiles: ["White"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["Spot"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["9"]},
+            {type: "pung", tiles: ["White"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["Crack"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["1"]},
+            {type: "pung", tiles: ["Red"]}
+        ]
+    },
+    {
+        name: "Dragon's Gates",
+        suits: ["Crack"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["9"]},
+            {type: "pung", tiles: ["Red"]}
+        ]
+    },
+    {
+        name: "Dragon's Tail",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["North", "East", "West", "South"]}
+        ]
+    },
+    {
+        name: "Dragon's Tail",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "pung", tiles: ["North", "East", "West", "South"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]}
+        ]
+    },
+    {
+        name: "Dragon's Teeth",
+        suits: ["Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 7},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["White"]},
+            {type: "pung", tiles: ["Red"]}
+        ]
+    },
+    {
+        name: "Dragon's Teeth",
+        suits: ["Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["White"]},
+            {type: "pung", tiles: ["Red"]}
+        ]
+    },
+    {
+        name: "Five Odd Honours",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "subset", length: 5, tiles: ["North", "East", "West", "South", "Red", "Green", "White"]}
+        ]
+    },
+    {
+        name: "Gates Of Heaven",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 2, to: 8},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["1"]},
+            {type: "pung", tiles: ["9"]}
+        ]
+    },
+    {
+        name: "Gertie's Garter",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 7},
+            {type: "run", from: 1, to: 7, suit: "2nd"}
+        ]
+    },
+    {
+        name: "Golden Gates",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pair", tiles: ["2"]},
+            {type: "pair", tiles: ["4"]},
+            {type: "pair", tiles: ["6"]},
+            {type: "pair", tiles: ["8"]},
+            {type: "pung", tiles: ["1", "9"]},
+            {type: "pung", tiles: ["Green"]},
+        ]
+    },
+    {
+        name: "Golden Gates",
+        suits: ["Crack"],
+        requirements:
+        [
+            {type: "pair", tiles: ["2"]},
+            {type: "pair", tiles: ["4"]},
+            {type: "pair", tiles: ["6"]},
+            {type: "pair", tiles: ["8"]},
+            {type: "pung", tiles: ["1", "9"]},
+            {type: "pung", tiles: ["Red"]},
+        ]
+    },
+    {
+        name: "Golden Gates",
+        suits: ["Spot"],
+        requirements:
+        [
+            {type: "pair", tiles: ["2"]},
+            {type: "pair", tiles: ["4"]},
+            {type: "pair", tiles: ["6"]},
+            {type: "pair", tiles: ["8"]},
+            {type: "pung", tiles: ["1", "9"]},
+            {type: "pung", tiles: ["White"]},
+        ]
+    },
+    {
+        name: "Grand Sequence",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "any-paired"},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["North", "East", "West", "South", "Red", "Green", "White"]}
+        ]
+    },
+    {
+        name: "G Jade",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Green"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Greta's Dragon",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 7},
+            {type: "subset", length: 4, tiles: ["North", "East", "South", "West"]},
+            {type: "pung", tiles: ["Red", "Green", "White"]}
+        ]
+    },
+    {
+        name: "Greta's Garden",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 7},
+            {type: "subset", length: 7, tiles: ["Red", "Green", "White", "North", "East", "South", "West"]}
+        ]
+    },
+    {
+        name: "Guardian Dragons",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]}
+        ]
+    },
+    {
+        name: "Guardian Winds",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "pung", tiles: ["North", "East", "West", "South"]},
+            {type: "pair", tiles: ["North", "East", "West", "South"]}
+        ]
+    },
+    {
+        name: "Hachi Ban",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 8},
+            {type: "pair", tiles: ["North", "East", "South", "West"]},
+            {type: "pair", tiles: ["North", "East", "South", "West"]},
+            {type: "pair", tiles: ["North", "East", "South", "West"]}
+        ]
+    },
+    {
+        name: "Hachi Ban",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 8},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]}
+        ]
+    },
+    {
+        name: "Heavenly Twins",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Hovering Angel",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3, suit: "2nd"},
+            {type: "run", length: 3, suit: "3rd"},
+            {type: "pung", tiles: ["OwnWind"]},
+            {type: "pair", tiles: ["Red"]}
+        ]
+    },
+    {
+        name: "Imperial Jade",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Green"]},
+            {type: "pung", tiles: ["2", "3", "4", "6", "8"]},
+            {type: "pung", tiles: ["2", "3", "4", "6", "8"]},
+            {type: "pung", tiles: ["2", "3", "4", "6", "8"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8"]}
+        ]
+    },
+    {
+        name: "Knitting",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "knitted-pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "knitted-pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "knitted-pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "knitted-pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "knitted-pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "knitted-pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "knitted-pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Lilly Pilly",
+        suits: ["Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Green"]},
+            {type: "pair", tiles: ["White"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Lily Of The Valley",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Green"]},
+            {type: "pung", tiles: ["White"]},
+            {type: "pung", tiles: ["2", "3", "4", "6", "8"]},
+            {type: "pung", tiles: ["2", "3", "4", "6", "8"]},
+            {type: "pair", tiles: ["2", "3", "4", "6", "8"]}
+        ]
+    },
+    {
+        name: "Little Robert",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3, suit: "2nd"},
+            {type: "run", length: 3, suit: "3rd"},
+            {type: "run", length: 3, suit: "Any"},
+            {type: "pair", tiles: ["OwnWind"]}
+        ]
+    },
+    {
+        name: "Little Robert",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3, suit: "2nd"},
+            {type: "run", length: 3, suit: "3rd"},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"], suit: "Any"},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"], suit: "Any"}
+        ]
+    },
+    {
+        name: "Moon At The Bottom Of The Well",
+        suits: ["Spot"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "run", length: 3},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "R Coral",
+        suits: ["Crack"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "R Lantern",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 7},
+            {type: "any-paired"},
+            {type: "pung", tiles: ["Red"]},
+            {type: "pung", tiles: ["OwnWind"]}
+        ]
+    },
+    {
+        name: "R Lily",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red"]},
+            {type: "pung", tiles: ["White"]},
+            {type: "pung", tiles: ["1", "5", "7", "9"]},
+            {type: "pung", tiles: ["1", "5", "7", "9"]},
+            {type: "pair", tiles: ["1", "5", "7", "9"]}
+        ]
+    },
+    {
+        name: "R Waratah",
+        suits: ["None"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red"]},
+            {type: "pung", tiles: ["1 Bamboo", "5 Bamboo", "7 Bamboo", "9 Bamboo"]},
+            {type: "pung", tiles: ["1 Spot", "2 Spot", "3 Spot", "4 Spot", "5 Spot", "6 Spot", "7 Spot", "8 Spot", "9 Spot"]},
+            {type: "pung", tiles: ["1 Crack", "2 Crack", "3 Crack", "4 Crack", "5 Crack", "6 Crack", "7 Crack", "8 Crack", "9 Crack"]},
+            {type: "pair", tiles: ["Green"]}
+        ]
+    },
+    {
+        name: "Royal Ruby",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red"]},
+            {type: "pung", tiles: ["1", "5", "7", "9"]},
+            {type: "pung", tiles: ["1", "5", "7", "9"]},
+            {type: "pung", tiles: ["1", "5", "7", "9"]},
+            {type: "pair", tiles: ["1", "5", "7", "9"]}
+        ]
+    },
+    {
+        name: "Ruby Jade",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red"]},
+            {type: "pung", tiles: ["Green"]},
+            {type: "pung", tiles: ["1", "5", "7", "9"]},
+            {type: "pung", tiles: ["2", "3", "4", "6", "8"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Run, Pung and a Pair",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Seven Twins",
+        suits: ["None"],
+        requirements:
+        [
+            {type: "pair", tiles: [ "Red", "Green", "White", "North" ]},
+            {type: "pair", tiles: [ "Red", "Green", "White", "North" ]},
+            {type: "pair", tiles: [ "Red", "Green", "White", "North" ]},
+            {type: "pair", tiles: [ "Red", "Green", "White", "North" ]},
+            {type: "pair", tiles: [ "Red", "Green", "White", "North" ]},
+            {type: "pair", tiles: [ "Red", "Green", "White", "North" ]},
+            {type: "pair", tiles: [ "Red", "Green", "White", "North" ]}
+        ]
+    },
+    {
+        name: "Sparrow's Sanctuary",
+        suits: ["Bamboo"],
+        requirements:
+        [
+            {type: "pair", tiles: ["1"]},
+            {type: "pair", tiles: ["1"]},
+            {type: "pair", tiles: ["2"]},
+            {type: "pair", tiles: ["3"]},
+            {type: "pair", tiles: ["4"]},
+            {type: "pair", tiles: ["6"]},
+            {type: "pair", tiles: ["8"]}
+        ]
+    },
+    {
         name: "The Professors",
         suits: ["Bamboo", "Spot", "Crack"],
         requirements:
@@ -421,15 +700,118 @@
         ]
     },
     {
-        name: "Apple Blossom",
+        name: "Three Philosophers",
         suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
+            {type: "run", length: 3},
+            {type: "run", length: 3, suit: "2nd"},
+            {type: "run", length: 3, suit: "3rd"},
             {type: "mixed-chow"},
-            {type: "mixed-chow"},
-            {type: "mixed-chow"},
-            {type: "pung", tiles: ["White"]},
-            {type: "pair", tiles: ["Green"]}
+            {type: "pair", tiles: [
+                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
+                "1 Spot", "2 Spot", "3 Spot", "4 Spot", "5 Spot", "6 Spot", "7 Spot", "8 Spot", "9 Spot",
+                "1 Crack", "2 Crack", "3 Crack", "4 Crack", "5 Crack", "6 Crack", "7 Crack", "8 Crack", "9 Crack"
+            ]}
         ]
-    }]
+    },
+    {
+        name: "Triple Knitting",
+        suits: ["None"],
+        requirements:
+        [
+            {type: "mixed-pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "mixed-pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "mixed-pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "mixed-pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "mixed-pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "White Opal",
+        suits: ["Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["White"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Windfall",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "one-each", tiles: ["North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9"]}
+        ]
+    },
+    {
+        name: "Windy Chows",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", length: 3},
+            {type: "run", length: 3, suit: "2nd"},
+            {type: "run", length: 3, suit: "3rd"},
+            {type: "subset", length: 4, tiles: ["North", "East", "West", "South"]},
+            {type: "subset", length: 1, tiles: ["North", "East", "West", "South"]}
+        ]
+    },
+    {
+        name: "Windy Dragons",
+        suits: ["none"],
+        requirements:
+        [
+            {type: "pair", tiles: ["North"]},
+            {type: "pair", tiles: ["West"]},
+            {type: "pair", tiles: ["South"]},
+            {type: "pair", tiles: ["East"]},
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pung", tiles: ["Red", "Green", "White"]}
+        ]
+    },
+    {
+        name: "Wriggly Dragon",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "subset", length: 3, tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]}
+        ]
+    },
+    {
+        name: "Wriggly Snake",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "run", from: 1, to: 9},
+            {type: "single", tile: "North"},
+            {type: "single", tile: "West"},
+            {type: "single", tile: "East"},
+            {type: "single", tile: "South"},
+            {type: "any-paired"}
+        ]
+    },
+    {
+        name: "Yin Yang",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "pair", tiles: ["1"]},
+            {type: "run", from: 2, to: 4},
+            {type: "pair", tiles: ["5"]},
+            {type: "pair", tiles: ["5"], suit: "2nd"},
+            {type: "run", from: 6, to: 8, suit: "2nd"},
+            {type: "pair", tiles: ["9"], suit: "2nd"}
+        ]
+    },
+    ]
 }
