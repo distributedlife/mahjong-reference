@@ -23,6 +23,14 @@ public class Hand implements Comparable<Hand> {
         }
     }
 
+    public Hand(String name, Long part1, Long part2, Long part3, Long part4) {
+        this.name = name;
+        this.part1 = part1;
+        this.part2 = part2;
+        this.part3 = part3;
+        this.part4 = part4;
+    }
+
     public String getName() {
         return name;
     }

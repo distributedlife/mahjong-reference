@@ -19,8 +19,7 @@ import org.json.JSONObject;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class GenerateHandsJson {
     public static void main(String [] args) {
@@ -45,27 +44,25 @@ public class GenerateHandsJson {
         JSONArray handsJson = new JSONArray();
         rootJson.put("hands", handsJson);
 
+        Map<String, JSONArray> handCombinations = new HashMap<String, JSONArray>();
         HandToJsonConverter handToJsonConverter = new HandToJsonConverter();
         for (Hand hand : builder.buildAll()) {
-            handsJson.put(handToJsonConverter.convert(hand));
+            if (!handCombinations.containsKey(hand.getName())) {
+                handCombinations.put(hand.getName(), new JSONArray());
+            }
+
+            JSONArray combinations = handCombinations.get(hand.getName());
+            combinations.put(handToJsonConverter.convert(hand));
         }
 
-//        ArrayToTreeAdapter arrayToTreeAdapter = new ArrayToTreeAdapter();
-//        Map<String, HandNode> allHandsTree = new HashMap<String, HandNode>();
-//        for (Hand hand : builder.buildAll()) {
-//            HandNode root = allHandsTree.get(hand.getName());
-//            if (root == null) {
-//                allHandsTree.put(hand.getName(), new HandNode(hand.getName()));
-//                root = allHandsTree.get(hand.getName());
-//            }
-//
-//            arrayToTreeAdapter.adapt(hand.getRequiredTiles(), root);
-//        }
-//
-//        TreeToJsonAdapter treeToJsonAdapter = new TreeToJsonAdapter();
-//        for (String handName : allHandsTree.keySet()) {
-//            handsJson.put(treeToJsonAdapter.toJson(allHandsTree.get(handName)));
-//        }
+        for (String name : handCombinations.keySet()) {
+            JSONArray combinations = handCombinations.get(name);
+
+            JSONObject handCombinationsAsJson = new JSONObject();
+            handCombinationsAsJson.put("name", name);
+            handCombinationsAsJson.put("combinations", combinations);
+            handsJson.put(handCombinationsAsJson);
+        }
 
         try {
             PrintWriter writer = new PrintWriter("all-hands.json", "UTF-8");

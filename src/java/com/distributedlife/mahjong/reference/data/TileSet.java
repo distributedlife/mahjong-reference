@@ -224,11 +224,11 @@ public class TileSet {
     );
 
     public enum Tile {
-
-        B1, B2, B3, B4, B5, B6, B7, B8, B9,
-        C1, C2, C3, C4, C5, C6, C7, C8, C9,
-        S1, S2, S3, S4, S5, S6, S7, S8, S9,
-        RD, GD, WD,
+        S3, S7, B3, B7, C3, C7,
+        S4, S6, S5, B4, B6, B5, C4, C6, C5,
+        S2, S8, B2, B8, C2, C8,
+        S1, B1, S9, B9, C1, C9,
+        WD, GD, RD,
         NW, EW, SW, WW, OW;
 
         public final long v;
