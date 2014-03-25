@@ -23,15 +23,15 @@ public class TreeToJsonAdapter {
     }
 
     private String reduce(String name) {
-        return name.replace("Bamboo", "B").replace("Crack", "C").replace("Spot", "Sp")
-                .replace("West", "We").replace("East", "E").replace("South", "St").replace("North", "N")
-                .replace("Red", "R").replace("Green", "G").replace("White", "Wh");
+        return name.replace("Bamboo", "一").replace("Crack", "二").replace("Spot", "三")
+                .replace("West", "西").replace("East", "東").replace("South", "南").replace("North", "北")
+                .replace("Red", "中").replace("Green", "G").replace("White", "门");
     }
 
     private String expand(String name) {
-        return name.replace("B", "Bamboo").replace("C", "Crack").replace("Sp", "Spot")
-                .replace("We", "West").replace("E", "East").replace("St", "South").replace("N", "North")
-                .replace("R", "Red").replace("G", "Green").replace("Wh", "White");
+        return name.replace("一", "Bamboo").replace("二", "Crack").replace("三", "Spot")
+                .replace("西", "West").replace("東", "East").replace("南", "South").replace("北", "North")
+                .replace("中", "Red").replace("G", "Green").replace("门", "White");
     }
 
     public HandNode fromJson(JSONObject json, HandNode root) {

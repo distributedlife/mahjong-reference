@@ -33,16 +33,18 @@ public class HandLibraryBuilder {
             candidates = filter.apply(candidates);
         }
 
-        List<Hand> hands = converter.convert(candidates);
+        List<Hand> handsAsList = runListThroughSetToEnsureUnique(new HashSet<Hand>(converter.convert(candidates)));
 
-        Set<Hand> handsAsSet = new HashSet<Hand>(hands);
+        Collections.sort(handsAsList);
+
+        return handsAsList;
+    }
+
+    private List<Hand> runListThroughSetToEnsureUnique(Set<Hand> handsAsSet) {
         List<Hand> handsAsList = new ArrayList<Hand>();
         for(Hand hand : handsAsSet) {
             handsAsList.add(hand);
         }
-
-        Collections.sort(handsAsList);
-
         return handsAsList;
     }
 

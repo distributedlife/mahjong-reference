@@ -11,13 +11,13 @@ import com.distributedlife.mahjong.reference.json.JsonToPermutatorOptionsConvert
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
 import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;
 import org.junit.Before;
-import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
+import static com.distributedlife.mahjong.reference.data.TileSet.Tile;
 import static org.hamcrest.CoreMatchers.is;
 import static org.junit.Assert.assertThat;
 
@@ -80,12 +80,10 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(42));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Crack",
-                "2 Crack", "3 Crack", "4 Crack", "5 Crack", "6 Crack", "7 Crack", "8 Crack",
-                "9 Spot", "9 Spot", "9 Spot"
-        )));
+        assertThat(hands.get(0).getPart1(), is(Tile.B9.v + Tile.C2.v + Tile.C3.v + Tile.C4.v + Tile.C5.v + Tile.C6.v + Tile.C7.v + Tile.C8.v + Tile.S1.v));
+        assertThat(hands.get(0).getPart2(), is(Tile.B9.v + Tile.C2.v + Tile.S1.v));
+        assertThat(hands.get(0).getPart3(), is(Tile.B9.v + Tile.S1.v));
+        assertThat(hands.get(0).getPart4(), is(0L));
     }
 
     @Test
@@ -99,11 +97,15 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(39));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo",
-                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "East", "North", "South", "West"
-        )));
+        assertThat(hands.get(0).getPart1(), is(
+                Tile.B1.v + Tile.B2.v + Tile.B3.v + Tile.B4.v + Tile.B5.v +
+                Tile.B6.v + Tile.B7.v + Tile.B8.v + Tile.B9.v +
+                Tile.NW.v + Tile.EW.v + Tile.SW.v + Tile.WW.v
+                )
+        );
+        assertThat(hands.get(0).getPart2(), is(Tile.B1.v));
+        assertThat(hands.get(0).getPart3(), is(0L));
+        assertThat(hands.get(0).getPart4(), is(0L));
     }
 
     @Test
@@ -117,12 +119,13 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(138));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo",
-                "East", "East",
-                "East", "East",
-                "North", "North"
-        )));
+        assertThat(hands.get(0).getPart1(), is(
+            Tile.B1.v + Tile.B2.v + Tile.B3.v + Tile.B4.v + Tile.B5.v + Tile.B6.v + Tile.B7.v + Tile.B8.v +
+            Tile.GD.v + Tile.RD.v)
+        );
+        assertThat(hands.get(0).getPart2(), is(Tile.RD.v + Tile.GD.v));
+        assertThat(hands.get(0).getPart3(), is(Tile.RD.v));
+        assertThat(hands.get(0).getPart4(), is(Tile.RD.v));
     }
 
     @Test
@@ -160,10 +163,13 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(63));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "East", "Green", "North", "Red", "South"
-        )));
+        assertThat(hands.get(0).getPart1(), is(
+            Tile.B1.v + Tile.B2.v + Tile.B3.v + Tile.B4.v + Tile.B5.v + Tile.B6.v + Tile.B7.v + Tile.B8.v + Tile.B9.v +
+            Tile.GD.v + Tile.RD.v + Tile.EW.v + Tile.NW.v + Tile.WD.v)
+        );
+        assertThat(hands.get(0).getPart2(), is(0L));
+        assertThat(hands.get(0).getPart3(), is(0L));
+        assertThat(hands.get(0).getPart4(), is(0L));
     }
 
     @Test
@@ -177,11 +183,13 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(9));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "Green", "Green", "Green",
-                "Red", "White"
-        )));
+        assertThat(hands.get(0).getPart1(), is(
+            Tile.B1.v + Tile.B2.v + Tile.B3.v + Tile.B4.v + Tile.B5.v + Tile.B6.v + Tile.B7.v + Tile.B8.v + Tile.B9.v +
+            Tile.GD.v + Tile.RD.v + Tile.WD.v)
+        );
+        assertThat(hands.get(0).getPart2(), is(Tile.RD.v));
+        assertThat(hands.get(0).getPart3(), is(Tile.RD.v));
+        assertThat(hands.get(0).getPart4(), is(0L));
     }
 
     @Test
@@ -195,13 +203,13 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(945));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo",
-                "1 Bamboo",
-                "1 Bamboo",
-                "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "East", "East", "East"
-        )));
+        assertThat(hands.get(0).getPart1(), is(
+            Tile.B1.v + Tile.B2.v + Tile.B3.v + Tile.B4.v + Tile.B5.v + Tile.B6.v + Tile.B7.v + Tile.B8.v + Tile.B9.v +
+            Tile.RD.v)
+        );
+        assertThat(hands.get(0).getPart2(), is(Tile.B1.v + Tile.RD.v));
+        assertThat(hands.get(0).getPart3(), is(Tile.B1.v + Tile.RD.v));
+        assertThat(hands.get(0).getPart4(), is(0L));
     }
 
     @Test
@@ -215,12 +223,13 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(42));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo",
-                "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo",
-                "Green", "Green", "Green"
-        )));
+        assertThat(hands.get(0).getPart1(), is(
+            Tile.C1.v + Tile.C2.v + Tile.C3.v + Tile.C4.v + Tile.C5.v + Tile.C6.v + Tile.C7.v + Tile.C8.v +
+            Tile.RD.v)
+        );
+        assertThat(hands.get(0).getPart2(), is(Tile.C1.v + Tile.C2.v + Tile.RD.v));
+        assertThat(hands.get(0).getPart3(), is(Tile.C1.v + Tile.RD.v));
+        assertThat(hands.get(0).getPart4(), is(0L));
     }
 
     @Test
@@ -234,11 +243,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(72));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo", "8 Bamboo", "9 Bamboo",
-                "East", "East", "East",
-                "Green", "Green"
-        )));
     }
 
     @Test
@@ -252,12 +256,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(28));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Crack",
-                "1 Crack", "2 Crack", "3 Crack", "4 Crack", "5 Crack", "6 Crack", "7 Crack",
-                "Red", "Red", "Red",
-                "White", "White", "White"
-        )));
     }
 
     @Test
@@ -294,37 +292,7 @@ public class HandLibraryBuilderTest {
                 converter);
 
         List<Hand> hands = builder.buildAll();
-        for(Hand hand : hands) {
-            System.err.println(hand.getRequiredTiles());
-        }
         assertThat(hands.size(), is(3));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Crack",
-                "2 Bamboo", "2 Crack",
-                "3 Bamboo", "3 Crack",
-                "4 Bamboo", "4 Crack",
-                "5 Bamboo", "5 Crack",
-                "6 Bamboo", "6 Crack",
-                "7 Bamboo", "7 Crack"
-        )));
-        assertThat(hands.get(1).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Spot",
-                "2 Bamboo", "2 Spot",
-                "3 Bamboo", "3 Spot",
-                "4 Bamboo", "4 Spot",
-                "5 Bamboo", "5 Spot",
-                "6 Bamboo", "6 Spot",
-                "7 Bamboo", "7 Spot"
-        )));
-        assertThat(hands.get(2).getRequiredTiles(), is(Arrays.asList(
-                "1 Crack", "1 Spot",
-                "2 Crack", "2 Spot",
-                "3 Crack", "3 Spot",
-                "4 Crack", "4 Spot",
-                "5 Crack", "5 Spot",
-                "6 Crack", "6 Spot",
-                "7 Crack", "7 Spot"
-        )));
     }
 
     @Test
@@ -338,22 +306,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(6));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "3 Bamboo", "4 Bamboo",
-                "5 Bamboo", "5 Bamboo",
-                "5 Crack", "5 Crack",
-                "6 Crack", "7 Crack", "8 Crack",
-                "9 Crack", "9 Crack"
-        )));
-        assertThat(hands.get(1).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "3 Bamboo", "4 Bamboo",
-                "5 Bamboo", "5 Bamboo",
-                "5 Spot", "5 Spot",
-                "6 Spot", "7 Spot", "8 Spot",
-                "9 Spot", "9 Spot"
-        )));
     }
 
     @Test
@@ -367,12 +319,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(21));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo",
-                "1 Bamboo", "2 Bamboo", "3 Bamboo", "4 Bamboo", "5 Bamboo", "6 Bamboo", "7 Bamboo",
-                "OwnWind", "OwnWind", "OwnWind",
-                "Red", "Red", "Red"
-        )));
     }
 
     @Test
@@ -386,13 +332,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(1008));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo", "4 Bamboo",
-                "East", "East"
-        )));
     }
 
     @Test
@@ -406,12 +345,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(1383));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Spot", "1 Spot", "1 Spot", "1 Spot",
-                "2 Spot", "2 Spot", "2 Spot", "2 Spot",
-                "3 Spot", "3 Spot", "3 Spot", "3 Spot",
-                "4 Spot", "4 Spot"
-        )));
     }
 
     @Test
@@ -425,12 +358,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(4149));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo", "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo"
-        )));
     }
 
     @Test
@@ -444,11 +371,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(339570));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Crack", "1 Spot",
-                "2 Bamboo", "2 Crack", "2 Crack", "2 Spot",
-                "3 Bamboo", "3 Crack", "3 Spot", "3 Spot"
-        )));
     }
 
     @Test
@@ -462,12 +384,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(3470340));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "1 Crack", "1 Crack",
-                "2 Bamboo", "2 Crack", "2 Crack", "2 Crack",
-                "3 Spot", "3 Spot", "3 Spot", "3 Spot"
-        )));
     }
 
     @Test
@@ -481,11 +397,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(239904));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Crack", "1 Crack", "1 Crack", "1 Spot",
-                "2 Bamboo", "2 Crack", "2 Spot",
-                "3 Bamboo", "3 Crack", "3 Spot"
-        )));
     }
 
     @Test
@@ -499,12 +410,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(4116));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Crack", "1 Spot",
-                "2 Bamboo", "2 Bamboo", "2 Crack", "2 Spot",
-                "3 Bamboo", "3 Bamboo", "3 Crack", "3 Spot",
-                "OwnWind", "OwnWind"
-        )));
     }
 
     @Test
@@ -518,13 +423,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(343));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Crack", "1 Spot",
-                "2 Bamboo", "2 Crack", "2 Spot",
-                "3 Bamboo", "3 Crack", "3 Spot",
-                "OwnWind", "OwnWind", "OwnWind",
-                "Red", "Red"
-        )));
     }
 
     @Test
@@ -538,13 +436,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(1372));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Crack", "1 Spot",
-                "2 Bamboo", "2 Crack", "2 Spot",
-                "3 Bamboo", "3 Crack", "3 Spot",
-                "East",
-                "East", "North", "South", "West"
-        )));
     }
 
     @Test
@@ -558,13 +449,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(4));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Crack", "1 Spot",
-                "2 Bamboo", "2 Crack", "2 Spot",
-                "3 Bamboo", "3 Crack", "3 Spot",
-                "East",
-                "East", "North", "South", "West"
-        )));
     }
 
     @Test
@@ -578,13 +462,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(4));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "7 Bamboo", "7 Crack", "7 Spot",
-                "8 Bamboo", "8 Crack", "8 Spot",
-                "9 Bamboo", "9 Crack", "9 Spot",
-                "East",
-                "East", "North", "South", "West"
-        )));
     }
 
     @Test
@@ -598,14 +475,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(12430));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Crack", "2 Crack", "2 Crack",
-                "3 Spot", "3 Spot", "3 Spot",
-                "Green",
-                "OwnWind", "OwnWind",
-                "Red", "White"
-        )));
     }
 
     @Test
@@ -619,13 +488,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(12430));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Crack", "2 Crack", "2 Crack",
-                "3 Spot", "3 Spot", "3 Spot",
-                "Green","Green",
-                "White", "White", "White"
-        )));
     }
 
     @Test
@@ -639,12 +501,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(994950));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "1 Crack", "1 Crack", "1 Crack", "1 Crack",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "2 Crack", "2 Crack", "2 Crack"
-        )));
     }
 
     @Test
@@ -658,12 +514,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(13338));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "1 Crack", "1 Crack", "1 Crack", "1 Crack",
-                "1 Spot", "1 Spot", "1 Spot", "1 Spot",
-                "2 Bamboo","2 Crack"
-        )));
     }
 
     @Test
@@ -677,14 +527,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(1));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo",
-                "6 Bamboo", "6 Bamboo",
-                "8 Bamboo", "8 Bamboo"
-        )));
     }
 
     @Test
@@ -698,12 +540,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(6912));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo", "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo"
-        )));
     }
 
     @Test
@@ -717,12 +553,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(330558));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo", "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo"
-        )));
     }
 
     @Test
@@ -736,12 +566,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(27742));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "1 Crack", "1 Crack", "1 Crack", "1 Crack",
-                "1 Spot", "1 Spot", "1 Spot", "1 Spot",
-                "9 Bamboo", "9 Bamboo"
-        )));
     }
 
     @Test
@@ -755,12 +579,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(4));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "Green", "Green", "Green", "Green",
-                "North", "North", "North", "North",
-                "Red", "Red", "Red", "Red",
-                "White", "White"
-        )));
     }
 
     @Test
@@ -774,12 +592,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(96));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo", "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo", "4 Bamboo", "4 Bamboo",
-                "Green", "Green"
-        )));
     }
 
     @Test
@@ -793,12 +605,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(882));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo",
-                "Green", "Green", "Red", "Red"
-        )));
     }
 
     @Test
@@ -812,12 +618,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(7938));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo",
-                "Green", "Green", "Red", "White"
-        )));
     }
 
     @Test
@@ -831,12 +631,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(2646));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo",
-                "East", "North", "South", "West"
-        )));
     }
 
     @Test
@@ -850,11 +644,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(693));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "2 Bamboo", "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo",
-                "East", "Green", "Green", "North", "Red", "South", "West", "White"
-        )));
     }
 
     @Test
@@ -868,14 +657,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(6));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo",
-                "4 Bamboo", "4 Bamboo",
-                "6 Bamboo", "6 Bamboo",
-                "8 Bamboo", "8 Bamboo",
-                "Green", "Green", "Green"
-        )));
     }
 
     @Test
@@ -889,14 +670,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(3));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "East", "East",
-                "Green", "Green", "Green",
-                "North", "North",
-                "Red", "Red", "Red",
-                "South", "South",
-                "West", "West"
-        )));
     }
 
     @Test
@@ -910,13 +683,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(324));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "1 Crack", "1 Crack", "1 Crack",
-                "1 Spot", "1 Spot", "1 Spot",
-                "Green", "Green",
-                "Red", "Red", "Red"
-        )));
     }
 
     @Test
@@ -930,13 +696,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(504));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo",
-                "Green", "Green", "Green"
-        )));
     }
 
     @Test
@@ -950,13 +709,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(504));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Crack", "1 Crack", "1 Crack",
-                "2 Crack", "2 Crack", "2 Crack",
-                "3 Crack", "3 Crack", "3 Crack",
-                "4 Crack", "4 Crack",
-                "Red", "Red", "Red"
-        )));
     }
 
     @Test
@@ -970,13 +722,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(504));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Spot", "1 Spot", "1 Spot",
-                "2 Spot", "2 Spot", "2 Spot",
-                "3 Spot", "3 Spot", "3 Spot",
-                "4 Spot", "4 Spot",
-                "White", "White", "White"
-        )));
     }
 
     @Test
@@ -990,13 +735,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(20));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo", "4 Bamboo",
-                "6 Bamboo", "6 Bamboo",
-                "Green", "Green", "Green"
-        )));
     }
 
     @Test
@@ -1010,13 +748,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(30));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo", "3 Bamboo",
-                "4 Bamboo", "4 Bamboo",
-                "Green", "Green", "Green",
-                "White", "White", "White"
-        )));
     }
 
     @Test
@@ -1030,13 +761,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(84));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Spot", "1 Spot", "1 Spot",
-                "2 Spot", "2 Spot", "2 Spot",
-                "3 Spot", "3 Spot", "3 Spot",
-                "Green", "Green", "Green",
-                "White", "White"
-        )));
     }
 
     @Test
@@ -1050,13 +774,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(4));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "5 Bamboo", "5 Bamboo", "5 Bamboo",
-                "7 Bamboo", "7 Bamboo", "7 Bamboo",
-                "9 Bamboo", "9 Bamboo",
-                "Red", "Red", "Red"
-        )));
     }
 
     @Test
@@ -1070,13 +787,6 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(140));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "2 Bamboo", "2 Bamboo", "2 Bamboo",
-                "3 Bamboo", "3 Bamboo",
-                "Green", "Green", "Green",
-                "Red", "Red", "Red"
-        )));
     }
 
     @Test
@@ -1090,12 +800,5 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(12));
-        assertThat(hands.get(0).getRequiredTiles(), is(Arrays.asList(
-                "1 Bamboo", "1 Bamboo", "1 Bamboo",
-                "5 Bamboo", "5 Bamboo", "5 Bamboo",
-                "7 Bamboo", "7 Bamboo",
-                "Red", "Red", "Red",
-                "White", "White", "White"
-        )));
     }
 }
