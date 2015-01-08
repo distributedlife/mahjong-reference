@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "All Honour Hand",
+        suits: ["None"],
+        requirements:
+        [
+            {type: "pung", tiles: ["1", "9", "Red", "Green", "White", "North", "East", "South", "West"], suit: "Any"},
+            {type: "pung", tiles: ["1", "9", "Red", "Green", "White", "North", "East", "South", "West"], suit: "Any"},
+            {type: "pung", tiles: ["1", "9", "Red", "Green", "White", "North", "East", "South", "West"], suit: "Any"},
+            {type: "pung", tiles: ["1", "9", "Red", "Green", "White", "North", "East", "South", "West"], suit: "Any"},
+            {type: "pair", tiles: ["1", "9", "Red", "Green", "White", "North", "East", "South", "West"], suit: "Any"}
+        ]
+    }]
+}

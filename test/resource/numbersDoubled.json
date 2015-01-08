@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Numbers Doubled",
+        suits: ["None"],
+        requirements:
+        [
+            {type: "pair", tiles: ["Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pung", tiles: ["2"], suit: "1st"},
+            {type: "pung", tiles: ["2"], suit: "2nd"},
+            {type: "pung", tiles: ["3"], suit: "1st"},
+            {type: "pung", tiles: ["3"], suit: "2nd"}
+        ]
+    }]
+}

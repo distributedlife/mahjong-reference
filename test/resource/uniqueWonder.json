@@ -1,0 +1,16 @@
+{
+    hands: [
+    {
+        name: "Unique Wonder",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "subset", length: "13", tiles: [
+                "1 Bamboo", "9 Bamboo", "1 Spot", "9 Spot", "1 Crack", "9 Crack",
+                "Red", "Green", "White",
+                "North", "West", "South", "East"
+            ]},
+            {type: "any-paired"}
+        ]
+    }]
+}

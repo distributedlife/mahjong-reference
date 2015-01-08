@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "All Winds and Dragons",
+        suits: ["None"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pung", tiles: ["Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pung", tiles: ["Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pung", tiles: ["Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["Red", "Green", "White", "North", "East", "South", "West"]}
+        ]
+    }]
+}

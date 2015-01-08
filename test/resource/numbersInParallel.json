@@ -1,0 +1,87 @@
+{
+    hands: [
+    {
+        name: "Numbers In Parallel",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pung", tiles: ["2"], suit: "1st"},
+            {type: "pung", tiles: ["2"], suit: "2nd"},
+            {type: "pung", tiles: ["2"], suit: "3rd"}
+        ]
+    },
+    {
+        name: "Numbers In Parallel",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pung", tiles: ["3"], suit: "1st"},
+            {type: "pung", tiles: ["3"], suit: "2nd"},
+            {type: "pung", tiles: ["3"], suit: "3rd"}
+        ]
+    },
+    {
+        name: "Numbers In Parallel",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pung", tiles: ["4"], suit: "1st"},
+            {type: "pung", tiles: ["4"], suit: "2nd"},
+            {type: "pung", tiles: ["4"], suit: "3rd"}
+        ]
+    },
+    {
+        name: "Numbers In Parallel",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pung", tiles: ["5"], suit: "1st"},
+            {type: "pung", tiles: ["5"], suit: "2nd"},
+            {type: "pung", tiles: ["5"], suit: "3rd"}
+        ]
+    },
+    {
+        name: "Numbers In Parallel",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pung", tiles: ["6"], suit: "1st"},
+            {type: "pung", tiles: ["6"], suit: "2nd"},
+            {type: "pung", tiles: ["6"], suit: "3rd"}
+        ]
+    },
+    {
+        name: "Numbers In Parallel",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pung", tiles: ["7"], suit: "1st"},
+            {type: "pung", tiles: ["7"], suit: "2nd"},
+            {type: "pung", tiles: ["7"], suit: "3rd"}
+        ]
+    },
+    {
+        name: "Numbers In Parallel",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["Red", "Green", "White"]},
+            {type: "pair", tiles: ["Red", "Green", "White"]},
+            {type: "pung", tiles: ["8"], suit: "1st"},
+            {type: "pung", tiles: ["8"], suit: "2nd"},
+            {type: "pung", tiles: ["8"], suit: "3rd"}
+        ]
+    }]
+}

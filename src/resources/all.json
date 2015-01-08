@@ -394,7 +394,7 @@
         ]
     },
     {
-        name: "G Jade",
+        name: "Green Jade",
         suits: ["Bamboo"],
         requirements:
         [
@@ -579,7 +579,7 @@
         ]
     },
     {
-        name: "R Coral",
+        name: "Red Coral",
         suits: ["Crack"],
         requirements:
         [
@@ -591,7 +591,7 @@
         ]
     },
     {
-        name: "R Lantern",
+        name: "Red Lantern",
         suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [
@@ -602,7 +602,7 @@
         ]
     },
     {
-        name: "R Lily",
+        name: "Red Lily",
         suits: ["Bamboo"],
         requirements:
         [
@@ -614,7 +614,7 @@
         ]
     },
     {
-        name: "R Waratah",
+        name: "Red Waratah",
         suits: ["None"],
         requirements:
         [
@@ -650,7 +650,7 @@
         ]
     },
     {
-        name: "Run, Pung and a Pair",
+        name: "Run Pung and a Pair",
         suits: ["Bamboo", "Spot", "Crack"],
         requirements:
         [

@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Windy Ones",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "subset", length: 4, tiles: ["North", "East", "West", "South"]},
+            {type: "subset", length: 1, tiles: ["North", "East", "West", "South"]},
+            {type: "pung", tiles: ["1"], suit: "1st"},
+            {type: "pung", tiles: ["1"], suit: "2nd"},
+            {type: "pung", tiles: ["1"], suit: "3rd"}
+        ]
+    }]
+}

@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Chinese Odds",
+        suits: ["Bamboo", "Crack", "Spot"],
+        requirements:
+        [
+            {type: "pung", tiles: ["1", "3", "5", "7", "9"]},
+            {type: "pung", tiles: ["1", "3", "5", "7", "9"]},
+            {type: "pung", tiles: ["1", "3", "5", "7", "9"]},
+            {type: "pung", tiles: ["1", "3", "5", "7", "9"]},
+            {type: "pair", tiles: ["1", "3", "5", "7", "9"]}
+        ]
+    }]
+}

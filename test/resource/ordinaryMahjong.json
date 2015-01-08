@@ -1,0 +1,27 @@
+{
+    hands: [
+    {
+        name: "Ordinary Mah Jong",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]}
+        ]
+    },
+    {
+        name: "Ordinary Mah Jong",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "pung", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]},
+            {type: "run", length: 3},
+            {type: "pair", tiles: ["1", "2", "3", "4", "5", "6", "7", "8", "9", "Red", "Green", "White", "North", "East", "South", "West"]}
+        ]
+    }]
+}

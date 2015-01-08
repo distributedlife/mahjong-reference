@@ -1,0 +1,15 @@
+{
+    hands: [
+    {
+        name: "Head and Tails",
+        suits: ["Bamboo", "Spot", "Crack"],
+        requirements:
+        [
+            {type: "pung", tiles: ["1", "9"], suit: "Any"},
+            {type: "pung", tiles: ["1", "9"], suit: "Any"},
+            {type: "pung", tiles: ["1", "9"], suit: "Any"},
+            {type: "pung", tiles: ["1", "9"], suit: "Any"},
+            {type: "pair", tiles: ["1", "9"], suit: "Any"}
+        ]
+    }]
+}

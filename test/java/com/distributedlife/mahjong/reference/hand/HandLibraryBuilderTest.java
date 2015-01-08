@@ -11,6 +11,7 @@ import com.distributedlife.mahjong.reference.json.JsonToPermutatorOptionsConvert
 import com.distributedlife.mahjong.reference.permute.PermutatorBuilder;
 import com.distributedlife.mahjong.reference.permute.PermutatorExecutor;
 import org.junit.Before;
+import org.junit.Ignore;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -34,6 +35,7 @@ public class HandLibraryBuilderTest {
     }
 
     @Test
+    @Ignore
     public void buildAllHands() throws IOException {
         HandLibraryBuilder builder = new HandLibraryBuilder(
                 tileSet,
@@ -800,5 +802,179 @@ public class HandLibraryBuilderTest {
 
         List<Hand> hands = builder.buildAll();
         assertThat(hands.size(), is(12));
+    }
+
+    @Test
+    public void ordinaryMahJong() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/ordinaryMahjong.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(216552));
+    }
+
+    @Test
+    public void sunrise() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/sunrise.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(343));
+    }
+
+    @Test
+    public void sunset() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/sunrise.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(343));
+    }
+
+    @Test
+    public void numbersInParallel() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/numbersInParallel.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(42));
+    }
+
+    @Test
+    @Ignore
+    public void numbersDoubled() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/numbersDoubled.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(42));
+    }
+
+    @Test
+    @Ignore
+    public void uniqueWonder() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/uniqueWonder.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(13));
+    }
+
+    @Test
+    @Ignore
+    public void allHonourHand() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/allHonourHand.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        //Does honour mean 1 to 9 in the pair?
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(13));
+    }
+
+    @Test
+    public void windyOnes() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/windyOnes.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(4));
+    }
+
+    @Test
+    public void windyNines() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/windyNines.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(4));
+    }
+
+    @Test
+    @Ignore
+    public void headAndTails() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/headAndTails.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(4));
+    }
+
+    @Test
+    public void allWindsAndDragons() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/allWindsAndDragons.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(105));
+    }
+
+    @Test
+    public void purityHand() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/purityHand.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(12096));
+    }
+
+    @Test
+    public void chineseOdds() throws IOException {
+        HandLibraryBuilder builder = new HandLibraryBuilder(
+                tileSet,
+                new JsonToHandDefinition(new PermutatorBuilder(), jsonToPermutatorConverter).getHandDefinitions(Json.loadFromResource("/chineseOdds.json")),
+                filters,
+                permutatorExecutor,
+                converter);
+
+        List<Hand> hands = builder.buildAll();
+        assertThat(hands.size(), is(15));
     }
 }
