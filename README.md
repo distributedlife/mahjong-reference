@@ -31,11 +31,14 @@ This library provides tools to:
 ```
 src/
 ├── java/com/distributedlife/mahjong/reference/
-│   ├── hand/              # Hand definitions and library builder
-│   ├── permute/           # Permutation algorithms for different tile patterns
 │   ├── adapter/           # Converters between hand representations
+│   ├── console/           # Console application components
 │   ├── data/              # Tile set definitions
-│   └── filter/            # Hand candidate filters
+│   ├── filter/            # Hand candidate filters
+│   ├── hand/              # Hand definitions and library builder
+│   ├── json/              # JSON parsing and serialization
+│   ├── node/              # Node-related structures
+│   └── permute/           # Permutation algorithms for different tile patterns
 └── resources/
     ├── all.json           # Master configuration file with all hand definitions
     └── hands/             # Individual JSON files for each hand pattern
