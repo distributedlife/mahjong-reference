@@ -49,14 +49,14 @@ test/
 
 Hands are defined in JSON format with the following structure:
 
-```json
+```javascript
 {
-    "name": "Hand Name",
-    "suits": ["Bamboo", "Spot", "Crack"],
-    "requirements": [
-        {"type": "run", "from": 1, "to": 9},
-        {"type": "pung", "tiles": ["Red", "Green", "White"]},
-        {"type": "pair", "tiles": ["North", "East", "West", "South"]}
+    name: "Hand Name",
+    suits: ["Bamboo", "Spot", "Crack"],
+    requirements: [
+        {type: "run", from: 1, to: 9},
+        {type: "pung", tiles: ["Red", "Green", "White"]},
+        {type: "pair", tiles: ["North", "East", "West", "South"]}
     ]
 }
 ```
@@ -87,7 +87,7 @@ The library supports the standard Mahjong tile set:
 - **HandDefinition**: Defines the pattern/requirements for a specific hand type
 - **HandLibraryBuilder**: Generates all valid tile combinations for defined hands
 - **HandCandidate**: Intermediate representation during hand generation
-- **Permutator**: Interface for different tile permutation strategies
+- **Permutator**: Abstract class for different tile permutation strategies
 
 ## Use Cases
 
