@@ -6,7 +6,7 @@
   "main": "lib/index.js",
   "scripts": {
     "generate": "node lib/console/generate-hands.js",
-    "test": "node --test test/tile-set.test.js test/hand.test.js test/hand-candidate.test.js"
+    "test": "node --test test/*.test.js test/permute/*.test.js"
   },
   "keywords": [
     "mahjong",
