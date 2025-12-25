@@ -2,3 +2,6 @@
 .iml
 out
 *.iml
+node_modules
+data.csv
+*.log
