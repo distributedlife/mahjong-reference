@@ -1,0 +1,22 @@
+{
+  "name": "mahjong-reference",
+  "version": "1.0.0",
+  "description": "A modern JavaScript library for generating and validating Mahjong hands",
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": {
+    "generate": "node lib/console/generate-hands.js",
+    "test": "node --test test/tile-set.test.js test/hand.test.js test/hand-candidate.test.js"
+  },
+  "keywords": [
+    "mahjong",
+    "tiles",
+    "game",
+    "reference"
+  ],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
